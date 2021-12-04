@@ -1,12 +1,11 @@
 # Biotools hQC
+![built by currocam](https://img.shields.io/badge/built%20by-developers%20%3C%2F%3E-orange.svg?longCache=true&style=for-the-badge) ![made with lazarus](https://img.shields.io/badge/made%20with-mkdocs-green.svg?longCache=true&style=for-the-badge) ![uses git & mkdocs](https://img.shields.io/badge/uses-git-blue.svg?longCache=true&style=for-the-badge)
 
 <div align="center">
-    <img width="200" src="/docs/images/marca_corporativa.svg" alt="Universidad de Granada">
+    <img width="200" src="/docs/images/logoasl.png" alt="Universidad de Granada">
 </div>
 
 <div align="center">
-
-![built by currocam](https://img.shields.io/badge/built%20by-developers%20%3C%2F%3E-orange.svg?longCache=true&style=for-the-badge) ![made with lazarus](https://img.shields.io/badge/made%20with-mkdocs-green.svg?longCache=true&style=for-the-badge) ![uses git & mkdocs](https://img.shields.io/badge/uses-git-blue.svg?longCache=true&style=for-the-badge)
 
 </div>
 
