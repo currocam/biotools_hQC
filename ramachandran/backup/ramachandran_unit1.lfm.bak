@@ -1,0 +1,164 @@
+object Form1: TForm1
+  Left = 37
+  Height = 704
+  Top = 27
+  Width = 1329
+  ActiveControl = Button4
+  Caption = 'Form1'
+  ClientHeight = 677
+  ClientWidth = 1329
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '2.0.6.0'
+  object Memo1: TMemo
+    Left = 32
+    Height = 440
+    Top = 64
+    Width = 432
+    Lines.Strings = (
+      'Memo1'
+    )
+    ParentFont = False
+    ScrollBars = ssBoth
+    TabOrder = 0
+    Visible = False
+  end
+  object Edit1: TEdit
+    Left = 32
+    Height = 24
+    Top = 32
+    Width = 432
+    ParentFont = False
+    TabOrder = 1
+    Text = 'Edit1'
+    Visible = False
+  end
+  object Button2: TButton
+    Left = 32
+    Height = 25
+    Top = 520
+    Width = 432
+    Caption = 'Ocultar archivo'
+    OnClick = Button2Click
+    ParentFont = False
+    TabOrder = 3
+    Visible = False
+  end
+  object Memo2: TMemo
+    Left = 480
+    Height = 513
+    Top = 64
+    Width = 256
+    Lines.Strings = (
+      'Memo2'
+    )
+    ParentFont = False
+    ScrollBars = ssBoth
+    TabOrder = 4
+    Visible = False
+    WordWrap = False
+  end
+  object Button3: TButton
+    Left = 480
+    Height = 25
+    Top = 32
+    Width = 232
+    Caption = 'Calcular ángulos phi y psi'
+    OnClick = Button3Click
+    ParentFont = False
+    TabOrder = 5
+    Visible = False
+  end
+  object Button1: TButton
+    Left = 32
+    Height = 25
+    Top = 32
+    Width = 432
+    Caption = 'Mostrar archivo'
+    OnClick = Button1Click
+    ParentFont = False
+    TabOrder = 2
+  end
+  object Button4: TButton
+    Left = 32
+    Height = 25
+    Top = 0
+    Width = 432
+    Caption = 'Cargar archivo'
+    OnClick = MenuItem5Click
+    ParentFont = False
+    TabOrder = 6
+  end
+  object Image1: TImage
+    Left = 744
+    Height = 513
+    Top = 64
+    Width = 544
+  end
+  object ColorBox1: TColorBox
+    Left = 40
+    Height = 29
+    Top = 600
+    Width = 100
+    Selected = clYellow
+    ItemHeight = 0
+    TabOrder = 7
+  end
+  object ColorBox2: TColorBox
+    Left = 208
+    Height = 29
+    Top = 600
+    Width = 100
+    Selected = clGradientActiveCaption
+    ItemHeight = 0
+    TabOrder = 8
+  end
+  object ColorListBox1: TColorListBox
+    Left = 197
+    Height = 24
+    Top = 605
+    Width = 25
+    ItemHeight = 0
+    TabOrder = 9
+  end
+  object ColorBox3: TColorBox
+    Left = 360
+    Height = 29
+    Top = 600
+    Width = 100
+    ItemHeight = 0
+    TabOrder = 10
+  end
+  object MainMenu1: TMainMenu
+    left = 320
+    top = 128
+    object MenuItem1: TMenuItem
+      Caption = 'Proteína'
+      object MenuItem5: TMenuItem
+        Caption = 'Cargar archivo'
+        OnClick = MenuItem5Click
+      end
+      object MenuItem6: TMenuItem
+        Caption = 'Cerrar archivo'
+        OnClick = MenuItem6Click
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Analizar'
+      object MenuItem7: TMenuItem
+        Caption = 'Calcular ángulos'
+        OnClick = Button3Click
+      end
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Ayuda'
+      object MenuItem4: TMenuItem
+        Caption = 'Acerca de '
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    left = 288
+    top = 88
+  end
+end

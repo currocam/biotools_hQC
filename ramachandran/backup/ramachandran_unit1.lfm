@@ -1,0 +1,56 @@
+object Form1: TForm1
+  Left = 9
+  Height = 728
+  Top = 9
+  Width = 1346
+  Caption = 'Form1'
+  ClientHeight = 708
+  ClientWidth = 1346
+  Menu = MainMenu1
+  LCLVersion = '2.0.12.0'
+  object Memo1: TMemo
+    Left = 32
+    Height = 549
+    Top = 32
+    Width = 432
+    Lines.Strings = (
+      'Memo1'
+    )
+    TabOrder = 0
+  end
+  object Edit1: TEdit
+    Left = 192
+    Height = 23
+    Top = 8
+    Width = 80
+    TabOrder = 1
+    Text = 'Edit1'
+  end
+  object MainMenu1: TMainMenu
+    Left = 320
+    Top = 128
+    object MenuItem1: TMenuItem
+      Caption = 'Proteína'
+      object MenuItem5: TMenuItem
+        Caption = 'Cargar archivo'
+        OnClick = MenuItem5Click
+      end
+      object MenuItem6: TMenuItem
+        Caption = 'MenuItem6'
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Analizar'
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Ayuda'
+      object MenuItem4: TMenuItem
+        Caption = 'Acerca de '
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 111
+    Top = 113
+  end
+end
