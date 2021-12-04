@@ -8,5 +8,3 @@ Esta web se ha realizado empleando la plantilla creado por [el Aula de Software 
 ## Licencia
 
 El material está publicado con licencia [Atribución-NoComercial 4.0 Internacional (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.es)
-
-[@gunnIncreasedGlutaminylCyclase2021]
