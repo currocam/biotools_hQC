@@ -8,20 +8,20 @@ Para realizar esta revisión bibliografíca se hizo uso de la base de datos Scop
 
 ### Introducción
 
-La enzima hQC interviene en la formación de piroglutamato N-terminal (pGlu) a partir de su precursor glutaminilo, el cual es una modificación postraduccional de importancia en la maduración de  numerosos neuropéptidos bioactivos, hormonas y citoquinas durante su maduración en la vía secretora. Esta modifcación es necesaria en el proceso de maduración de muchos péptidos bioactivos y es objeto de estudio en relación a patologías como la osteoporosis y el Alzheimer. [3]
+La enzima hQC interviene en la formación de piroglutamato N-terminal (pGlu) a partir de su precursor glutaminilo, el cual es una modificación postraduccional de importancia en la maduración de  numerosos neuropéptidos bioactivos, hormonas y citoquinas durante su maduración en la vía secretora. Esta modifcación es necesaria en el proceso de maduración de muchos péptidos bioactivos y es objeto de estudio en relación a patologías como la osteoporosis y el Alzheimer. [^3]
 
-Se conocen dos isoformas de la enzima QC en *Homo sapiens*, la llamada QC secretora, sQC, codificada por el gen QPCT localizado en el cromosoma 2p22.2, y la llamada QC golgi residente, gQC, codificada por el gen QPCTL, en el cromosoma 19q13.32. [4]
+Se conocen dos isoformas de la enzima QC en *Homo sapiens*, la llamada QC secretora, sQC, codificada por el gen QPCT localizado en el cromosoma 2p22.2, y la llamada QC golgi residente, gQC, codificada por el gen QPCTL, en el cromosoma 19q13.32. [^4]
 
 
 ### Aspectos estructurales de importancia
  
-Ambas enzimas, sQC y gQC, tienen una estructura muy similar, por lo que las consideraciones generales que podamos hacer sobre su estructuras serán aplicables a ambas isoformas. Poseen una estruictura globular con un pliegue mixto α/β. La actividad glutaminil y glutamil ciclasa reside en el dominio maduro (residuos 33-361) de la proteína. [4]
+Ambas enzimas, sQC y gQC, tienen una estructura muy similar, por lo que las consideraciones generales que podamos hacer sobre su estructuras serán aplicables a ambas isoformas. Poseen una estruictura globular con un pliegue mixto α/β. La actividad glutaminil y glutamil ciclasa reside en el dominio maduro (residuos 33-361) de la proteína. [^4]
 
-La estructura posee una topología de sandwich abierto con una lámina β central de seis hebras rodeada por dos (α7 y α9) y seis α-hélices  (α2, α3, α4, α5, α6, y α10) en lados opuestos. Esta lámina β central  esta formada por dos hébras antiparalelas (β1 y β2) y 4 paralelas (β3, β4, β5 y β6) y constituye el corazón hidrofóbico de la molécula. [3]
+La estructura posee una topología de sandwich abierto con una lámina β central de seis hebras rodeada por dos (α7 y α9) y seis α-hélices  (α2, α3, α4, α5, α6, y α10) en lados opuestos. Esta lámina β central  esta formada por dos hébras antiparalelas (β1 y β2) y 4 paralelas (β3, β4, β5 y β6) y constituye el corazón hidrofóbico de la molécula. [^3]
 
 #### Estructura del sitio activo
 
-El sitio activo está formado por 6 bucles entre 3 y α4, β3 y α5, β4 y α7, β5 y α8, α8 y α9, y β6 y α10. Consta de un ión de zinc situado en el bolsillo del sitio activo y que está coordinado tetraédricamente D159 Oδ2, E202 Oε1, H330 Nε2 y una molécula de agua. También resultan de interés una serie de residuos altamente conservados en el entorno del zinc a los que se les atribuye cierto papel en la catálisis. Estos residuos son E201, W207, D248, D305, F325 y W329 y se ha comrpobado que mutaciones en estos aminoácidos reducen significativamente la actividad enzimática. [3]
+El sitio activo está formado por 6 bucles entre 3 y α4, β3 y α5, β4 y α7, β5 y α8, α8 y α9, y β6 y α10. Consta de un ión de zinc situado en el bolsillo del sitio activo y que está coordinado tetraédricamente D159 Oδ2, E202 Oε1, H330 Nε2 y una molécula de agua. También resultan de interés una serie de residuos altamente conservados en el entorno del zinc a los que se les atribuye cierto papel en la catálisis. Estos residuos son E201, W207, D248, D305, F325 y W329 y se ha comrpobado que mutaciones en estos aminoácidos reducen significativamente la actividad enzimática. [^3]
 
 #### Estructuras experimentales disponibles
 
@@ -65,7 +65,7 @@ Tabla 1. Resultados búsqueda en PDB. Elaboración propia.
 
 ### Mecanismo de acción de hQC
 
-Las QCs median la ciclación de la glutamina o glutamato expuestos en el N-terminal con la liberación de agua o amoniaco. Para iniciar dicha ciclación, el ion Zn2+ localizado en el sitio activo polariza el grupo γ-amino del residuo y estabilizando el anión resultante del ataque nucleofílico sobre el carbono γ-carbonílico. En este mecanismo intervienen también E201 y D248 apoyando la transferencia de protones y aportando estabilidad. [4]
+Las QCs median la ciclación de la glutamina o glutamato expuestos en el N-terminal con la liberación de agua o amoniaco. Para iniciar dicha ciclación, el ion Zn2+ localizado en el sitio activo polariza el grupo γ-amino del residuo y estabilizando el anión resultante del ataque nucleofílico sobre el carbono γ-carbonílico. En este mecanismo intervienen también E201 y D248 apoyando la transferencia de protones y aportando estabilidad. [^4]
 
 ![Mecanismo de acción hGC](https://ars.els-cdn.com/content/image/1-s2.0-S104366181930413X-gr3_lrg.jpg)
 		
@@ -73,18 +73,18 @@ Las QCs median la ciclación de la glutamina o glutamato expuestos en el N-termi
 ## Bibliografía
 
 
-<p><span class="citation" data-cites="gunn">[1]</span></p>
+<p><span class="citation" data-cites="gunn">[^1]</span></p>
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-gunn" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">A. P. Gunn, B. X. Wong, C. McLea    n, C. Fowler, P. J. Barnard, J. A. Duce, B. R. Roberts, and The AIBL Research Group. 2021. Increased     glutaminyl cyclase activity in brains of alzheimer’s disease individuals. <em>Journal of neurochemist    ry</em> 156, 6 (2021), 979–987.</div>
+<div class="csl-left-margin">[^1] </div><div class="csl-right-inline">A. P. Gunn, B. X. Wong, C. McLea    n, C. Fowler, P. J. Barnard, J. A. Duce, B. R. Roberts, and The AIBL Research Group. 2021. Increased     glutaminyl cyclase activity in brains of alzheimer’s disease individuals. <em>Journal of neurochemist    ry</em> 156, 6 (2021), 979–987.</div>
 </div>
 <div id="ref-huang" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">K. -. Huang, J. -. Huang, M. -.     Wu, W. -. Hsieh, K. -. Hsu, H. -. Hsu, T. -. Ko, and A. H. -. Wang. 2021. A unique carboxylic-acid hy    drogen-bond network (CAHBN) confers glutaminyl cyclase activity on M28 family enzymes. <em>Journal of     Molecular Biology</em> 433, 13 (2021).</div>
+<div class="csl-left-margin">[^2] </div><div class="csl-right-inline">K. -. Huang, J. -. Huang, M. -.     Wu, W. -. Hsieh, K. -. Hsu, H. -. Hsu, T. -. Ko, and A. H. -. Wang. 2021. A unique carboxylic-acid hy    drogen-bond network (CAHBN) confers glutaminyl cyclase activity on M28 family enzymes. <em>Journal of     Molecular Biology</em> 433, 13 (2021).</div>
 </div>
 <div id="ref-Huang13117" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">Kai-Fa Huang, Yi-Liang Liu, Wei-    Ju Cheng, Tzu-Ping Ko, and Andrew H.-J. Wang. 2005. Crystal structures of human glutaminyl cyclase, a    n enzyme responsible for protein n-terminal pyroglutamate formation. <em>Proceedings of the National     Academy of Sciences</em> 102, 37 (2005), 13117–13122. DOI:https://doi.org/<a href="https://doi.org/10    .1073/pnas.0504184102">10.1073/pnas.0504184102</a></div>
+<div class="csl-left-margin">[^3] </div><div class="csl-right-inline">Kai-Fa Huang, Yi-Liang Liu, Wei-    Ju Cheng, Tzu-Ping Ko, and Andrew H.-J. Wang. 2005. Crystal structures of human glutaminyl cyclase, a    n enzyme responsible for protein n-terminal pyroglutamate formation. <em>Proceedings of the National     Academy of Sciences</em> 102, 37 (2005), 13117–13122. DOI:https://doi.org/<a href="https://doi.org/10    .1073/pnas.0504184102">10.1073/pnas.0504184102</a></div>
 </div>
 <div id="ref-Vijayan" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">D. K. Vijayan and K. Y. J. Zhang    . 2019. Human glutaminyl cyclase: Structure, function, inhibitors and involvement in alzheimer’s dise    ase. <em>Pharmacological Research</em> 147, (2019). Retrieved from <a href="https://doi.org/10.1016/j    .phrs.2019.104342">https://doi.org/10.1016/j.phrs.2019.104342</a></div>
+<div class="csl-left-margin">[^4] </div><div class="csl-right-inline">D. K. Vijayan and K. Y. J. Zhang    . 2019. Human glutaminyl cyclase: Structure, function, inhibitors and involvement in alzheimer’s dise    ase. <em>Pharmacological Research</em> 147, (2019). Retrieved from <a href="https://doi.org/10.1016/j    .phrs.2019.104342">https://doi.org/10.1016/j.phrs.2019.104342</a></div>
 </div>
-</div>1
+</div>

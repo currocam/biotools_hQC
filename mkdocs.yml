@@ -1,11 +1,9 @@
-site_name: "Plantilla de talleres"
-site_author: "Aula de Software Libre <aulasoftwarelibre@uco.es>"
-site_description: "Plantilla para crear documentación de los talleres del aula"
-site_url: "https://github.com/aulasoftwarelibre/plantilla-talleres"
-
-repo_name: "aulasoftwarelibre/plantilla-talleres"
-repo_url: "https://github.com/aulasoftwarelibre/plantilla-talleres"
-
+site_name: "Cuaderno Ingeniería de Proteínas"
+site_author: "Francisco de Borja Campuzano Jiménez"
+site_description: "Cuaderno de actividades de Francisco Campuzano Jiménez de la asignatura de Ingeniería de Proteínas del curso 2021-2022 sobre la proteína Human glutaminyl cyclase (hQC)"
+site_url: "https://currocam.github.io/biotools_hQC/"
+repo_name: "biotools_hQC"
+repo_url: "https://github.com/currocam/biotools_hQC"
 copyright: Copyleft - CC BY-NC 4.0 - Aula de Software Libre
 
 theme:
@@ -24,21 +22,18 @@ plugins:
   - git-revision-date-localized:
       type: date
   - search
+  - bibtex:
+      bib_file: "images/refs.bib"
+      cite_style: "pandoc"
 
 extra_css:
   - stylesheets/extra.css
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: "https://github.com/aulasoftwarelibre"
+      link: "https://github.com/currocam"
     - icon: fontawesome/brands/twitter
-      link: "https://twitter.com/aulasl"
-    - icon: fontawesome/brands/facebook
-      link: "https://facebook.com/aulasl"
-    - icon: fontawesome/brands/instagram
-      link: "https://instagram.com/aulasoftwarelibre"
-    - icon: fontawesome/brands/youtube
-      link: "https://www.youtube.com/c/AulaSoftwareLibre"
+      link: "https://twitter.com/currocam"
 
 markdown_extensions:
   - admonition: ~
@@ -58,3 +53,13 @@ markdown_extensions:
 google_analytics:
   - "UA-51754922-1"
   - "auto"
+markdown_extensions:
+  - footnotes
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
