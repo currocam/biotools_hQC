@@ -1,7 +1,7 @@
 # Biotools hQC
 
 <div align="center">
-    <img width="200" src="marca_corporativa.svg" alt="Universidad de Granada">
+    <img width="200" src="/docs/images/marca_corporativa.svg" alt="Universidad de Granada">
 </div>
 
 <div align="center">
