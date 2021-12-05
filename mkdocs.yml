@@ -4,7 +4,7 @@ site_description: "Cuaderno de actividades de Francisco Campuzano Jiménez de la
 site_url: "https://currocam.github.io/biotools_hQC/"
 repo_name: "biotools_hQC"
 repo_url: "https://github.com/currocam/biotools_hQC"
-copyright: Copyleft - CC BY-NC 4.0 - Aula de Software Libre
+copyright: Copyleft - CC BY-NC 4.0 - Francisco Campuzano Jiménez
 
 theme:
   favicon: "images/logoasl.png"
@@ -50,9 +50,6 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
-google_analytics:
-  - "UA-51754922-1"
-  - "auto"
 markdown_extensions:
   - footnotes
   - pymdownx.arithmatex:
@@ -62,4 +59,3 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-
