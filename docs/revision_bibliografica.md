@@ -72,5 +72,53 @@ Las QCs median la ciclación de la glutamina o glutamato expuestos en el N-termi
 |:--:|
 |Mecanismo de acción de la enzima hQC. [@huangCrystalStructuresHuman2005]|
 
+### AlphaFill
+
+Además de la estructura 2AFM e ha elegido una segunda estructura con el objetivo de poder compararlas en el software de visualización elegido. Esa segunda estructura corresponde a la estructura predecida por AlphaFold de Q16769, la cual corresponde a QPCT, es decir, a la isoforma secretora de hQC. Se ha escogido por dos razones, en primer lugar para comparar la estructura elegida, que corresponde a la isoforma retenida, de la secretora y, en segunda lugar, comparar una estructura cuyo origen es experimental con una obtenida mediante el uso de IA. 
+
+No obstante, no podemos hacer uso de ella directamente debido a que los modelos estructurales de la base de datos AlphaFold no tienen en cuenta todas las entidades químicas distintas de los residuos de aminoácidos naturales y no poseen, por tanto cofactores. Esto supone un inconveniente en nuestro caso porque, como vimos en el apartado anterior, la proteína hQC posee un cofactor de Zn2+ que es imprescindible para que tenga lugar la catálisis y es, por tanto, de interés. Esto es así porque estos algoritmos no son capaces de resolver el problema del plegamiento de las proteínas mediante la  comprensión de los principios físicos subyacentes, sino que han descubierto intrincados patrones en base a las estructuras tridimensionales determinadas estructuralmente. 
+
+Este inconveniente podemos resolverlo haciendo uso del algoritmo AlphaFill, el cual ha sido recientemente publicado en forma de preprint. Este algortimo enriquece los modelos de la base de datos AlphaFold "transplantando" moléculas pequeñas e iones comunes que se hayan observado en complejos con proteínas homólogas muy similares en modelos determinados experimentalmente del banco de datos PDB-REDO7 [@hekkelmanAlphaFillEnrichingAlphaFold2021]. El funcionamiento del algoritmo es, a grandes rasgos, como se muestra a continuación: 
+
+1. BLAST con la secuencia de AlphaFold con las secuencias alojadas en LAHMA webserver. 
+2. Selección homólogos muy cercanos.
+3. Alineamiento de los esqueletos peptídicos.
+4. Integración de los compuestos en los modelos de AlphaFOld si no estaban previamente. 
+5. Generación nuevo modelo.
+
+## Visualización de proteínas
+
+A continuación, se muestra una animación en la que se pueden observar las estructuras 2AFM y Q16769 de AlphaFill tras ser alineadas. 
+
+|![Movie1](../visualizacion/movie1.gif)|
+|:--:|
+|Animación de las estructuras 2AFM y Q16769. Elaboración propia. |
+
+Para realizar esta animación se ha hecho uso de un pequeño script que combina comandos en pymol con Python. 
+
+``` python
+load data/processed/2AFM.pdb
+load data/raw/Q16769_AlphaFill.cif
+align 2AFM, Q16769_AlphaFill
+# Comenzar script en python
+python
+ 
+import imageio
+step = 10
+images = []
+for a in range(0,360,step):
+cmd.rotate("y", float(step)) # Rotate around Y-axis
+cmd.ray(256,256) # Raytrace 256x256 image
+filename = "file"+str(a)+".png"
+cmd.png(filename)
+images.append(imageio.imread(filename))
+
+imageio.mimsave('animation.gif', images)
+
+python end
+
+```
+
+
 ## Referencias
 \bibliography
