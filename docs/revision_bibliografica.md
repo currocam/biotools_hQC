@@ -90,7 +90,7 @@ Este inconveniente podemos resolverlo haciendo uso del algoritmo AlphaFill, el c
 
 A continuación, se muestra una animación en la que se pueden observar las estructuras 2AFM y Q16769 de AlphaFill tras ser alineadas. 
 
-|![Movie1](https://github.com/currocam/biotools_hQC/blob/master/visualizacion/movie1.gif)|
+|![](images/movie1.gif)|
 |:--:|
 |Animación de las estructuras 2AFM y Q16769. Elaboración propia.|
 
