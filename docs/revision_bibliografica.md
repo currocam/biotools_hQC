@@ -90,13 +90,13 @@ Este inconveniente podemos resolverlo haciendo uso del algoritmo AlphaFill, el c
 
 A continuación, se muestra una animación en la que se pueden observar las estructuras 2AFM y Q16769 de AlphaFill tras ser alineadas. 
 
-|![Movie1](../visualizacion/movie1.gif)|
+|![Movie1](https://github.com/currocam/biotools_hQC/blob/master/visualizacion/movie1.gif)|
 |:--:|
-|Animación de las estructuras 2AFM y Q16769. Elaboración propia. |
+|Animación de las estructuras 2AFM y Q16769. Elaboración propia.|
 
 Para realizar esta animación se ha hecho uso de un pequeño script que combina comandos en pymol con Python. 
 
-``` python
+```python
 load data/processed/2AFM.pdb
 load data/raw/Q16769_AlphaFill.cif
 align 2AFM, Q16769_AlphaFill
@@ -116,7 +116,6 @@ images.append(imageio.imread(filename))
 imageio.mimsave('animation.gif', images)
 
 python end
-
 ```
 
 
