@@ -7,7 +7,7 @@ interface
 
 uses
   Classes, SysUtils, Math, Graphics, Dialogs, Forms, Controls, Menus, StdCtrls,
-  ExtCtrls, ColorBox;  // Cargar librerías
+  ExtCtrls;  // Cargar librerías
                                                       //necesarias biotools
 
 
@@ -63,7 +63,7 @@ type
   end;
 
   TTabladatos = array of array of real; // Disponemos los vectores en filas
-
+   TTransformTPuntoFunc = function(a: real; X:TPunto):TPunto;
   //CONSTANTES PÚBLICAS
   const
   //Cadena de texto para cambio de código de 3 letras a 1 y viceversa
@@ -322,6 +322,90 @@ begin
        p.atm[j].coor.x := p.atm[j].coor.x + dx;
        p.atm[j].coor.y := p.atm[j].coor.y + dy;
        p.atm[j].coor.z := p.atm[j].coor.z + dz;
+   end;
+   result:=1;
+end;
+
+function GiroOX(rad: real; V: Tpunto): Tpunto;
+var
+   S: Tpunto;
+   seno, coseno: real;
+begin
+   seno:= sin(rad);
+   coseno:= cos(rad);
+
+   S.X:= V.X;
+   S.Y:= V.Y*coseno - V.Z*seno;
+   S.Z:= V.Y*seno + V.Z*coseno;
+   result:= S;
+end;
+
+function GiroOX(rad: real; datos: Tpuntos): Tpuntos; overload;
+var
+   s: Tpuntos;
+   j: integer;
+begin
+   setLength(s, high(datos)+1);
+   for j:=0 to high(datos) do
+   begin
+     s[j] := GiroOX(rad, datos[j]) ;
+   end;
+   result := s;
+end;
+
+function GiroOX(rad: real; var p: TPDB): integer; overload;
+var
+   j: integer;
+   seno, coseno: real;
+begin
+   for j:=1 to p.NumFichas do
+   begin
+       seno:= sin(rad);
+       coseno:= cos(rad);
+       p.atm[j].coor.y := p.atm[j].coor.y*coseno-p.atm[j].coor.z*seno;
+       p.atm[j].coor.z := p.atm[j].coor.z*coseno + p.atm[j].coor.y*seno;
+   end;
+   result:=1;
+end;
+
+function GiroOY(rad: real; V: Tpunto): Tpunto;
+var
+   S: Tpunto;
+   seno, coseno: real;
+begin
+   seno:= sin(rad);
+   coseno:= cos(rad);
+
+   S.X:= V.X*coseno + V.Z*seno;
+   S.Y:= V.Y;
+   S.Z:= V.Z*coseno -V.X*seno;
+   result:= S;
+end;
+
+function girarTpuntos(rad: real; datos:Tpuntos; funcion_girar:TTransformTPuntoFunc): Tpuntos;
+var
+   s: Tpuntos;
+   j: integer;
+begin
+     setLength(s, high(datos)+1);
+     for j:=0 to high(datos) do
+     begin
+     s[j] := funcion_girar(rad, datos[j]) ;
+     end;
+     result := s;
+end;
+
+function GiroOY(rad: real; var p: TPDB): integer; overload;
+var
+   j: integer;
+   seno, coseno: real;
+begin
+     seno:= sin(rad);
+   coseno:= cos(rad);
+   for j:=1 to p.NumFichas do
+   begin
+       p.atm[j].coor.X:= p.atm[j].coor.X*coseno + p.atm[j].coor.Z*seno;
+       p.atm[j].coor.z := p.atm[j].coor.z*coseno - p.atm[j].coor.Z*seno;
    end;
    result:=1;
 end;

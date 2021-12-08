@@ -104,9 +104,8 @@ end;
 procedure TForm1.Button3Click(Sender: TObject);
 var
   j, k, counter_col: integer;
-  linea: string;
+  //linea: string;
   datos : TTabladatos;
-  prueba: integer;
   borrar: boolean;
 begin
     memo2.clear;
