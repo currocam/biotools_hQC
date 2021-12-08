@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CONFIG>
-  <Compiler Value="/usr/bin/fpc" Date="1622464867"/>
-  <Params Value=" -MObjFPC -Scghi -Cg -O1 -g -gl -l -vewnhibq -Fi/home/currocam/git/biotools_pascal/tests/lib/x86_64-linux -Fu/home/currocam/git/biotools_pascal/biotools -Fu/usr/lib/lazarus/components/fpcunit/lib/x86_64-linux/qt5 -Fu/usr/lib/lazarus/components/synedit/units/x86_64-linux/qt5 -Fu/usr/lib/lazarus/lcl/units/x86_64-linux/qt5 -Fu/usr/lib/lazarus/lcl/units/x86_64-linux -Fu/usr/lib/lazarus/components/lazutils/lib/x86_64-linux -Fu/usr/lib/lazarus/packager/units/x86_64-linux -Fu/home/currocam/git/biotools_pascal/tests/ -FU/home/currocam/git/biotools_pascal/tests/lib/x86_64-linux/ -FE/home/currocam/git/biotools_pascal/tests/ -o/home/currocam/git/biotools_pascal/tests/testing_biotools -dLCL -dLCLqt5 testing_biotools.lpr"/>
-</CONFIG>
