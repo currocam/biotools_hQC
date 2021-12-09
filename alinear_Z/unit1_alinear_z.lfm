@@ -27,6 +27,7 @@ object Form1: TForm1
     Top = 39
     Width = 32
     Caption = '>>'
+    OnClick = Button1Click
     TabOrder = 2
   end
   object Image1: TImage
@@ -46,13 +47,37 @@ object Form1: TForm1
     Height = 24
     Top = 555
     Width = 128
+    MinValue = 1
     TabOrder = 3
+    Value = 1
   end
   object SpinEdit2: TSpinEdit
     Left = 232
     Height = 24
     Top = 555
     Width = 138
+    MinValue = 1
     TabOrder = 4
+    Value = 1
+  end
+  object Label1: TLabel
+    Left = 72
+    Height = 15
+    Top = 536
+    Width = 61
+    Caption = 'CA Inicial'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 232
+    Height = 15
+    Top = 536
+    Width = 51
+    Caption = 'CA final'
+    ParentColor = False
+  end
+  object OpenDialog1: TOpenDialog
+    left = 320
+    top = 72
   end
 end

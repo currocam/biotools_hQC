@@ -30,7 +30,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="2">
+    <Units Count="3">
       <Unit0>
         <Filename Value="alinear_Z.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -42,6 +42,10 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="unit1_alinear_Z"/>
       </Unit1>
+      <Unit2>
+        <Filename Value="../biotools/src_biotools.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit2>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -51,6 +55,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="../biotools"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
