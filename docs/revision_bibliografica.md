@@ -88,7 +88,7 @@ Este inconveniente podemos resolverlo haciendo uso del algoritmo AlphaFill, el c
 
 ## Visualización de proteínas
 
-A continuación, se muestra una animación en la que se pueden observar las estructuras 2AFM y Q16769 de AlphaFill tras ser alineadas. 
+A continuación, se muestra una animación en la que se pueden observar las estructuras 2AFM y Q16769 de AlphaFold tras ser alineadas. Se puede observar que, exceptuando la cola de la proteína y la ausencia de cofactores, ambas son extremadamente similares.  
 
 |![](images/movie1.gif)|
 |:--:|
@@ -97,21 +97,66 @@ A continuación, se muestra una animación en la que se pueden observar las estr
 Para realizar esta animación se ha hecho uso de un pequeño script que combina comandos en pymol con Python. 
 
 ```python
+set ray_opaque_background, off
+load data/processed/2AFM.pdb
+load data/raw/AF-Q16769-F1-model_v1.pdb
+alignto 2AFM,
+
+python
+
+import imageio
+
+step = 1
+
+images = []
+
+for a in range(0,180,step):
+  cmd.rotate("y", float(step)) 
+  cmd.ray(500, 500)
+  filename = "file"+str(a)+".png"
+  cmd.png(filename)
+  images.append(imageio.imread(filename))
+
+imageio.mimsave('movie1.gif', images)
+
+python end
+```
+A continuación, se muestra la estructura experimental y la obtenida de AlphaFill alineadas. Se ha coloreado las sustancias inorgánicas de la estructura experimental en marrón y las de la estructura predecida en morado. Se puede observar que, en este, el algoritmo AlphaFill no funciona adecuadamente. En primer lugar porque, aunque no se pueda apreciar porque están superpuestos, aunque es capaz de determinar a la perfección que es necesario algún tipo de molécula cargada en el sitio catalítico, se equivoca colocando otro ion distinto  al Zn2+. En segundo lugar, porque no es capaz de predecir la presencia de un grupo sulfato y, en tercer lugar, porque predice la presencia de multitud de iones Zn fuera del sitio catalítico. 
+
+El código que se ha utilizado para conseguir dicha animación es el siguiente: 
+
+```python
+set ray_opaque_background, off
 load data/processed/2AFM.pdb
 load data/raw/Q16769_AlphaFill.cif
-align 2AFM, Q16769_AlphaFill
-# Comenzar script en python
+alignto 2AFM,
+remove solvent
+color brown, inorganic AND 2AFM
+color purple, inorganic AND Q16769_AlphaFill
+select cofactors, byres inorganic  expand 5
+remove (not cofactors)
+hide cartoon,
+show sticks, 
+center cofactors
+zoom
+
 python
- 
+
 import imageio
-step = 10
+
+step = 1
 images = []
-for a in range(0,360,step):
-cmd.rotate("y", float(step)) # Rotate around Y-axis
-cmd.ray(256,256) # Raytrace 256x256 image
-filename = "file"+str(a)+".png"
-cmd.png(filename)
-images.append(imageio.imread(filename))
+
+for a in range(0,180,step):
+  cmd.rotate("y", float(step)) # Rotate around Y-axis
+  cmd.ray(500, 500)
+  filename = "file"+str(a)+".png"
+  cmd.png(filename)
+  images.append(imageio.imread(filename))
+  cmd.ray(500, 500)
+  filename = "file"+str(a)+".png"
+  cmd.png(filename)
+  images.append(imageio.imread(filename))
 
 imageio.mimsave('animation.gif', images)
 
@@ -119,5 +164,8 @@ python end
 ```
 
 
+|![](images/movie2.gif)|
+|:--:|
+|Animación de las estructuras 2AFM y Q16769. Elaboración propia.|
 ## Referencias
 \bibliography
