@@ -103,6 +103,15 @@ type
   // Funciones Esterodiagrama
   function translacion(dx, dy, dz: real; V: Tpunto): Tpunto;
   function translacion(dx, dy, dz: real; datos: Tpuntos): Tpuntos; overload;
+  function GiroOX(rad: real; V: Tpunto): Tpunto;
+  function GiroOY(rad: real; V: Tpunto): Tpunto;
+  function GiroOZ(rad: real; V: Tpunto): Tpunto;
+  function GiroOX(rad: real; datos: Tpuntos): Tpuntos; overload;
+  function GiroOY(rad: real; datos: Tpuntos): Tpuntos; overload;
+  function GiroOZ(rad: real; datos: Tpuntos): Tpuntos; overload;
+  function GiroOX(rad: real; var p: TPDB): integer; overload;
+  function GiroOY(rad: real; var p: TPDB): integer; overload;
+  function GiroOZ(rad: real; var p: TPDB): integer; overload;
   //Funciones archivos PDB
   function cargarPDB (var p: TPDB): string;
   function CargarPDB(texto: TStrings): TPDB;    overload;
@@ -382,6 +391,20 @@ begin
    result:= S;
 end;
 
+function GiroOY(rad: real; datos: Tpuntos): Tpuntos; overload;
+var
+   s: Tpuntos;
+   j: integer;
+begin
+   setLength(s, high(datos)+1);
+   for j:=0 to high(datos) do
+   begin
+     s[j] := GiroOY(rad, datos[j]) ;
+   end;
+   result := s;
+end;
+
+
 function girarTpuntos(rad: real; datos:Tpuntos; funcion_girar:TTransformTPuntoFunc): Tpuntos;
 var
    s: Tpuntos;
@@ -408,6 +431,61 @@ begin
        p.atm[j].coor.z := p.atm[j].coor.z*coseno - p.atm[j].coor.Z*seno;
    end;
    result:=1;
+end;
+
+function GiroOZ(rad: real; V: Tpunto): Tpunto;
+var
+   S: Tpunto;
+   seno, coseno: real;
+begin
+   seno:= sin(rad);
+   coseno:= cos(rad);
+   S.X:= V.X*coseno - V.Y*seno;
+   S.Y:= V.X*seno +V.Y*coseno;
+   S.Z:= V.Z;
+
+   result:= S;
+end;
+function GiroOZ(rad: real; datos: Tpuntos): Tpuntos; overload;
+var
+   s: Tpuntos;
+   j: integer;
+begin
+   setLength(s, high(datos)+1);
+   for j:=0 to high(datos) do
+   begin
+     s[j] := GiroOZ(rad, datos[j]) ;
+   end;
+   result := s;
+end;
+
+
+function GiroOZ(rad: real; var p: TPDB): integer; overload;
+var
+   j: integer;
+   seno, coseno: real;
+begin
+   seno:= sin(rad);
+   coseno:= cos(rad);
+   for j:=1 to p.NumFichas do
+   begin
+       p.atm[j].coor.X:= p.atm[j].coor.X*coseno - p.atm[j].coor.Y*seno;
+       p.atm[j].coor.Y := p.atm[j].coor.Y*coseno + p.atm[j].coor.X*seno;
+   end;
+   result:=1;
+end;
+
+// Funciones Alinear Z
+
+function AlinearZ(puntos: Tpuntos):TPuntos;
+var
+   S: TPuntos;
+   p1, p2: TPunto;
+begin
+   setLength(salida, high(puntos)+1);
+   p1:= puntos[0];
+   salida:= translacion(-p1.X, -p1.Y, -p1.Z, puntos);
+
 end;
 
 //
