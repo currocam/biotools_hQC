@@ -13,7 +13,7 @@ python
 
 import imageio
 
-cmd.ray(500, 500)
+cmd.ray(1000, 1000)
 filename = "sitio_union"+".png"
 cmd.png(filename)
 
