@@ -1,6 +1,6 @@
 # Script para comparar estructura predecida secretora y 
 # y estructura experimental retenida
-set ray_opaque_background, off
+set bg_rgb,[rgb(0.18, 0.19, 0.24)] 
 load data/processed/2AFM.pdb
 load data/raw/AF-Q16769-F1-model_v1.pdb
 alignto 2AFM,
