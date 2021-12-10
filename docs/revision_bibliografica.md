@@ -17,6 +17,11 @@ Se conocen dos isoformas de la enzima QC en *Homo sapiens*, la llamada QC secret
  
 Ambas enzimas, sQC y gQC, tienen una estructura muy similar, por lo que las consideraciones generales que podamos hacer sobre su estructuras serán aplicables a ambas isoformas. Poseen una estructura globular con un pliegue mixto α/β. La actividad glutaminil y glutamil ciclasa reside en el dominio maduro (residuos 33-361) de la proteína [@gunnIncreasedGlutaminylCyclase2021]
 
+
+|![Dominio maduro](images/dominio_maduro.png)|
+|:--:|
+|Dominio maduro anotado con las estructuras secundarias según el orden del archivo 2AFM.pdb| 
+
 La estructura posee una topología de sandwich abierto con una lámina β central de seis hebras rodeada por dos (α7 y α9) y seis α-hélices  (α2, α3, α4, α5, α6, y α10) en lados opuestos. Esta lámina β central  esta formada por dos hébras antiparalelas (β1 y β2) y 4 paralelas (β3, β4, β5 y β6) y constituye el corazón hidrofóbico de la molécula [@huangCrystalStructuresHuman2005].
 
 

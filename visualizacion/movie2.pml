@@ -1,6 +1,6 @@
 # Script para comparar posición de cofactores
 # predecida Vs experimental
-set ray_opaque_background, off
+set bg_rgb,[rgb(0.18, 0.19, 0.24)] 
 load data/processed/2AFM.pdb
 load data/raw/Q16769_AlphaFill.cif
 alignto 2AFM,
