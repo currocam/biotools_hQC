@@ -99,3 +99,5 @@ python end
 |:--:|
 |Animación de las estructuras 2AFM y Q16769 mostrando cofactores. Elaboración propia.|
 
+## Referencias
+\bibliography
