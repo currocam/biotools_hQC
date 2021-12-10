@@ -1,5 +1,4 @@
 # Biotools hQC
-![built by currocam](https://img.shields.io/badge/built%20by-developers%20%3C%2F%3E-orange.svg?longCache=true&style=for-the-badge) ![made with lazarus](https://img.shields.io/badge/made%20with-mkdocs-green.svg?longCache=true&style=for-the-badge) ![uses git & mkdocs](https://img.shields.io/badge/uses-git-blue.svg?longCache=true&style=for-the-badge)
 
 <div align="center">
     <img width="200" src="/docs/images/logoasl.png" alt="Universidad de Granada">
@@ -10,6 +9,10 @@
 </div>
 
 Cuaderno de actividades de Francisco Campuzano Jiménez de la asignatura de Ingeniería de Proteínas del curso 2021-2022 sobre la proteína Human glutaminyl cyclase (hQC).
+
+|![](images/2AFM_3d_proteinImagin.png)|
+|:--:|
+|Representación de la estructura 2AFM obtenida usando [3D Protein Imaging](https://doi.org/10.1093/bioinformatics/btaa009)|
 
 Se ha realizado utilizando el entorno de desarrollo lazarus. 
 

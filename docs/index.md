@@ -2,6 +2,12 @@
 
 Esta página es el cuaderno de actividades de Francisco Campuzano Jiménez de la asignatura de Ingeniería de Proteínas del curso 2021-2022 sobre la proteína Human glutaminyl cyclase (hQC).
 
+
+|![](images/2AFM_3d_proteinImagin.png)|
+|:--:|
+|Representación de la estructura 2AFM obtenida usando 3D Protein Imaging [@tomaselloProteinImagerFullfeatured2020]|
+
+
 Esta web se ha realizado empleando la plantilla creado por [el Aula de Software Libre de la Universidad de Córdoba](https://github.com/aulasoftwarelibre/plantilla-talleres).
 
 ## Licencia
