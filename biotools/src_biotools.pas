@@ -481,11 +481,28 @@ function AlinearZ(puntos: Tpuntos):TPuntos;
 var
    S: TPuntos;
    p1, p2: TPunto;
+   a, b, c, d1, d2: real;
+   alpha, phi, senoAlpha, senoPhi: real;
 begin
-   setLength(salida, high(puntos)+1);
+   setLength(S, high(puntos)+1);
+   //Transladar
    p1:= puntos[0];
-   salida:= translacion(-p1.X, -p1.Y, -p1.Z, puntos);
-
+   S:= translacion(-p1.X, -p1.Y, -p1.Z, puntos);
+   //Calcular ángulos
+   a:= S[high(S)].X;
+   b:= S[high(S)].Y;
+   c:= S[high(S)].Z;
+   d1:= sqrt(sqr(b)+srq(c))
+   d2:= sqrt(sqr(a)+sqr(b)+sqr(c))
+   senoPhi:= b/d1;
+   senoAlpha:= a/d2;
+   phi:= arcsin(senoPhi);
+   alpha:= arcsin(senoAlpha);
+   if c<0 then phi:= -phi else alpha:= -alpha; //Cambio signo
+   //Giro sobre OX y OY
+   S:= GiroOX(phi, S);
+   S:= GiroOY(alpha, S);
+   result:= S;
 end;
 
 //

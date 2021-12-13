@@ -39,6 +39,7 @@
         <Filename Value="unit1_alinear_z.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="unit1_alinear_Z"/>
       </Unit1>
