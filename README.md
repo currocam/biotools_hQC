@@ -1,13 +1,5 @@
 # Biotools hQC
 
-<div align="center">
-    <img width="200" src="/docs/images/logoasl.png" alt="Universidad de Granada">
-</div>
-
-<div align="center">
-
-</div>
-
 Cuaderno de actividades de Francisco Campuzano Jiménez de la asignatura de Ingeniería de Proteínas del curso 2021-2022 sobre la proteína Human glutaminyl cyclase (hQC).
 
 |![](docs/images/2AFM_3d_proteinImagin.png)|
