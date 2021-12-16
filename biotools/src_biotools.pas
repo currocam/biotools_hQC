@@ -95,11 +95,12 @@ type
   function AA1TO3 (aa1:char):string ;
   // Funciones Módulo gráfico
   function PlotXY(datos: TTablaDatos;
-                im: TImage; OX: integer = 0;
-                OY: integer =1; borrar: boolean = False;//borrar gráfico anterior
-                linea: boolean = False; clpluma: TColor = clyellow;
-                clrelleno: TColor = clyellow;clFondo: TColor = clBlack;
-                radio: integer = 5;borde: integer = 40): boolean;
+                  im: TImage; OX: integer = 0;
+                  OY: integer =1; borrar: boolean = False;//borrar gráfico anterior
+                  linea: boolean = False; clpluma: TColor = clyellow;
+                  clrelleno: TColor = clyellow;clFondo: TColor = clBlack;
+                  radio: integer = 5;borde: integer = 40;
+                  marcarFin : boolean = False ; clfin : TColor =clred): boolean;
   // Funciones Esterodiagrama
   function translacion(dx, dy, dz: real; V: Tpunto): Tpunto;
   function translacion(dx, dy, dz: real; datos: Tpuntos): Tpuntos; overload;
@@ -112,6 +113,7 @@ type
   function GiroOX(rad: real; var p: TPDB): integer; overload;
   function GiroOY(rad: real; var p: TPDB): integer; overload;
   function GiroOZ(rad: real; var p: TPDB): integer; overload;
+  function AlinearZ(puntos: Tpuntos):TPuntos;
   //Funciones archivos PDB
   function cargarPDB (var p: TPDB): string;
   function CargarPDB(texto: TStrings): TPDB;    overload;
@@ -241,7 +243,8 @@ function PlotXY(datos: TTablaDatos;
                 OY: integer =1; borrar: boolean = False;//borrar gráfico anterior
                 linea: boolean = False; clpluma: TColor = clyellow;
                 clrelleno: TColor = clyellow;clFondo: TColor = clBlack;
-                radio: integer = 5;borde: integer = 40): boolean;
+                radio: integer = 5;borde: integer = 40;
+                marcarFin : boolean = False ; clfin : TColor =clred): boolean;
 var
    j:integer;
    xp, yp: integer; //Describimos coordenadas centro elipse
@@ -295,6 +298,12 @@ begin
        end;
        OK:= true
        end;
+         if marcarFin then
+         begin
+           im.Canvas.Pen.Color:= clfin;
+           im.Canvas.brush.color:= clfin;
+           im.Canvas.Ellipse(Xp-radio, Yp-radio, Xp+radio, Yp+radio);
+         end;
      result := OK;
 end;
 //
@@ -492,8 +501,8 @@ begin
    a:= S[high(S)].X;
    b:= S[high(S)].Y;
    c:= S[high(S)].Z;
-   d1:= sqrt(sqr(b)+srq(c))
-   d2:= sqrt(sqr(a)+sqr(b)+sqr(c))
+   d1:= sqrt(sqr(b)+sqr(c));
+   d2:= sqrt(sqr(a)+sqr(b)+sqr(c));
    senoPhi:= b/d1;
    senoAlpha:= a/d2;
    phi:= arcsin(senoPhi);
