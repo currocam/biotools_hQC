@@ -93,6 +93,11 @@ type
   //Funciones formato
   function AA3TO1(aa3: string):char;
   function AA1TO3 (aa1:char):string ;
+  function isEmbl(archivo: Tstrings): boolean;
+  function isGenBank(archivo: Tstrings): boolean;
+  function isPDB(archivo: Tstrings): boolean;
+  function isUniProt(archivo: Tstrings): boolean;
+  function leerSecuenciaProteina(archivo: Tstrings): string;
   // Funciones Módulo gráfico
   function PlotXY(datos: TTablaDatos;
                   im: TImage; OX: integer = 0;
@@ -236,6 +241,7 @@ function AA3TO1(aa3: string):char;
  index:=pos(AA1, AA)-1;
  result:= copy(AA,index, 3);
  end;
+
 //
 // Funciones Módulo gráfico
 function PlotXY(datos: TTablaDatos;
@@ -512,6 +518,86 @@ begin
    S:= GiroOX(phi, S);
    S:= GiroOY(alpha, S);
    result:= S;
+end;
+
+// Discriminar distintos formatos.
+
+function isEmbl(archivo: Tstrings): boolean;
+begin
+   if (copy(archivo[0],0,2)='ID') and (copy(archivo[1],0,2)='XX')
+   then result:= TRUE else result := FALSE;
+end;
+function isUniProt(archivo: Tstrings): boolean;
+begin
+   if (copy(archivo[0],0,2)='ID') and (copy(archivo[1],0,2)='AC')
+   then result:= TRUE else result := FALSE;
+end;
+function isGenBank(archivo: Tstrings): boolean;
+begin
+   if (copy(archivo[0],0,5)='LOCUS')
+   then result:= TRUE else result := FALSE;
+end;
+function isPDB(archivo: Tstrings): boolean;
+begin
+   if (copy(archivo[0],0,6)= 'HEADER')
+   then result:= TRUE else result := FALSE;
+end;
+
+function leerSecuenciaProteina(archivo: Tstrings): string;
+var
+   j,i: integer;
+   sec, linea: String;
+   p: TPDB;
+   check: boolean;
+begin
+   if(isPDB(archivo))then
+     begin
+     p:= CargarPDB(archivo);
+     result:= p.secuencia;
+   end
+   else if(isEmbl(archivo)) then
+     begin
+       sec:='';
+       check:= FALSE;
+       for j:= 0 to archivo.count-1 do
+       begin
+         linea:= archivo[j];
+         if (copy(linea,0,2) = 'XX') AND check then Break;
+         sec:= sec+ trim(copy(linea, 22, 58));
+         if copy(linea,22,13) = '/translation=' then
+         begin
+           check:= TRUE;
+           sec:= copy(linea, 35, 39);
+           end;
+       end;
+       result:= trim(copy(sec,2,sec.Length-2));
+         end
+   else if(isUniProt(archivo)) then
+     begin
+        for j:= 0 to archivo.count-1 do
+        begin
+          linea:= archivo[j];
+          if copy(linea,0,2) = '//' then Break;
+          sec:= sec+ trim(linea);
+          if copy(linea,0,2) = 'SQ' then sec:= ' ';
+        end;
+        result:= trim(sec);
+      end
+
+   else if(isGenBank(archivo)) then
+   begin
+     sec:='';
+     for j:= 0 to archivo.count-1 do
+     begin
+       linea:= archivo[j];
+       if copy(linea,0,6) = 'ORIGIN' then Break;
+       sec:= sec+ trim(linea);
+       if copy(linea,22,13) = '/translation=' then sec:= copy(linea, 35, 70);
+     end;
+     result:= trim(copy(sec,2,sec.Length-2));
+   end
+   else
+      ShowMessage('Es un formato no soportado');
 end;
 
 //
