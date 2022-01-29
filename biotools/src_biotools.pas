@@ -97,7 +97,7 @@ type
   function isGenBank(archivo: Tstrings): boolean;
   function isPDB(archivo: Tstrings): boolean;
   function isUniProt(archivo: Tstrings): boolean;
-  function leerSecuenciaProteina(archivo: Tstrings): string;
+  function leerSecuenciaProteina(archivo: Tstrings): AnsiSTring;
   // Funciones Módulo gráfico
   function PlotXY(datos: TTablaDatos;
                   im: TImage; OX: integer = 0;
@@ -543,7 +543,7 @@ begin
    then result:= TRUE else result := FALSE;
 end;
 
-function leerSecuenciaProteina(archivo: Tstrings): string;
+function leerSecuenciaProteina(archivo: Tstrings): AnsiString;
 var
    j,i: integer;
    sec, linea: String;
@@ -617,7 +617,8 @@ end;
       p:=cargarPDB(textoPDB);
       result:= dialogo.filename;
 
-     end else result:= '';
+     end
+     else result:= '';
 
      dialogo.free;
      textoPDB.free;
