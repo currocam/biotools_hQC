@@ -23,8 +23,7 @@ plugins:
       type: date
   - search
   - bibtex:
-      bib_file: "refs.bib"
-      cite_style: "pandoc"
+      bib_file: "refs2.bib"
 
 extra_css:
   - stylesheets/extra.css
@@ -43,13 +42,10 @@ markdown_extensions:
       linenums: false
   - def_list: ~
   - tables
-  - footnotes: ~
+  - footnotes
   - toc:
       permalink: true
   - pymdownx.keys: ~
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
@@ -57,7 +53,6 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
-  - footnotes
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.tabbed:
