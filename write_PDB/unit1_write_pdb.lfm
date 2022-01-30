@@ -1,0 +1,106 @@
+object Form1: TForm1
+  Left = 37
+  Height = 700
+  Top = 27
+  Width = 1188
+  Caption = 'Form1'
+  ClientHeight = 673
+  ClientWidth = 1188
+  Menu = MainMenu1
+  LCLVersion = '2.0.6.0'
+  object Button1: TButton
+    Left = 504
+    Height = 25
+    Top = 56
+    Width = 438
+    Caption = 'Extraer átomos deseados'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    Left = 592
+    Height = 30
+    Top = 18
+    Width = 305
+    Caption = 'Escribir el identificador de átomo deseado.'#10'Por defecto, se extraen los carbonos alfa (CA)'
+    ParentColor = False
+  end
+  object Memo1: TMemo
+    Left = 80
+    Height = 546
+    Top = 88
+    Width = 400
+    Color = cl3DLight
+    Lines.Strings = (
+      ''
+    )
+    OnChange = Memo1Change
+    ScrollBars = ssBoth
+    TabOrder = 1
+  end
+  object Button2: TButton
+    Left = 80
+    Height = 25
+    Top = 56
+    Width = 400
+    Caption = 'Leer archivo *.pdb'
+    OnClick = Button2Click
+    TabOrder = 2
+  end
+  object Memo2: TMemo
+    Left = 504
+    Height = 418
+    Top = 88
+    Width = 438
+    Color = clInfoBk
+    ScrollBars = ssBoth
+    TabOrder = 3
+  end
+  object Edit1: TEdit
+    Left = 504
+    Height = 24
+    Top = 24
+    Width = 80
+    Color = clCaptionText
+    OnChange = Edit1Change
+    TabOrder = 4
+    Text = 'CA'
+  end
+  object Button3: TButton
+    Left = 504
+    Height = 25
+    Top = 520
+    Width = 438
+    Caption = 'Guardar como...'
+    OnClick = Button3Click
+    TabOrder = 5
+  end
+  object OpenDialog1: TOpenDialog
+    left = 35
+    top = 78
+  end
+  object MainMenu1: TMainMenu
+    left = 50
+    top = 43
+    object MenuItem1: TMenuItem
+      Caption = 'Archivo'
+      object MenuItem2: TMenuItem
+        Caption = 'Cargar archivo'
+        OnClick = Button2Click
+      end
+      object MenuItem3: TMenuItem
+        Caption = 'Extraer átomos'
+      end
+      object MenuItem4: TMenuItem
+        Caption = 'Salir'
+      end
+    end
+    object MenuItem5: TMenuItem
+      Caption = 'Acerca de '
+    end
+  end
+  object SaveDialog1: TSaveDialog
+    left = 144
+    top = 34
+  end
+end
