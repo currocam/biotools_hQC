@@ -3,16 +3,21 @@ object Form1: TForm1
   Height = 704
   Top = 27
   Width = 665
+  AllowDropFiles = True
   Caption = 'Form1'
   ClientHeight = 677
   ClientWidth = 665
+  Color = clForm
   Menu = MainMenu1
+  OnDropFiles = FormDropFiles
   LCLVersion = '2.0.6.0'
   object Memo1: TMemo
     Left = 31
     Height = 490
     Top = 168
     Width = 616
+    Color = clWhite
+    OnChange = Memo1Change
     ScrollBars = ssBoth
     TabOrder = 0
   end
@@ -21,22 +26,22 @@ object Form1: TForm1
     Height = 104
     Top = 6
     Width = 613
-    Color = clHighlightText
+    Color = clInfoBk
     TabOrder = 1
   end
   object Edit1: TEdit
     Left = 31
     Height = 24
     Top = 136
-    Width = 80
+    Width = 376
     TabOrder = 2
     Text = ' '
   end
   object Button1: TButton
-    Left = 128
+    Left = 415
     Height = 25
     Top = 135
-    Width = 75
+    Width = 232
     Caption = 'Extraer secuencia de la proteína'
     OnClick = MenuItem6Click
     TabOrder = 3

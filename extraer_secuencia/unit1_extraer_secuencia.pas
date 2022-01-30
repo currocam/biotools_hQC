@@ -24,6 +24,8 @@ type
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     OpenDialog1: TOpenDialog;
+    procedure FormDropFiles(Sender: TObject; const FileNames: array of String);
+    procedure Memo1Change(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
@@ -45,6 +47,25 @@ implementation
 procedure TForm1.MenuItem1Click(Sender: TObject);
 begin
 
+end;
+
+procedure TForm1.Memo1Change(Sender: TObject);
+begin
+
+end;
+
+procedure TForm1.FormDropFiles(Sender: TObject; const FileNames: array of String
+  );
+var
+  i: Integer;
+begin
+  for i := Low(FileNames) to High(FileNames) do
+  begin
+       memo1.clear;
+       memo1.lines.loadfromfile(FileNames[i]);
+       edit1.Caption:=FileNames[1];
+       documento:= memo1.lines;
+  end;
 end;
 
 procedure TForm1.MenuItem2Click(Sender: TObject);
