@@ -2,6 +2,7 @@ arrange:
   - index.md
   - revision_bibliografica.md
   - visualizacion.md
+  - formato_ficheros.md
   - parser_PDB.md
   - simulacion_MD.md
   - bibliografia.md
