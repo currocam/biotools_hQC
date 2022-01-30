@@ -122,6 +122,7 @@ type
   //Funciones archivos PDB
   function cargarPDB (var p: TPDB): string;
   function CargarPDB(texto: TStrings): TPDB;    overload;
+  function WriteAtomPDB(atom: TAtomPDB): AnsiString;
 implementation
 
 //GEOMETRÍA
@@ -727,6 +728,43 @@ function CargarPDB(texto: TStrings): TPDB;    overload;
 
     result:=p;
   end;
+
+function WriteAtomPDB(atom: TAtomPDB): AnsiString;
+var
+  numatm, numres, X, Y, Z, R: AnsiString;
+  linea: AnsiString;
+begin
+    // Obtenemos la información del objeto atom en el formato numérico que nos interesa
+    numatm:= inttostr(atom.NumAtom);
+    numres := inttostr(atom.NumRes);
+    X  := formatfloat('0.000', atom.coor.X);
+    Y  := formatfloat('0.000', atom.coor.Y);
+    Z  := formatfloat('0.000', atom.coor.Z);
+    R  := formatfloat('0.00', atom.R);
+    linea:= Concat('ATOM  ' , // 6 char justificado a la izquierda
+             format('%5s', [numatm]) ,  // 5 char justificado a la derecha
+             '  ' ,
+             format('%-3s', [atom.ID]) ,
+             ' ' + //No incluimos altLoc
+             atom.residuo,
+             ' ',
+             atom.subunidad,
+             '  ',
+             format('%-4s', [numres]), //4 char justificado a la derecha
+             '  ', //No incluimos iCode
+             ' ',
+             format('%7s', [X]),
+             ' ',
+             format('%7s', [Y]),
+             ' ',
+             format('%7s', [Z]),
+             '  ',
+             format('%-5s', ['1.00']), //No incluimosla ocupancia
+             format('%-6s', [R]));
+             // No incluimos el resto de parámetros
+    //ShowMessage(linea);
+    result:= linea;
+end;
 
 end.
 
