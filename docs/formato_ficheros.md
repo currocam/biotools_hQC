@@ -4,7 +4,7 @@ En la realización de este cuaderno de actividades se pide el desarrollo de un d
 
 ## Diagrama de flujo
 
-En primer lugar, se consultó la bibliografía aportada y se realizó el siguiente diagrama de flujo, el cual de forma muy simplificada, muestra permitiría distinguir entre estos 4 formatos. La principal mejora que podría hacérsele a este programa sería, precisamente, realizar un diagrama de flujo más complejo qe tuviera en cuenta otras características de manera que no solo se tuviera en cuenta la primera línea del archivo sino también el resto. 
+En primer lugar, se consultó la bibliografía aportada y se realizó el siguiente diagrama de flujo, el cual de forma muy simplificada, muestra permitiría distinguir entre estos 4 formatos. La principal mejora que podría hacérsele a este programa sería, precisamente, realizar un diagrama de flujo más complejo que tuviera en cuenta otras características además de la primera línea del archivo. 
 
 |![extraer](images/diagrama_formatos.svg)|
 |:--:|
@@ -127,7 +127,7 @@ Para la realización de los test empleados para este programa, se hizo uso de la
 2. Se comprueba si el comportamiento de la función `isFormato()` es el esperado, es decir, que devuelve un valor True cuando se le da como argumento el fichero de dicho formato y un valor False para el resto. 
 3. Se comprueba que la secuencia que devuelve la función `leerSecuenciaProteina` es exactamente la esperada. 
 
-??? example "Función leerSecuenciaProteina"
+??? example "testing_biotools.Embl"
 	```pascal linenums="1"
 	procedure testing_biotools.Embl;
 	var
