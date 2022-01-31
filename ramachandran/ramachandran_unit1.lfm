@@ -1,20 +1,20 @@
 object Form1: TForm1
-  Left = 37
-  Height = 704
-  Top = 27
-  Width = 1329
+  Left = 203
+  Height = 518
+  Top = 88
+  Width = 996
   ActiveControl = Button4
   Caption = 'Form1'
-  ClientHeight = 677
-  ClientWidth = 1329
+  ClientHeight = 491
+  ClientWidth = 996
   Menu = MainMenu1
   OnCreate = FormCreate
   LCLVersion = '2.0.6.0'
   object Memo1: TMemo
-    Left = 32
+    Left = 8
     Height = 440
     Top = 64
-    Width = 432
+    Width = 376
     Lines.Strings = (
       'Memo1'
     )
@@ -24,20 +24,20 @@ object Form1: TForm1
     Visible = False
   end
   object Edit1: TEdit
-    Left = 32
+    Left = 8
     Height = 24
-    Top = 32
-    Width = 432
+    Top = 33
+    Width = 376
     ParentFont = False
     TabOrder = 1
     Text = 'Edit1'
     Visible = False
   end
   object Button2: TButton
-    Left = 32
+    Left = 8
     Height = 25
-    Top = 520
-    Width = 432
+    Top = 512
+    Width = 376
     Caption = 'Ocultar archivo'
     OnClick = Button2Click
     ParentFont = False
@@ -45,8 +45,8 @@ object Form1: TForm1
     Visible = False
   end
   object Memo2: TMemo
-    Left = 480
-    Height = 513
+    Left = 400
+    Height = 537
     Top = 64
     Width = 256
     Lines.Strings = (
@@ -59,7 +59,7 @@ object Form1: TForm1
     WordWrap = False
   end
   object Button3: TButton
-    Left = 480
+    Left = 400
     Height = 25
     Top = 32
     Width = 232
@@ -70,97 +70,106 @@ object Form1: TForm1
     Visible = False
   end
   object Button1: TButton
-    Left = 32
+    Left = 8
     Height = 25
-    Top = 32
-    Width = 432
+    Top = 33
+    Width = 376
     Caption = 'Mostrar archivo'
     OnClick = Button1Click
     ParentFont = False
     TabOrder = 2
   end
   object Button4: TButton
-    Left = 32
+    Left = 8
     Height = 25
-    Top = 0
-    Width = 432
+    Top = 8
+    Width = 376
     Caption = 'Cargar archivo'
     OnClick = MenuItem5Click
     ParentFont = False
     TabOrder = 6
   end
   object Image1: TImage
-    Left = 744
+    Left = 672
     Height = 513
     Top = 64
     Width = 544
   end
   object ColorBox1: TColorBox
-    Left = 40
+    Left = 8
     Height = 29
-    Top = 600
-    Width = 100
+    Top = 569
+    Width = 119
     Selected = clYellow
     ItemHeight = 0
     TabOrder = 7
   end
   object ColorBox2: TColorBox
-    Left = 144
+    Left = 136
     Height = 29
-    Top = 600
-    Width = 100
+    Top = 569
+    Width = 119
     Selected = clGradientActiveCaption
     ItemHeight = 0
     TabOrder = 8
   end
   object ColorListBox1: TColorListBox
-    Left = 197
+    Left = 200
     Height = 24
-    Top = 605
-    Width = 25
+    Top = 574
+    Width = 30
     ItemHeight = 0
     TabOrder = 9
   end
   object ColorBox3: TColorBox
-    Left = 256
+    Left = 265
     Height = 29
-    Top = 600
-    Width = 100
+    Top = 569
+    Width = 119
     ItemHeight = 0
     TabOrder = 10
   end
   object Label1: TLabel
-    Left = 64
+    Left = 37
     Height = 15
-    Top = 583
+    Top = 552
     Width = 55
     Caption = 'Clpluma'
     ParentColor = False
     OnClick = Label1Click
   end
   object Label2: TLabel
-    Left = 176
+    Left = 170
     Height = 15
-    Top = 583
+    Top = 552
     Width = 60
     Caption = 'Clrelleno'
     ParentColor = False
   end
   object Label3: TLabel
-    Left = 280
+    Left = 312
     Height = 15
-    Top = 583
+    Top = 552
     Width = 50
     Caption = 'Cfondo'
     ParentColor = False
   end
   object CheckBox1: TCheckBox
-    Left = 40
+    Left = 8
     Height = 21
-    Top = 640
+    Top = 608
     Width = 177
     Caption = 'Borrar imagen anterior'
     TabOrder = 11
+  end
+  object Button5: TButton
+    Left = 672
+    Height = 25
+    Top = 32
+    Width = 75
+    Caption = 'Guardar como...'
+    OnClick = Button5Click
+    TabOrder = 12
   end
   object MainMenu1: TMainMenu
     left = 320
@@ -193,5 +202,9 @@ object Form1: TForm1
   object OpenDialog1: TOpenDialog
     left = 288
     top = 88
+  end
+  object SavePictureDialog1: TSavePictureDialog
+    left = 258
+    top = 241
   end
 end

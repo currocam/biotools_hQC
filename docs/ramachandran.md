@@ -71,6 +71,34 @@ Los diagramas de Ramachandran son representaciones de los ángulos de torsión d
 |:--:|
 |Figura 2. Diagrama de Ramachandran.[^2]|
 
+A continuación, se muestra la representación del Diagrama de Ramachandran calculado para la proteína 2AFM (experimental y dibujada en azul) con la proteína calculada por AlphaFold (en blanco). 
+
+|![Ramachandran](images/2AFM_Vs_AlphaFold_Ramachandran.png)|
+|:--:|
+|Figura 3. Representación esquemática del diagrama de Ramachandran para la proteína experimental 2AFM comparada con la proteína predecida por AlphaFold.|
+
+En la realización de este ejercicio, se pide que se compare los valores de ángulos de torsión calculados por nuestro programa frente a los valores de referencia que obtengamos por una aplicación profesional. En nuestro caso, vamos a emplear como referencia los ángulos de torsión calculados por la aplicación [Torsion angles](https://swift.cmbi.umcn.nl/servers/html/chiang.html). Como puede observarse en la Tabla 1, los valores son enormemente parecidos, diferenciándose únicamente debido a distintos criterios de redondeo. 
+
+| Número de residue 	| Residuo 	| Phi ref 	| Phi exp 	| Psi ref 	| Psi calculado 	|
+|:---:	|:---:	|:---:	|:---:	|:---:	|:---:	|
+| 34 	| SER 	| -41.80 	| -41.77 	| 138.20 	| 138.19 	|
+| 35 	| ALA 	| -98.40 	| -98.42 	| 22.50 	| 22.48 	|
+| 36 	| TRP 	| -59.90 	| -59.89 	| -31.10 	| -31.05 	|
+| 37 	| PRO 	| -67.90 	| -67.86 	| -9.00 	| -9.03 	|
+| 38 	| GLU 	| -89.60 	| -89.61 	| -10.40 	| -10.38 	|
+| 39 	| GLU 	| -55.90 	| -55.90 	| -37.10 	| -37.10 	|
+| 40 	| LYS 	| -56.70 	| -56.73 	| -28.00 	| -28.00 	
+
+Tabla 1. Comparación de los ángulos de torsión calculados frente a un valor de referencia.
+## Ejemplo de uso 
+
+A continuación, se muestra en una animación la implementación de estas funciones en una interfaz gráfica dentro del programa `Ramachandran`. Para la realización de este programa fue necesario escribir la función `PlotXY` utilizando el módulo `Canvas`. No entraremos en detalles en el funcionamiento de esta puesto que fue desarrollada en clase.
+
+|![Interfaz gráfica para el programa Ramachandran](images/ramachandran.gif)|
+|:--:|
+|Figura 4. Animación del programa `Ramachandran` mostrando su uso..[^2]|
+
+
 # Referencias
 [^1]:[https://doi.org/10.1093/molbev/msx214].
 [^2]: Imagen elaborada por Dcrjsr y obtenida a través de Wikipedia. 

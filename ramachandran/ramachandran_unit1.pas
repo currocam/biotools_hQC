@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, StdCtrls,
-  ExtCtrls, ColorBox, src_biotools, strutils;
+  ExtCtrls, ColorBox, ExtDlgs, src_biotools, strutils;
 
 type
 
@@ -17,6 +17,7 @@ type
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
+    Button5: TButton;
     CheckBox1: TCheckBox;
     ColorBox1: TColorBox;
     ColorBox2: TColorBox;
@@ -38,9 +39,11 @@ type
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
     OpenDialog1: TOpenDialog;
+    SavePictureDialog1: TSavePictureDialog;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
     procedure CheckBox2Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Label1Click(Sender: TObject);
@@ -137,6 +140,12 @@ begin
      memo2.visible:=true;
      Image1.Visible:=true;
 end;
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+begin
+  if SavepictureDialog1.Execute then
+    image1.Picture.SaveToFile( SavepictureDialog1.Filename );
 end;
 
 procedure TForm1.CheckBox2Change(Sender: TObject);
