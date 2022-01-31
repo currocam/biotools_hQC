@@ -5,8 +5,7 @@ Esta página es el cuaderno de actividades de Francisco Campuzano Jiménez de la
 
 |![](images/2AFM_3d_proteinImagin.png)|
 |:--:|
-|Representación de la estructura 2AFM obtenida usando 3D Protein Imaging [@tomaselloProteinImagerFullfeatured2020a] |
-
+|Representación de la estructura 2AFM obtenida usando [3D Protein Imaging](https://doi.org/10.1093/bioinformatics/btaa009) |
 
 Esta web se ha realizado empleando la plantilla creado por [el Aula de Software Libre de la Universidad de Córdoba](https://github.com/aulasoftwarelibre/plantilla-talleres).
 
