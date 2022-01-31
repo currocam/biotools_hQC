@@ -70,10 +70,11 @@ En primer lugar, se definieron una serie de records que nos permitieran almacena
 	```
 
 ## Cargar PDB
-La función cargar PDB básica que se definió en un principio, fue la siguiente. Esta función teníacomo único argumento un TStrings (texto contenido en un memo) y, de forma sistemática, recorría las líneas del archivo PDB, accediendo a la información relativa a cada átomo, residuo y subunidad, guardándola en un record dentro de un array. Para hacer esto se tuvo en cuenta que los archivos .pdb son archivos que siguen unas pautas de formato muy específicas.
+La función cargar PDB básica que se definió en un principio, fue la siguiente. Esta función tenía como único argumento un TStrings (texto contenido en un memo) y, de forma sistemática, recorría las líneas del archivo PDB, accediendo a la información relativa a cada átomo, residuo y subunidad, guardándola en un record dentro de un array. Para hacer esto se tuvo en cuenta que los archivos .pdb son archivos que siguen unas pautas de formato muy específicas.
 
 ### Cálculo ángulos de torsión
-Una vez recorrido el archivo .pdb, se recorrían cada una de las subunidades y residuos del TPDB para definit los ángulos diedros $\psi$ y $\phi$. Para ello, se definió una función llamada torsión, que calculaba el ángulo de torsión 4 puntos en el espacio. Destacar que, para facilitar el trabajo vectorial, se definieron nuevos operadores aritméticos y booleanos para el tipo TPunto. Por ejemplo, así definimos algunos de ellos: 
+Una vez recorrido el archivo .pdb, se recorrían cada una de las subunidades y residuos del TPDB para definir los ángulos diedros $\psi$ y $\phi$. Para ello, se definió una función llamada torsión, que calculaba el ángulo de torsión 4 puntos en el espacio. Destacar que, para facilitar el trabajo vectorial, se definieron nuevos operadores aritméticos y booleanos para el tipo TPunto. Por ejemplo, así definimos algunos de ellos: 
+
 ???+ example "Operadores geométricos src_biotools"
 	```pascal linenums="1"
 	Operator + (A, B : TPunto): Tpunto;

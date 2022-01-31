@@ -27,7 +27,7 @@ La estructura posee una topología de sandwich abierto con una lámina β centra
 
 #### Estructura del sitio activo
 
-El sitio activo está formado por 6 bucles entre 3 y α4, β3 y α5, β4 y α7, β5 y α8, α8 y α9, y β6 y α10. Consta de un ión de zinc situado en el bolsillo del sitio activo y que está coordinado tetraédricamente D159 Oδ2, E202 Oε1, H330 Nε2 y una molécula de agua. También resultan de interés una serie de residuos altamente conservados en el entorno del zinc a los que se les atribuye cierto papel en la catálisis. Estos residuos son E201, W207, D248, D305, F325 y W329 y se ha comrpobado que mutaciones en estos aminoácidos reducen significativamente la actividad enzimática. [@gunnIncreasedGlutaminylCyclase2021a]
+El sitio activo está formado por 6 bucles entre 3 y α4, β3 y α5, β4 y α7, β5 y α8, α8 y α9, y β6 y α10. Consta de un ión de zinc situado en el bolsillo del sitio activo y que está coordinado tetraédricamente D159 Oδ2, E202 Oε1, H330 Nε2 y una molécula de agua. También resultan de interés una serie de residuos altamente conservados en el entorno del zinc a los que se les atribuye cierto papel en la catálisis. Estos residuos son E201, W207, D248, D305, F325 y W329 y se ha comprobado que mutaciones en estos aminoácidos reducen significativamente la actividad enzimática. [@gunnIncreasedGlutaminylCyclase2021a]
 
 #### Estructuras experimentales disponibles
 
@@ -75,7 +75,7 @@ Las QCs median la ciclación de la glutamina o glutamato expuestos en el N-termi
 |:--:|
 |Figura 2. Mecanismo de acción de la enzima hQC. [@huangCrystalStructuresHuman2005a]|
 
-A continuación, se muestra un detalle del sitio de unión de la la proteína. Se pueden observar los residuos que se destacan anteriormente. Para realizar esta imagen se han seleccionado los átomos de hasta una distancia de 5 A del cofactor del sitio catalítico y se han realizado anotaciones sobre los carbonos alfa. 
+A continuación, se muestra un detalle del sitio de unión de la proteína. Se pueden observar los residuos que se destacan anteriormente. Para realizar esta imagen se han seleccionado los átomos de hasta una distancia de 5 A del cofactor del sitio catalítico y se han realizado anotaciones sobre los carbonos alfa. 
 
 
 |![](images/sitio_union.png)|
