@@ -59,4 +59,9 @@ markdown_extensions:
       alternate_style: true 
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
+<<<<<<< HEAD
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+=======
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    #  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+>>>>>>> fac552d26af3dc776af4be1cf4c0f7d0126489d5

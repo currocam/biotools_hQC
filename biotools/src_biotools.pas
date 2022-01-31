@@ -93,6 +93,11 @@ type
   //Funciones formato
   function AA3TO1(aa3: string):char;
   function AA1TO3 (aa1:char):string ;
+  function isEmbl(archivo: Tstrings): boolean;
+  function isGenBank(archivo: Tstrings): boolean;
+  function isPDB(archivo: Tstrings): boolean;
+  function isUniProt(archivo: Tstrings): boolean;
+  function leerSecuenciaProteina(archivo: Tstrings): AnsiSTring;
   // Funciones Módulo gráfico
   function PlotXY(datos: TTablaDatos;
                   im: TImage; OX: integer = 0;
@@ -117,6 +122,7 @@ type
   //Funciones archivos PDB
   function cargarPDB (var p: TPDB): string;
   function CargarPDB(texto: TStrings): TPDB;    overload;
+  function WriteAtomPDB(atom: TAtomPDB): AnsiString;
 implementation
 
 //GEOMETRÍA
@@ -236,6 +242,7 @@ function AA3TO1(aa3: string):char;
  index:=pos(AA1, AA)-1;
  result:= copy(AA,index, 3);
  end;
+
 //
 // Funciones Módulo gráfico
 function PlotXY(datos: TTablaDatos;
@@ -514,6 +521,90 @@ begin
    result:= S;
 end;
 
+// Discriminar distintos formatos.
+
+function isEmbl(archivo: Tstrings): boolean;
+begin
+   if (copy(archivo[0],0,2)='ID') and (copy(archivo[1],0,2)='XX')
+   then result:= TRUE else result := FALSE;
+end;
+function isUniProt(archivo: Tstrings): boolean;
+begin
+   if (copy(archivo[0],0,2)='ID') and (copy(archivo[1],0,2)='AC')
+   then result:= TRUE else result := FALSE;
+end;
+function isGenBank(archivo: Tstrings): boolean;
+begin
+   if (copy(archivo[0],0,5)='LOCUS')
+   then result:= TRUE else result := FALSE;
+end;
+function isPDB(archivo: Tstrings): boolean;
+begin
+   if (copy(archivo[0],0,6)= 'HEADER')
+   then result:= TRUE else result := FALSE;
+end;
+
+function leerSecuenciaProteina(archivo: Tstrings): AnsiString;
+	var
+	   j,i: integer;
+	   sec, linea: String;
+	   p: TPDB;
+	   check: boolean;
+	begin
+	   if(isPDB(archivo))then
+	     begin
+	     p:= CargarPDB(archivo);
+	     result:= p.secuencia;
+	     ShowMessage('Se ha detectado un archivo en formato PDB');
+	   end
+	else if(isGenBank(archivo)) then
+	   begin
+	     sec:='';
+	     for j:= 0 to archivo.count-1 do
+	     begin
+	       linea:= archivo[j];
+	       if copy(linea,0,6) = 'ORIGIN' then Break;
+	       sec:= sec+ trim(linea);
+	       if copy(linea,22,13) = '/translation=' then sec:= copy(linea, 35, 70);
+	     end;
+	     result:= trim(copy(sec,2,sec.Length-2));
+	     ShowMessage('Se ha detectado un archivo en formato GenBank');
+	   end
+	   else if(isUniProt(archivo)) then
+	     begin
+		for j:= 0 to archivo.count-1 do
+		begin
+		  linea:= archivo[j];
+		  if copy(linea,0,2) = '//' then Break;
+		  sec:= sec+ trim(linea);
+		  if copy(linea,0,2) = 'SQ' then sec:= '';
+		end;
+		result:= trim(sec);
+		ShowMessage('Se ha detectado un archivo en formato UniProt');
+	      end
+	   else if(isEmbl(archivo)) then
+	     begin
+	       sec:='';
+	       check:= FALSE;
+	       for j:= 0 to archivo.count-1 do
+	       begin
+		 linea:= archivo[j];
+		 if (copy(linea,0,2) = 'XX') AND check then Break;
+		 sec:= sec+ trim(copy(linea, 22, 58));
+		 if copy(linea,22,13) = '/translation=' then
+		 begin
+		   check:= TRUE;
+		   sec:= copy(linea, 35, 39);
+		   end;
+	       end;
+	       result:= trim(copy(sec,2,sec.Length-2));
+	       ShowMessage('Se ha detectado un archivo en formato EMBL');
+		 end
+
+	   else
+	      ShowMessage('Es un formato no soportado');
+	end;
+
 //
 // Funciones trabajar PDB
 
@@ -531,7 +622,8 @@ end;
       p:=cargarPDB(textoPDB);
       result:= dialogo.filename;
 
-     end else result:= '';
+     end
+     else result:= '';
 
      dialogo.free;
      textoPDB.free;
@@ -636,6 +728,43 @@ function CargarPDB(texto: TStrings): TPDB;    overload;
 
     result:=p;
   end;
+
+function WriteAtomPDB(atom: TAtomPDB): AnsiString;
+var
+  numatm, numres, X, Y, Z, R: AnsiString;
+  linea: AnsiString;
+begin
+    // Obtenemos la información del objeto atom en el formato numérico que nos interesa
+    numatm:= inttostr(atom.NumAtom);
+    numres := inttostr(atom.NumRes);
+    X  := formatfloat('0.000', atom.coor.X);
+    Y  := formatfloat('0.000', atom.coor.Y);
+    Z  := formatfloat('0.000', atom.coor.Z);
+    R  := formatfloat('0.00', atom.R);
+    linea:= Concat('ATOM  ' , // 6 char justificado a la izquierda
+             format('%5s', [numatm]) ,  // 5 char justificado a la derecha
+             '  ' ,
+             format('%-3s', [atom.ID]) ,
+             ' ' + //No incluimos altLoc
+             atom.residuo,
+             ' ',
+             atom.subunidad,
+             '  ',
+             format('%-4s', [numres]), //4 char justificado a la derecha
+             '  ', //No incluimos iCode
+             ' ',
+             format('%7s', [X]),
+             ' ',
+             format('%7s', [Y]),
+             ' ',
+             format('%7s', [Z]),
+             '  ',
+             format('%-5s', ['1.00']), //No incluimosla ocupancia
+             format('%-6s', [R]));
+             // No incluimos el resto de parámetros
+    //ShowMessage(linea);
+    result:= linea;
+end;
 
 end.
 

@@ -1,0 +1,78 @@
+object Form1: TForm1
+  Left = 701
+  Height = 704
+  Top = 27
+  Width = 665
+  AllowDropFiles = True
+  Caption = 'Form1'
+  ClientHeight = 677
+  ClientWidth = 665
+  Color = clForm
+  Menu = MainMenu1
+  OnDropFiles = FormDropFiles
+  LCLVersion = '2.0.6.0'
+  object Memo1: TMemo
+    Left = 31
+    Height = 490
+    Top = 168
+    Width = 616
+    Color = clWhite
+    OnChange = Memo1Change
+    ScrollBars = ssBoth
+    TabOrder = 0
+  end
+  object Memo2: TMemo
+    Left = 31
+    Height = 104
+    Top = 6
+    Width = 613
+    Color = clInfoBk
+    TabOrder = 1
+  end
+  object Edit1: TEdit
+    Left = 31
+    Height = 24
+    Top = 136
+    Width = 376
+    TabOrder = 2
+    Text = ' '
+  end
+  object Button1: TButton
+    Left = 415
+    Height = 25
+    Top = 135
+    Width = 232
+    Caption = 'Extraer secuencia de la proteína'
+    OnClick = MenuItem6Click
+    TabOrder = 3
+  end
+  object MainMenu1: TMainMenu
+    left = 28
+    top = 58
+    object MenuItem1: TMenuItem
+      Caption = 'Archivo'
+      OnClick = MenuItem1Click
+      object MenuItem2: TMenuItem
+        Caption = 'Cargar archivo'
+        OnClick = MenuItem2Click
+      end
+      object MenuItem5: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem6: TMenuItem
+        Caption = 'Extraer secuencia'
+        OnClick = MenuItem6Click
+      end
+      object MenuItem4: TMenuItem
+        Caption = 'Cerrar archivo'
+      end
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Acerca de '
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    left = 109
+    top = 89
+  end
+end
