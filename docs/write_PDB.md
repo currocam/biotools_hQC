@@ -10,7 +10,7 @@ En primer lugar, se desarrolló una función que escribiera el contenido de un `
 
 A continuación, se muestra la función `WriteAtomPDB`. Para escribirla se utilizó la función `formatfloat` para convertir los valores numéricos en cadenas de texto con los números decimales adecuados y la función `format` para alinear dentro del número de espacios que ocupa cada tipo de variable en los archivos PDB a la izquierda o a la derecha, según fuera necesario. Para ello se utiliza la sintaxis `'%d'`. Añadir, además, que, puesto que no se consideraba el factor ocupancia en la estructura `TAtomPDB`, no se ha incluido tampoco en este función (por lo que todos los átomos del pseudo-pdb tendrán una ocupancia idéntica e igual a 1.00).  
 
-example "Función WriteAtomPDB"
+??? example "Función WriteAtomPDB"
 	```pascal linenums="1"
 	function WriteAtomPDB(atom: TAtomPDB): AnsiString;
 	var
@@ -116,4 +116,6 @@ Por último, se realizó la tarea propuesta en el ejercicio. Se obtuvo un pseudo
 |![writePDB](images/pseudoPDB_b_factor.gif)|
 |:--:|
 |Figura 2. Animación de los carbonos $\alpha$ de la proteína 2AFMen modo spacefill y coloreados según el factor B. Además, se han anotado los residuos que tuvieran un valor de B superior a 60| 
+
+Respecto a la interpretación de la anterior imagen, cabe destacar que una de las dos subunidades que comprenden el PDB (ambas versiones de la misma proteína) una de ellas tiene valores de factores B muy superiores. 
 
