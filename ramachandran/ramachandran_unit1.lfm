@@ -1,20 +1,20 @@
 object Form1: TForm1
-  Left = 203
-  Height = 518
-  Top = 88
-  Width = 996
+  Left = 37
+  Height = 704
+  Top = 27
+  Width = 1329
   ActiveControl = Button4
   Caption = 'Form1'
-  ClientHeight = 491
-  ClientWidth = 996
+  ClientHeight = 677
+  ClientWidth = 1329
   Menu = MainMenu1
   OnCreate = FormCreate
   LCLVersion = '2.0.6.0'
   object Memo1: TMemo
     Left = 8
-    Height = 440
+    Height = 537
     Top = 64
-    Width = 376
+    Width = 320
     Lines.Strings = (
       'Memo1'
     )
@@ -27,7 +27,7 @@ object Form1: TForm1
     Left = 8
     Height = 24
     Top = 33
-    Width = 376
+    Width = 320
     ParentFont = False
     TabOrder = 1
     Text = 'Edit1'
@@ -36,8 +36,8 @@ object Form1: TForm1
   object Button2: TButton
     Left = 8
     Height = 25
-    Top = 512
-    Width = 376
+    Top = 600
+    Width = 320
     Caption = 'Ocultar archivo'
     OnClick = Button2Click
     ParentFont = False
@@ -45,10 +45,10 @@ object Form1: TForm1
     Visible = False
   end
   object Memo2: TMemo
-    Left = 400
+    Left = 342
     Height = 537
     Top = 64
-    Width = 256
+    Width = 218
     Lines.Strings = (
       'Memo2'
     )
@@ -59,10 +59,10 @@ object Form1: TForm1
     WordWrap = False
   end
   object Button3: TButton
-    Left = 400
+    Left = 342
     Height = 25
     Top = 32
-    Width = 232
+    Width = 198
     Caption = 'Calcular ángulos phi y psi'
     OnClick = Button3Click
     ParentFont = False
@@ -73,7 +73,7 @@ object Form1: TForm1
     Left = 8
     Height = 25
     Top = 33
-    Width = 376
+    Width = 320
     Caption = 'Mostrar archivo'
     OnClick = Button1Click
     ParentFont = False
@@ -83,96 +83,137 @@ object Form1: TForm1
     Left = 8
     Height = 25
     Top = 8
-    Width = 376
+    Width = 320
     Caption = 'Cargar archivo'
     OnClick = MenuItem5Click
     ParentFont = False
     TabOrder = 6
   end
   object Image1: TImage
-    Left = 672
-    Height = 513
-    Top = 64
-    Width = 544
+    Left = 584
+    Height = 336
+    Top = 33
+    Width = 336
   end
   object ColorBox1: TColorBox
-    Left = 8
+    Left = 584
     Height = 29
-    Top = 569
-    Width = 119
+    Top = 468
+    Width = 111
     Selected = clYellow
     ItemHeight = 0
     TabOrder = 7
   end
   object ColorBox2: TColorBox
-    Left = 136
+    Left = 704
     Height = 29
-    Top = 569
-    Width = 119
+    Top = 468
+    Width = 111
     Selected = clGradientActiveCaption
     ItemHeight = 0
     TabOrder = 8
   end
   object ColorListBox1: TColorListBox
-    Left = 200
-    Height = 24
-    Top = 574
-    Width = 30
+    Left = 764
+    Height = 29
+    Top = 474
+    Width = 29
     ItemHeight = 0
     TabOrder = 9
   end
   object ColorBox3: TColorBox
-    Left = 265
+    Left = 825
     Height = 29
-    Top = 569
-    Width = 119
+    Top = 468
+    Width = 111
     ItemHeight = 0
     TabOrder = 10
   end
   object Label1: TLabel
-    Left = 37
+    Left = 612
     Height = 15
-    Top = 552
+    Top = 448
     Width = 55
     Caption = 'Clpluma'
     ParentColor = False
     OnClick = Label1Click
   end
   object Label2: TLabel
-    Left = 170
+    Left = 736
     Height = 15
-    Top = 552
+    Top = 448
     Width = 60
     Caption = 'Clrelleno'
     ParentColor = False
   end
   object Label3: TLabel
-    Left = 312
+    Left = 869
     Height = 15
-    Top = 552
+    Top = 448
     Width = 50
     Caption = 'Cfondo'
     ParentColor = False
   end
   object CheckBox1: TCheckBox
-    Left = 8
+    Left = 584
     Height = 21
-    Top = 608
+    Top = 515
     Width = 177
     Caption = 'Borrar imagen anterior'
     TabOrder = 11
   end
   object Button5: TButton
-    Left = 672
+    Left = 584
     Height = 25
-    Top = 32
-    Width = 75
+    Top = 384
+    Width = 136
     Caption = 'Guardar como...'
     OnClick = Button5Click
     TabOrder = 12
   end
+  object Chart1: TChart
+    Left = 952
+    Height = 336
+    Top = 33
+    Width = 336
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.Visible = True
+        Title.Caption = 'Psi'
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.Visible = True
+        Title.Caption = 'Phi'
+        Title.LabelBrush.Style = bsClear
+      end>
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'Diagrama de Ramachandran'
+    )
+    object Chart1LineSeries1: TLineSeries
+    end
+  end
+  object Button6: TButton
+    Left = 952
+    Height = 25
+    Top = 384
+    Width = 128
+    Caption = 'Guardar como...'
+    OnClick = Button6Click
+    TabOrder = 14
+  end
   object MainMenu1: TMainMenu
-    left = 320
+    left = 274
     top = 128
     object MenuItem1: TMenuItem
       Caption = 'Proteína'
@@ -200,11 +241,15 @@ object Form1: TForm1
     end
   end
   object OpenDialog1: TOpenDialog
-    left = 288
+    left = 247
     top = 88
   end
   object SavePictureDialog1: TSavePictureDialog
-    left = 258
+    left = 221
     top = 241
+  end
+  object SavePictureDialog2: TSavePictureDialog
+    left = 226
+    top = 312
   end
 end

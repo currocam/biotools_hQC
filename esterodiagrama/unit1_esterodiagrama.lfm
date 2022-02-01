@@ -1,0 +1,172 @@
+object Form1: TForm1
+  Left = 616
+  Height = 663
+  Top = 27
+  Width = 714
+  Caption = 'Form1'
+  ClientHeight = 663
+  ClientWidth = 714
+  OnCreate = FormCreate
+  LCLVersion = '2.0.6.0'
+  object Image1: TImage
+    Left = 24
+    Height = 370
+    Top = 24
+    Width = 328
+  end
+  object Image2: TImage
+    Left = 360
+    Height = 370
+    Top = 24
+    Width = 336
+  end
+  object Memo1: TMemo
+    Left = 24
+    Height = 144
+    Top = 408
+    Width = 328
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Left = 24
+    Height = 25
+    Top = 560
+    Width = 328
+    Caption = 'Cargar archivo'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object Button2: TButton
+    Left = 368
+    Height = 25
+    Top = 408
+    Width = 328
+    Caption = 'Realizar transformación'
+    OnClick = Button2Click
+    TabOrder = 2
+  end
+  object SpinEdit1: TSpinEdit
+    Left = 481
+    Height = 24
+    Top = 448
+    Width = 215
+    MaxValue = 2
+    TabOrder = 3
+    Value = 1
+  end
+  object Label1: TLabel
+    Left = 360
+    Height = 30
+    Top = 442
+    Width = 120
+    Caption = 'Seleccione el eje '#10'sobre el que rotar'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 360
+    Height = 30
+    Top = 488
+    Width = 97
+    Caption = 'Ángulo de giro'#10' (en grados)'
+    ParentColor = False
+  end
+  object CheckBox1: TCheckBox
+    Left = 525
+    Height = 21
+    Top = 624
+    Width = 171
+    Caption = 'Modificar en memoria'
+    TabOrder = 4
+  end
+  object SpinEdit3: TSpinEdit
+    Left = 481
+    Height = 24
+    Top = 528
+    Width = 215
+    TabOrder = 5
+  end
+  object Label3: TLabel
+    Left = 368
+    Height = 15
+    Top = 528
+    Width = 100
+    Caption = 'Primer residuo'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 368
+    Height = 15
+    Top = 560
+    Width = 100
+    Caption = 'Último residuo'
+    ParentColor = False
+  end
+  object SpinEdit4: TSpinEdit
+    Left = 481
+    Height = 24
+    Top = 560
+    Width = 215
+    TabOrder = 6
+  end
+  object SpinEdit5: TSpinEdit
+    Left = 481
+    Height = 24
+    Top = 592
+    Width = 215
+    TabOrder = 7
+  end
+  object Label5: TLabel
+    Left = 368
+    Height = 15
+    Top = 592
+    Width = 71
+    Caption = 'Subunidad'
+    ParentColor = False
+  end
+  object SpinEdit2: TSpinEdit
+    Left = 481
+    Height = 24
+    Top = 488
+    Width = 215
+    MaxValue = 360
+    TabOrder = 8
+    Value = 5
+  end
+  object SpinEdit6: TSpinEdit
+    Left = 137
+    Height = 24
+    Top = 600
+    Width = 215
+    MaxValue = 2
+    TabOrder = 9
+  end
+  object Label6: TLabel
+    Left = 34
+    Height = 30
+    Top = 592
+    Width = 83
+    Caption = 'Coordenada'#10' eje inferior'
+    ParentColor = False
+  end
+  object Label7: TLabel
+    Left = 34
+    Height = 30
+    Top = 624
+    Width = 83
+    Caption = 'Coordenada'#10' eje lateral'
+    ParentColor = False
+  end
+  object SpinEdit7: TSpinEdit
+    Left = 137
+    Height = 24
+    Top = 632
+    Width = 215
+    MaxValue = 2
+    TabOrder = 10
+    Value = 1
+  end
+  object OpenDialog1: TOpenDialog
+    left = 143
+    top = 155
+  end
+end

@@ -6,9 +6,9 @@ En la realización de este cuaderno de actividades se pide el desarrollo de una 
 
 Los ángulos de torsión característicos de una proteína son los ángulos $\psi$ y $\phi$ y se pueden calcular para todos os residuos de una proteína excepto el primero y último. 
 
-|![ángulos de torsión](https://www.researchgate.net/publication/312022960/figure/fig8/AS:668976552095754@1536507847848/Dihedral-angle-representation-A-very-small-section-of-the-protein-backbone-is-displayed.png)|
-|:--:|
-|Figura 1. Representación de los ángulos de torsión.[^1]|
+| ![ángulos de torsión](https://www.researchgate.net/publication/312022960/figure/fig8/AS:668976552095754@1536507847848/Dihedral-angle-representation-A-very-small-section-of-the-protein-backbone-is-displayed.png) |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Figura 1. Representación de los ángulos de torsión.[^1]                                                                                                                                                            |
 
 A continuación, se muestran las funciones desarrolladas `angulo()` y  `torsion()`  para calcular el ángulo diedro (según las convenciones IUPAC de signo) para 4 puntos en el espacio (definidos según el `record TPunto`. Estas funciones se basan en que podemos calcular el ángulo diedro formado por 4 puntos en el espacio, A, B, C y D, como el ángulo que forman entre si los vectores $V1$ y $V2$, resultantes del producto vectorial de BC y BA respectivamente. Además, este ángulo diedro debe de corregirse después en signo para adecuarse a las convenciones IUPAC.
 
@@ -94,9 +94,9 @@ Tabla 1. Comparación de los ángulos de torsión calculados frente a un valor d
 
 A continuación, se muestra en una animación la implementación de estas funciones en una interfaz gráfica dentro del programa `Ramachandran`. Para la realización de este programa fue necesario escribir la función `PlotXY` utilizando la clase `Canvas`. No entraremos en detalles en el funcionamiento de esta puesto que fue desarrollada en clase.No obstante, y para obtener un gráfico de mayor calidad con ejes, utilizamos también la clase `TChart` que facilita la realización de gráficos. No obstante, hemos querido mantener el gráfico original para mostrar cómo nuestro 'módulo gráfico' funciona de manera muy parecida a una clase desarrollada de manera profesional. 
 
-|![Interfaz gráfica para el programa Ramachandran](images/ramachandran.gif)|
-|:--:|
-|Figura 4. Animación del programa `Ramachandran` mostrando su uso..[^2]|
+| ![Interfaz gráfica para el programa Ramachandran](images/ramachandran.gif) |
+|:--------------------------------------------------------------------------:|
+| Figura 4. Animación del programa `Ramachandran` mostrando su uso.          |
 
 
 # Referencias

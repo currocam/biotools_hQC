@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, StdCtrls,
-  ExtCtrls, ColorBox, ExtDlgs, src_biotools, strutils;
+  ExtCtrls, ColorBox, ExtDlgs, TAGraph, TASeries, src_biotools, strutils;
 
 type
 
@@ -18,6 +18,9 @@ type
     Button3: TButton;
     Button4: TButton;
     Button5: TButton;
+    Button6: TButton;
+    Chart1: TChart;
+    Chart1LineSeries1: TLineSeries;
     CheckBox1: TCheckBox;
     ColorBox1: TColorBox;
     ColorBox2: TColorBox;
@@ -40,10 +43,12 @@ type
     MenuItem7: TMenuItem;
     OpenDialog1: TOpenDialog;
     SavePictureDialog1: TSavePictureDialog;
+    SavePictureDialog2: TSavePictureDialog;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
     procedure CheckBox2Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Label1Click(Sender: TObject);
@@ -119,6 +124,7 @@ begin
      setLength(datos, 2,  p.sub[j].resCount -2);
      memo2.visible:=false;
      Image1.Visible:=false;
+     if borrar then Chart1LineSeries1.Clear();
      for k:=p.sub[j].res1+1 to p.sub[j].resn-1 do
      begin
         counter_col:= counter_col +1;
@@ -128,6 +134,8 @@ begin
 
         datos[0, counter_col]:= p.res[k].phi*180/pi;
         datos[1, counter_col]:= p.res[k].psi*180/pi;
+        // Añadimos a gráfico con ejes
+        Chart1LineSeries1.AddXY(datos[0, counter_col], datos[1, counter_col],'', colorBox2.Selected);
      end;
      plotXY(datos, Image1,
                    0,        //OX
@@ -139,6 +147,10 @@ begin
                    colorBox3.Selected);  //Tcolor
      memo2.visible:=true;
      Image1.Visible:=true;
+     Chart1.BottomAxis.Visible:= TRUE;
+     Chart1.BottomAxis.Visible:= TRUE;
+     Chart1LineSeries1.ShowPoints:=TRUE;
+     Chart1LineSeries1.LineType:=ltNone;
 end;
 end;
 
@@ -146,6 +158,20 @@ procedure TForm1.Button5Click(Sender: TObject);
 begin
   if SavepictureDialog1.Execute then
     image1.Picture.SaveToFile( SavepictureDialog1.Filename );
+end;
+
+procedure TForm1.Button6Click(Sender: TObject);
+var
+  jpg: TRasterImage;
+begin
+  jpg := Chart1.SaveToImage(TJpegImage);
+  try
+    TJPegImage(jpg).CompressionQuality:=100;
+    if SavepictureDialog2.Execute then
+    jpg.SaveToFile(SavepictureDialog2.Filename);
+  finally
+    jpg.Free;
+  end;
 end;
 
 procedure TForm1.CheckBox2Change(Sender: TObject);
