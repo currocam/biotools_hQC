@@ -71,13 +71,13 @@ Los diagramas de Ramachandran son representaciones de los ángulos de torsión d
 |:--:|
 |Figura 2. Diagrama de Ramachandran.[^2]|
 
-A continuación, se muestra la representación del Diagrama de Ramachandran calculado para la proteína 2AFM (experimental y dibujada en azul) con la proteína calculada por AlphaFold (en blanco). 
+A continuación, se muestra la representación del Diagrama de Ramachandran calculado para la proteína 2AFW (experimental y dibujada en azul) con la proteína calculada por AlphaFold (en blanco).Como se puede observar, los resultados son altamente similares entre ambas.  
 
-|![Ramachandran](images/2AFM_Vs_AlphaFold_Ramachandran.png)|
-|:--:|
-|Figura 3. Representación esquemática del diagrama de Ramachandran para la proteína experimental 2AFM comparada con la proteína predecida por AlphaFold.|
+| ![Ramachandran](images/2AFW_Vs_AlphaFold_Ramachandran.jpeg)                                                                                              |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Figura 3. Representación esquemática del diagrama de Ramachandran para la proteína experimental 2AFM comparada con la proteína predecida por AlphaFold. |
 
-En la realización de este ejercicio, se pide que se compare los valores de ángulos de torsión calculados por nuestro programa frente a los valores de referencia que obtengamos por una aplicación profesional. En nuestro caso, vamos a emplear como referencia los ángulos de torsión calculados por la aplicación [Torsion angles](https://swift.cmbi.umcn.nl/servers/html/chiang.html). Como puede observarse en la Tabla 1, los valores son enormemente parecidos, diferenciándose únicamente debido a distintos criterios de redondeo. 
+En la realización de este ejercicio, se pide que se compare los valores de ángulos de torsión calculados por nuestro programa frente a los valores de referencia que obtengamos por una aplicación profesional. En nuestro caso, vamos a emplear como referencia los ángulos de torsión calculados por la aplicación [Torsion angles](https://swift.cmbi.umcn.nl/servers/html/chiang.html) para la proteína 2AFM. Como puede observarse en la Tabla 1, los valores son enormemente parecidos, diferenciándose únicamente debido a distintos criterios de redondeo. 
 
 | Número de residue 	| Residuo 	| Phi ref 	| Phi exp 	| Psi ref 	| Psi calculado 	|
 |:---:	|:---:	|:---:	|:---:	|:---:	|:---:	|
@@ -89,10 +89,10 @@ En la realización de este ejercicio, se pide que se compare los valores de áng
 | 39 	| GLU 	| -55.90 	| -55.90 	| -37.10 	| -37.10 	|
 | 40 	| LYS 	| -56.70 	| -56.73 	| -28.00 	| -28.00 	
 
-Tabla 1. Comparación de los ángulos de torsión calculados frente a un valor de referencia.
+Tabla 1. Comparación de los ángulos de torsión calculados frente a un valor de referencia para la proteína 2AFM.
 ## Ejemplo de uso 
 
-A continuación, se muestra en una animación la implementación de estas funciones en una interfaz gráfica dentro del programa `Ramachandran`. Para la realización de este programa fue necesario escribir la función `PlotXY` utilizando el módulo `Canvas`. No entraremos en detalles en el funcionamiento de esta puesto que fue desarrollada en clase.
+A continuación, se muestra en una animación la implementación de estas funciones en una interfaz gráfica dentro del programa `Ramachandran`. Para la realización de este programa fue necesario escribir la función `PlotXY` utilizando la clase `Canvas`. No entraremos en detalles en el funcionamiento de esta puesto que fue desarrollada en clase.No obstante, y para obtener un gráfico de mayor calidad con ejes, utilizamos también la clase `TChart` que facilita la realización de gráficos. No obstante, hemos querido mantener el gráfico original para mostrar cómo nuestro 'módulo gráfico' funciona de manera muy parecida a una clase desarrollada de manera profesional. 
 
 |![Interfaz gráfica para el programa Ramachandran](images/ramachandran.gif)|
 |:--:|
