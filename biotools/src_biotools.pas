@@ -119,6 +119,7 @@ type
   function GiroOY(rad: real; var p: TPDB): integer; overload;
   function GiroOZ(rad: real; var p: TPDB): integer; overload;
   function AlinearZ(puntos: Tpuntos):TPuntos;
+  function girarTpuntos(rad: real; datos:Tpuntos; funcion_girar:TTransformTPuntoFunc): Tpuntos;
   //Funciones archivos PDB
   function cargarPDB (var p: TPDB): string;
   function CargarPDB(texto: TStrings): TPDB;    overload;
@@ -619,6 +620,7 @@ function leerSecuenciaProteina(archivo: Tstrings): AnsiString;
      if dialogo.execute then
      begin
       textoPDB.loadfromfile(dialogo.filename);
+      if isPDB(textoPDB) = False then ShowMessage('No es un archivo PDB');
       p:=cargarPDB(textoPDB);
       result:= dialogo.filename;
 
@@ -636,7 +638,7 @@ function CargarPDB(texto: TStrings): TPDB;    overload;
     resno: integer;
 
   begin
-
+    if isPDB(texto) = False then ShowMessage('No es un archivo PDB');
     p.secuencia:='';
     F:=0; R:=0; S:=0;
     setlength(p.atm, texto.count);
