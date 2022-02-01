@@ -10,7 +10,7 @@ Los ángulos de torsión característicos de una proteína son los ángulos $\ps
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | Figura 1. Representación de los ángulos de torsión.[^1]                                                                                                                                                            |
 
-A continuación, se muestran las funciones desarrolladas `angulo()` y  `torsion()`  para calcular el ángulo diedro (según las convenciones IUPAC de signo) para 4 puntos en el espacio (definidos según el `record TPunto`. Estas funciones se basan en que podemos calcular el ángulo diedro formado por 4 puntos en el espacio, A, B, C y D, como el ángulo que forman entre si los vectores $V1$ y $V2$, resultantes del producto vectorial de BC y BA respectivamente. Además, este ángulo diedro debe de corregirse después en signo para adecuarse a las convenciones IUPAC.
+A continuación, se muestran las funciones desarrolladas `angulo()` y  `torsion()`  para calcular el ángulo diedro (según las convenciones IUPAC de signo) para 4 puntos en el espacio (definidos según el `record TPunto`. Estas funciones se basan en que podemos calcular el ángulo diedro formado por 4 puntos en el espacio, $A$, $B$, $C$ y $D$, como el ángulo que forman entre si los vectores $V_1$ y $V_2$, resultantes del producto vectorial de $\vec{BC}$ y $\vec{BA}$ respectivamente. Además, este ángulo diedro debe de corregirse después en signo para adecuarse a las convenciones IUPAC.
 
 === "angulo (A, B: Tpunto)"
 
@@ -79,7 +79,7 @@ A continuación, se muestra la representación del Diagrama de Ramachandran calc
 
 En la realización de este ejercicio, se pide que se compare los valores de ángulos de torsión calculados por nuestro programa frente a los valores de referencia que obtengamos por una aplicación profesional. En nuestro caso, vamos a emplear como referencia los ángulos de torsión calculados por la aplicación [Torsion angles](https://swift.cmbi.umcn.nl/servers/html/chiang.html) para la proteína 2AFM. Como puede observarse en la Tabla 1, los valores son enormemente parecidos, diferenciándose únicamente debido a distintos criterios de redondeo. 
 
-| Número de residue 	| Residuo 	| Phi ref 	| Phi exp 	| Psi ref 	| Psi calculado 	|
+| Número de residue 	| Residuo 	| $\phi_{\text{ref}}$ 	| $\phi_{\text{calculado}}$ 	| $\psi_{\text{ref}}$ 	| $\psi_{\text{calculado}}$ 	|
 |:---:	|:---:	|:---:	|:---:	|:---:	|:---:	|
 | 34 	| SER 	| -41.80 	| -41.77 	| 138.20 	| 138.19 	|
 | 35 	| ALA 	| -98.40 	| -98.42 	| 22.50 	| 22.48 	|
@@ -100,6 +100,7 @@ A continuación, se muestra en una animación la implementación de estas funcio
 
 
 # Referencias
-[^1]:[https://doi.org/10.1093/molbev/msx214].
+[^1]: «A Generative Angular Model of Protein Structure Evolution». Molecular Biology and Evolution 34, n.º 11 (1 de noviembre de 2017): 3040-3040. https://doi.org/10.1093/molbev/msx214.
+.
 [^2]: Imagen elaborada por Dcrjsr y obtenida a través de Wikipedia. 
 

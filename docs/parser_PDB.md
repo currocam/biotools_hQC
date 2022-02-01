@@ -227,7 +227,3 @@ A continuación, se muestra la función CargarPDB:
 	    result:=p;
 	  end
 	```
-
-
-## Referencias
-\bibliography
