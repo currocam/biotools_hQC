@@ -61,7 +61,8 @@ type
        NumSubunidades : integer;        //Número de subunidades
        subs, secuencia : string;        //Strings caracteres subunidades y secuencia
   end;
-
+  Matriz2D = array of array of real;
+  ArrayMatrices = array of array of array of real;
   TTabladatos = array of array of real; // Disponemos los vectores en filas
    TTransformTPuntoFunc = function(a: real; X:TPunto):TPunto;
   //CONSTANTES PÚBLICAS
@@ -543,6 +544,54 @@ function isPDB(archivo: Tstrings): boolean;
 begin
    if (copy(archivo[0],0,6)= 'HEADER')
    then result:= TRUE else result := FALSE;
+end;
+
+// Calcular RMSD
+function matriz_distancias (puntos: TPuntos): Matriz2D;
+var 
+matriz : Matriz2D;
+i, j, n : integer;
+begin
+ n:= high(puntos)+1;
+ SetLength(matriz, n, n);
+   for i:= 0 to n do  
+      for j:= 0 to n do  
+         matriz[i,j]:= distancia3D(puntos[i], puntos[j]); 
+ result:= matriz;
+end;
+
+function RMSD(distancias1, distancias2 : Matriz2D): real;
+var
+sumatorio : real;
+i, j, n : integer;
+begin
+if high(distancias1 = distancias2) then
+begin
+sumatorio := 0;
+n:= high(residuo1)+1;
+   for i:= 0 to n do
+   begin  
+      for j:= 0 to n do
+      begin  
+         sumatorio:= sumatorio + sqr(distancias1[i, j] - distancias2[i, j]); 
+      end;   
+   end;
+result := sqrt(sumatorio/n);  
+end;
+else result:= Inf;
+end;
+
+function RMSD(residuos : ArrayMatrices): Matriz2D; overload;
+var
+n : integerM
+matriz : Matriz2D;
+begin
+ n := high(residuos)+1;
+ SetLength(matriz, n, n);
+ for i:= 0 to n do  
+      for j:= 0 to n do
+           matriz[i,j]:= RMSD(residuos[i], residuos[j]);
+result:= matriz;
 end;
 
 function leerSecuenciaProteina(archivo: Tstrings): AnsiString;
