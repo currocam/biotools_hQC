@@ -1,12 +1,12 @@
-# Esterodiagrama
+# Estereodiagrama
 
-En la realización de este cuaderno de actividades se pide el desarrollo de una aplicación capaz de crear un esterodiagrama de un fragmento  El código correspondiente a las funciones utilizadas para transformar (translación y giro) las coordenadas se encuentran en la librería [biotools/src_biotools](https://github.com/currocam/biotools_hQC/blob/master/biotools/src_biotools.pas) y la aplicación bajo el nombre de [esterodiagrama](https://github.com/currocam/biotools_hQC/blob/master/biotools/esterodiagrama).
+En la realización de este cuaderno de actividades se pide el desarrollo de una aplicación capaz de crear un estereodiagrama de un fragmento  El código correspondiente a las funciones utilizadas para transformar (translación y giro) las coordenadas se encuentran en la librería [biotools/src_biotools](https://github.com/currocam/biotools_hQC/blob/master/biotools/src_biotools.pas) y la aplicación bajo el nombre de [estereodiagrama](https://github.com/currocam/biotools_hQC/blob/master/biotools/estereodiagrama).
 
 
 ## Funciones de transformación
 En primer lugar, mostramos a continuación las funciones empleadas para transformar las un conjunto de coordenadas. Para escribir estas funciones,que fueron desarrolladas en clase, se sobrecargaron las funciones demanera que se puede transladar tanto un punto en el espacio, `TPunto`,  un array dinámico `TPuntos` como un `TPDB`. En los siguientes bloques de código se ha escogido una serie de funciones representativas de este pequeño módulo 'espacial' obtenido. 
 
-=== "translacion(dx, dy, dz: real; V: Tpunto)"
+=== "translacion() con TPunto"
 
 	```pascal linenums="1"
     function translacion(dx, dy, dz: real; V: Tpunto): Tpunto;
@@ -19,7 +19,7 @@ En primer lugar, mostramos a continuación las funciones empleadas para transfor
        result:= s;
     end;
 	```
-=== "translacion(dx, dy, dz: real; datos: Tpuntos)"
+=== "translacion() con TPuntos"
 	```pascal linenums="1"
     function translacion(dx, dy, dz: real; datos: Tpuntos): Tpuntos; overload;
     var
@@ -34,7 +34,7 @@ En primer lugar, mostramos a continuación las funciones empleadas para transfor
        result := s;
     end;
 	```
-=== "translacion(dx, dy, dz: real; var p: TPDB)"
+=== "translacion() con TPDB"
 	```pascal linenums="1"
     function translacion(dx, dy, dz: real; var p: TPDB): integer; overload;
     var
@@ -52,7 +52,7 @@ En primer lugar, mostramos a continuación las funciones empleadas para transfor
 Destacar que, siguiendo ideas del paradigma de programación funcional, se pensó implementar una función más genérica llamada `girarTpuntos` que recibe tanto un ángulo en radianes como una función capaz de girar un vector en el espacio y aplicar dicha transformación a todos los vectores del array. Esta idea podría ser implementada de forma más genérica con una función que recibiese como argumentos el array a transformar y una función transformadora y se obtendría así un código más claro y conciso.  
 
 
-=== "girarTpuntos(rad: real; datos:Tpuntos; funcion_girar:TTransformTPuntoFunc)"
+=== "girarTpuntos()"
 
 	```pascal linenums="1"
     function girarTpuntos(rad: real; datos:Tpuntos; funcion_girar:TTransformTPuntoFunc): Tpuntos;
@@ -68,7 +68,7 @@ Destacar que, siguiendo ideas del paradigma de programación funcional, se pens�
          result := s;
     end;
 	```
-=== "GiroOZ(rad: real; V: Tpunto)"
+=== "GiroOZ() con TPunto"
 	```pascal linenums="1"
     function GiroOZ(rad: real; V: Tpunto): Tpunto;
     var
@@ -84,7 +84,7 @@ Destacar que, siguiendo ideas del paradigma de programación funcional, se pens�
        result:= S;
     end;
 	```
-=== "GiroOX(rad: real; datos: Tpuntos)"
+=== "GiroOX() con TPuntos"
 
 	```pascal linenums="1"
     function GiroOX(rad: real; datos: Tpuntos): Tpuntos; overload;
@@ -100,7 +100,7 @@ Destacar que, siguiendo ideas del paradigma de programación funcional, se pens�
        result := s;
     end;
 	```
-=== "GiroOY(rad: real; datos: Tpuntos)"
+=== "GiroOY() con TPuntos"
 	```pascal linenums="1"
     function GiroOY(rad: real; datos: Tpuntos): Tpuntos; overload;
     var
@@ -115,17 +115,17 @@ Destacar que, siguiendo ideas del paradigma de programación funcional, se pens�
        result := s;
     end;
 	```
-##  Esterodiagrama
-Un esterodiagrama es un tipo de representación donde se muestra una imagen en dos dimensiones rotada en torno al eje Y (por defecto) un pequeño ángulo (por defecto 5º) de manera que al visualizarse las dos una al lado de la otra se aprecie cierta tridimensionalidad. 
+##  Estereodiagrama
+Un estereodiagrama es un tipo de representación donde se muestra una imagen en dos dimensiones rotada en torno al eje Y (por defecto) un pequeño ángulo (por defecto 5º) de manera que al visualizarse las dos una al lado de la otra se aprecie cierta tridimensionalidad. 
 
-Nuestra aplicación deberá tener, entonces, una interfaz que permita al usuario seleccionar un fragmento de la proteína, un eje y un ángulo de giro. También se incluye una opción para modificar el archivo e memoria y poder hacer así transformaciones sucesivas así como una opción para elegir qué ejes se quieren representra.  A continuación, mostramos el procedimiento empleado para transformar las coordenadas espaciales iniciales según las indicaciones del usuario (o las coordenadas espaciales previamente transformadas si así se indica). Lo hemos incluido porque nos parecía relevante mostrar un ejemplo de uso de la función `girarTpuntos`puesto que es una función compleja y la manera que encontramos para solventar algunos de los posibles errores que podían surgir al realizar transformaciones en memoria (si se cambiaba el array de `TPuntos` inicial o si todavía no se había definido). En primer lugar, definimos un tipo de variable llamado `TTransformTpuntoFunc`. En segundo lugar, mostramos el procedimiento empleado. 
+Nuestra aplicación deberá tener, entonces, una interfaz que permita al usuario seleccionar un fragmento de la proteína, un eje y un ángulo de giro. También se incluye una opción para modificar el archivo e memoria y poder hacer así transformaciones sucesivas así como una opción para elegir qué ejes se quieren representra.  A continuación, mostramos el procedimiento empleado para transformar las coordenadas espaciales iniciales según las indicaciones del usuario (o las coordenadas espaciales previamente transformadas si así se indica). Lo hemos incluido porque nos parecía relevante mostrar un ejemplo de uso de la función `girarTpuntos()`puesto que es una función compleja y la manera que encontramos para solventar algunos de los posibles errores que podían surgir al realizar transformaciones en memoria (si se cambiaba el array de `TPuntos` inicial o si todavía no se había definido). En primer lugar, definimos un tipo de variable llamado `TTransformTpuntoFunc`. En segundo lugar, mostramos el procedimiento empleado. 
 
-=== "TTransformTPuntoFunc"
+=== "Type TTransformTPuntoFunc"
 
 	```pascal linenums="1"
     TTransformTPuntoFunc = function(a: real; X:TPunto):TPunto;
 	```
-=== "TTransformTPuntoFunc"
+=== "Procedure transformación"
 
 	```pascal linenums="1"
     Tprocedure TForm1.Button2Click(Sender: TObject);
@@ -170,13 +170,18 @@ Nuestra aplicación deberá tener, entonces, una interfaz que permita al usuario
 	```
 A continuación, mostramos el funcionamiento del programa. 
 
-|[Interfaz gráfica para el programa Ramachandran](images/estereodiagrama.gif)|
+|![Interfaz gráfica para el programa Ramachandran](images/estereodiagrama.gif)|
 |:-----------------------------------------------------------------------------:|
 | Figura 1. Animación del programa `Estereodiagrama` mostrando su uso.|
 
 |![estereodiagrama.png](images/estereodiagrama.png)|
 |:-----------------------------------------------------------------------------:|
-| Figura 2. Esterodiagrama de los residuos 35 a 43 de la proteína 2AFM, mostrando las coordenadas *y* frente a *x*. La imagen de la derecha ha sido rotada 5º en el eje de la *y* respecto a la imagen de la izquierda.|
+| Figura 2. Estereodiagrama de los residuos 35 a 43 de la proteína 2AFM, mostrando las coordenadas *y* frente a *x*. La imagen de la derecha ha sido rotada 5º en el eje de la *y* respecto a la imagen de la izquierda.|
 
+Por último, y para comprobar que nuestra representación es correcta, se muestran en la siguiente imagen una representación de la cadena principal (es decir, solo de los $C_\alpha$ de los mismos residuos, 35 a 43, de la proteína 2AFM después de aplicar la opción `stereo crosseye` del programa Pymol. Tal y como se observa, aunque la orientación no es la misma, se puede apreciar cómo nuestro estereodiagrama se encuentra bien construido. 
+
+|![estereodiagrama_pymol.png](images/estereodiagrama_pymol.png)|
+|:-----------------------------------------------------------------------------:|
+| Figura 3. Estereodiagrama realizado usando el programa Pymol para comprobar la calidad de nuestro estereodiagrama..|
 
 

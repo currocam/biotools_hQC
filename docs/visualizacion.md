@@ -8,7 +8,7 @@ Además de la estructura 2AFM se ha elegido una segunda estructura con el objeti
 
 No obstante, no podemos hacer uso de ella directamente debido a que los modelos estructurales de la base de datos AlphaFold no tienen en cuenta todas las entidades químicas distintas de los residuos de aminoácidos naturales y no poseen, por tanto cofactores. Esto supone un inconveniente en nuestro caso porque, como vimos en el apartado anterior, la proteína hQC posee un cofactor de Zn2+ que es imprescindible para que tenga lugar la catálisis y es, por tanto, de interés. Esto es así porque estos algoritmos no son capaces de resolver el problema del plegamiento de las proteínas mediante la  comprensión de los principios físicos subyacentes, sino que han descubierto intrincados patrones en base a las estructuras tridimensionales determinadas estructuralmente. 
 
-Este inconveniente podemos resolverlo haciendo uso del algoritmo AlphaFill, el cual ha sido recientemente publicado en forma de preprint. Este algortimo enriquece los modelos de la base de datos AlphaFold "transplantando" moléculas pequeñas e iones comunes que se hayan observado en complejos con proteínas homólogas muy similares en modelos determinados experimentalmente del banco de datos PDB-REDO7 [@hekkelmanAlphaFillEnrichingAlphaFold2021a]. El funcionamiento del algoritmo es, a grandes rasgos, como se muestra a continuación: 
+Este inconveniente podemos resolverlo haciendo uso del algoritmo AlphaFill, el cual ha sido recientemente publicado en forma de preprint. Este algortimo enriquece los modelos de la base de datos AlphaFold "transplantando" moléculas pequeñas e iones comunes que se hayan observado en complejos con proteínas homólogas muy similares en modelos determinados experimentalmente del banco de datos PDB-REDO7 [^1]. El funcionamiento del algoritmo es, a grandes rasgos, como se muestra a continuación: 
 
 1. BLAST con la secuencia de AlphaFold con las secuencias alojadas en LAHMA webserver. 
 2. Selección homólogos muy cercanos.
@@ -100,4 +100,4 @@ python end
 |Animación de las estructuras 2AFM y Q16769 mostrando cofactores. Elaboración propia.|
 
 ## Referencias
-\bibliography
+[^1]: Hekkelman, Maarten L., Ida de Vries, Robbie P. Joosten, y Anastassis Perrakis. «AlphaFill: Enriching the AlphaFold Models with Ligands and Co-Factors». Preprint. Bioinformatics, 27 de noviembre de 2021. https://doi.org/10.1101/2021.11.26.470110.

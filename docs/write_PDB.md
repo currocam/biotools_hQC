@@ -1,6 +1,6 @@
 # WritePDB: Extraer átomos Carbono alfa
 
-En la realización de este cuaderno de actividades se pide el desarrollo de una función que permite escribir la información relativa a un átomo de un archivo PDB en el formato adecuado. El objetivo es emplear dicha función para extraer los carbonos alfa de un fichero PDB, escribirlos en un archivo pseudo-pdb y estudiar el desorden de la proteína en base a su factor $B$. El factor $B$ representa el desplazamiento de los átomos de su posición media en la estructura cristalina (y que se observa como una disminución en al intensidad de la difracción). Puede tener dos causas: puede ser el resultado de vibraciones atómicas dependientes de la temperatura o del desorden estático en la estructura cristalina. Podemos utilizarlo, por tanto, como indicador de los residuos más desordenados de la proteína [truebloodAtomicDispacementParameter1996]. 
+En la realización de este cuaderno de actividades se pide el desarrollo de una función que permite escribir la información relativa a un átomo de un archivo PDB en el formato adecuado. El objetivo es emplear dicha función para extraer los carbonos alfa de un fichero PDB, escribirlos en un archivo pseudo-pdb y estudiar el desorden de la proteína en base a su factor $B$. El factor $B$ representa el desplazamiento de los átomos de su posición media en la estructura cristalina (y que se observa como una disminución en al intensidad de la difracción). Puede tener dos causas: puede ser el resultado de vibraciones atómicas dependientes de la temperatura o del desorden estático en la estructura cristalina. Podemos utilizarlo, por tanto, como indicador de los residuos más desordenados de la proteína [^1]. 
 
  El código correspondiente a esta funcionalidad se puede encontrar en la librería [biotools/src_biotools](https://github.com/currocam/biotools_hQC/blob/master/biotools/src_biotools.pas) y la implementación en un programa con interfaz gráfica en el repositorio bajo el nombre de [write_PDB](https://github.com/currocam/biotools_hQC/tree/master/write_PDB).
 
@@ -118,4 +118,8 @@ Por último, se realizó la tarea propuesta en el ejercicio. Se obtuvo un pseudo
 |Figura 2. Animación de los carbonos $\alpha$ de la proteína 2AFMen modo spacefill y coloreados según el factor B. Además, se han anotado los residuos que tuvieran un valor de B superior a 60| 
 
 Respecto a la interpretación de la anterior imagen, cabe destacar que una de las dos subunidades que comprenden el PDB (ambas versiones de la misma proteína) una de ellas tiene valores de factores B muy superiores. 
+
+# Referencias
+[^1]: Trueblood, K. N., H. B. Bürgi, H. Burzlaff, J. D. Dunitz, C. M. Gramaccioli, H. H. Schulz, U. Shmueli, y S. C. Abrahams. «Atomic Dispacement Parameter Nomenclature. Report of a Subcommittee on Atomic Displacement Parameter Nomenclature». Acta Crystallographica Section A Foundations of Crystallography 52, n.º 5 (1 de septiembre de 1996): 770-81. https://doi.org/10.1107/S0108767396005697.
+
 

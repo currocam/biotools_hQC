@@ -23,7 +23,7 @@ plugins:
       type: date
   - search
   - bibtex:
-      bib_file: "refs2.bib"
+      bib_file: "refs.bib"
 
 extra_css:
   - stylesheets/extra.css
@@ -58,5 +58,7 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true 
 extra_javascript:
+  - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+

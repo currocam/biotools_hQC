@@ -8,26 +8,32 @@ En la realización de esta revisión bibliografíca se hizo uso de la base de da
 
 ### Introducción
 
-La enzima hQC interviene en la formación de piroglutamato N-terminal (pGlu) a partir de su precursor glutaminilo, la cual es una modificación postraduccional de importancia en la maduración de  numerosos neuropéptidos bioactivos, hormonas y citoquinas durante su maduración en la vía secretora. Esta modifcación es necesaria en el proceso de maduración de muchos péptidos bioactivos y es objeto de estudio en relación a patologías como la osteoporosis y el Alzheimer. [@gunnIncreasedGlutaminylCyclase2021a]
+La enzima hQC interviene en la formación de piroglutamato N-terminal (pGlu) a partir de su precursor glutaminilo, la cual es una modificación postraduccional de importancia en la maduración de  numerosos neuropéptidos bioactivos, hormonas y citoquinas durante su maduración en la vía secretora. Esta modifcación es necesaria en el proceso de maduración de muchos péptidos bioactivos y es objeto de estudio en relación a patologías como la osteoporosis y el Alzheimer. [^1]
 
-Se conocen dos isoformas de la enzima QC en *Homo sapiens*, la llamada QC secretora, sQC, codificada por el gen QPCT localizado en el cromosoma 2p22.2, y la llamada QC golgi residente, gQC, codificada por el gen QPCTL, en el cromosoma 19q13.32. [@huangCrystalStructuresHuman2005a]
+[^1]: Gunn, Adam P., Bruce X. Wong, Catriona McLean, Chris Fowler, Peter J. Barnard, James A. Duce, Blaine R. Roberts, y The AIBL Research Group. «Increased Glutaminyl Cyclase Activity in Brains of Alzheimer’s Disease Individuals». Journal of Neurochemistry 156, n.º 6 (marzo de 2021): 979-87. https://doi.org/10.1111/jnc.15114.
+
+
+Se conocen dos isoformas de la enzima QC en *Homo sapiens*, la llamada QC secretora, sQC, codificada por el gen QPCT localizado en el cromosoma 2p22.2, y la llamada QC golgi residente, gQC, codificada por el gen QPCTL, en el cromosoma 19q13.32. [^2]
+
+[^2]: Huang, K.-F., Y.-L. Liu, W.-J. Cheng, T.-P. Ko, y A. H.-J. Wang. «Crystal Structures of Human Glutaminyl Cyclase, an Enzyme Responsible for Protein N-Terminal Pyroglutamate Formation». Proceedings of the National Academy of Sciences 102, n.º 37 (13 de septiembre de 2005): 13117-22. https://doi.org/10.1073/pnas.0504184102.
+
 
 
 ### Aspectos estructurales de importancia
  
-Ambas enzimas, sQC y gQC, tienen una estructura muy similar, por lo que las consideraciones generales que podamos hacer sobre su estructuras serán aplicables a ambas isoformas. Poseen una estructura globular con un pliegue mixto α/β. La actividad glutaminil y glutamil ciclasa reside en el dominio maduro (residuos 33-361) de la proteína [@gunnIncreasedGlutaminylCyclase2021a]
+Ambas enzimas, sQC y gQC, tienen una estructura muy similar, por lo que las consideraciones generales que podamos hacer sobre su estructuras serán aplicables a ambas isoformas. Poseen una estructura globular con un pliegue mixto α/β. La actividad glutaminil y glutamil ciclasa reside en el dominio maduro (residuos 33-361) de la proteína [^1]
 
 
 |![Dominio maduro](images/dominio_maduro.png)|
 |:--:|
 |Figura 1. Dominio maduro anotado con las estructuras secundarias según el orden del archivo 2AFM.pdb. Elaboración propia usando pymol.| 
 
-La estructura posee una topología de sandwich abierto con una lámina β central de seis hebras rodeada por dos (α7 y α9) y seis α-hélices  (α2, α3, α4, α5, α6, y α10) en lados opuestos. Esta lámina β central  esta formada por dos hébras antiparalelas (β1 y β2) y 4 paralelas (β3, β4, β5 y β6) y constituye el corazón hidrofóbico de la molécula [@huangCrystalStructuresHuman2005a].
+La estructura posee una topología de sandwich abierto con una lámina β central de seis hebras rodeada por dos (α7 y α9) y seis α-hélices  (α2, α3, α4, α5, α6, y α10) en lados opuestos. Esta lámina β central  esta formada por dos hébras antiparalelas (β1 y β2) y 4 paralelas (β3, β4, β5 y β6) y constituye el corazón hidrofóbico de la molécula [^2].
 
 
 #### Estructura del sitio activo
 
-El sitio activo está formado por 6 bucles entre 3 y α4, β3 y α5, β4 y α7, β5 y α8, α8 y α9, y β6 y α10. Consta de un ión de zinc situado en el bolsillo del sitio activo y que está coordinado tetraédricamente D159 Oδ2, E202 Oε1, H330 Nε2 y una molécula de agua. También resultan de interés una serie de residuos altamente conservados en el entorno del zinc a los que se les atribuye cierto papel en la catálisis. Estos residuos son E201, W207, D248, D305, F325 y W329 y se ha comprobado que mutaciones en estos aminoácidos reducen significativamente la actividad enzimática. [@gunnIncreasedGlutaminylCyclase2021a]
+El sitio activo está formado por 6 bucles entre 3 y α4, β3 y α5, β4 y α7, β5 y α8, α8 y α9, y β6 y α10. Consta de un ión de zinc situado en el bolsillo del sitio activo y que está coordinado tetraédricamente D159 Oδ2, E202 Oε1, H330 Nε2 y una molécula de agua. También resultan de interés una serie de residuos altamente conservados en el entorno del zinc a los que se les atribuye cierto papel en la catálisis. Estos residuos son E201, W207, D248, D305, F325 y W329 y se ha comprobado que mutaciones en estos aminoácidos reducen significativamente la actividad enzimática. [^1]
 
 #### Estructuras experimentales disponibles
 
@@ -69,11 +75,11 @@ En el momento en que se realiza esta revisión hay un total de 31 estructuras ex
 
 ### Mecanismo de acción de hQC
 
-Las QCs median la ciclación de la glutamina o glutamato expuestos en el N-terminal con la liberación de agua o amoniaco. Para iniciar dicha ciclación, el ion Zn2+ localizado en el sitio activo polariza el grupo γ-amino del residuo y estabilizando el anión resultante del ataque nucleofílico sobre el carbono γ-carbonílico. En este mecanismo intervienen también E201 y D248 apoyando la transferencia de protones y aportando estabilidad. [@gunnIncreasedGlutaminylCyclase2021a]
+Las QCs median la ciclación de la glutamina o glutamato expuestos en el N-terminal con la liberación de agua o amoniaco. Para iniciar dicha ciclación, el ion Zn2+ localizado en el sitio activo polariza el grupo γ-amino del residuo y estabilizando el anión resultante del ataque nucleofílico sobre el carbono γ-carbonílico. En este mecanismo intervienen también E201 y D248 apoyando la transferencia de protones y aportando estabilidad. [^1]
 
 |![Mecanismo de acción hGC](https://ars.els-cdn.com/content/image/1-s2.0-S104366181930413X-gr3_lrg.jpg)|
 |:--:|
-|Figura 2. Mecanismo de acción de la enzima hQC. [@huangCrystalStructuresHuman2005a]|
+|Figura 2. Mecanismo de acción de la enzima hQC. [^2]|
 
 A continuación, se muestra un detalle del sitio de unión de la proteína. Se pueden observar los residuos que se destacan anteriormente. Para realizar esta imagen se han seleccionado los átomos de hasta una distancia de 5 A del cofactor del sitio catalítico y se han realizado anotaciones sobre los carbonos alfa. 
 
@@ -102,4 +108,3 @@ python end
 ```
 
 ## Referencias
-\bibliography
