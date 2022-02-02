@@ -104,7 +104,7 @@ begin
   else if(SpinEdit1.Value = 2)then transfunct :=@GiroOZ;
 
 
-  if CheckBox1.Checked then
+  if CheckBox1.Checked and (high(V_CAInicial) = high(V_CATrans))then
    //Si se ha marcado como que se quieren guardar los cambios temporalmente
    V_CATrans:= girarTpuntos(SpinEdit2.Value*pi/180,V_CATrans,  transfunct)
    else  V_CATrans:= girarTpuntos(SpinEdit2.Value*pi/180,V_CAInicial,  transfunct);
