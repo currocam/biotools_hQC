@@ -582,7 +582,7 @@ n:= high(dist1);
          sumatorio:= sumatorio + sqr(dist1[i, j] - dist2[i, j]);
       end;
    end;
-   result := sqrt(sumatorio/n+1);
+   result := sqrt(sumatorio/n);
 end;
 
 function leerSecuenciaProteina(archivo: Tstrings): AnsiString;
