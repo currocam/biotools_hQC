@@ -247,16 +247,13 @@ residuo : TPuntos;
 atm1, atm2,atm3 : TPunto;
 matriz1, matriz2, matriz_resul : Matriz2D;
 d : real;
-distancias: ArrayMatrices;
 begin
   atm1.X:= 1; atm1.Y:= 1; atm1.Z:= 1;
   atm2.X:= 0; atm2.Y:= 0; atm2.Z:= 0;
   atm3.X:= -1; atm3.Y:= -1; atm3.Z:= -1;
   setlength(residuo, 3);
-  setlength(distancias, 2);
   residuo[0] := atm1; residuo[1] := atm2; residuo[2] := atm3;
-  matriz1 := matriz_distancias(residuo);
-  distancias[0] :=matriz1;
+  matriz1 := distan_matriz(residuo);
   IF NOT (matriz1[0, 0]=0) AND (matriz1[1, 1]=0) AND (matriz1[2, 2]=0) then
      begin
        Fail('La diagonal no está formada por ceros');
@@ -266,23 +263,13 @@ begin
   atm3.X:= 1; atm3.Y:= -3; atm3.Z:= 1;
   setlength(residuo, 3);
   residuo[0] := atm1; residuo[1] := atm2; residuo[2] := atm3;
-  matriz2 := matriz_distancias(residuo);
-  distancias[1] :=matriz2;
-  d := RMSD(matriz1, matriz1);
+  matriz2 := distan_matriz(residuo);
+  d := RMSD_distan(matriz1, matriz1);
   if not (d = 0) then
      begin
        Fail('El RMSD de dos matrices iguales no es cero');
      end;
-    if RMSD(matriz1, matriz2) = 0 then
-     begin
-       Fail('El RMSD de dos matrices distintas es cero');
-     end;
-  matriz_resul:= RMSD(distancias);
-    if not (matriz_resul[0, 0] = 0) then
-     begin
-       Fail('El RMSD de dos matrices iguales no es cero');
-     end;
-    if matriz_resul[0, 1] = 0 then
+    if RMSD_distan(matriz1, matriz2) = 0 then
      begin
        Fail('El RMSD de dos matrices distintas es cero');
      end;
