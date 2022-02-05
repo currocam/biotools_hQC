@@ -125,6 +125,10 @@ type
   function cargarPDB (var p: TPDB): string;
   function CargarPDB(texto: TStrings): TPDB;    overload;
   function WriteAtomPDB(atom: TAtomPDB): AnsiString;
+  //RMSD
+  function distan_matriz ( puntos: TPuntos): Matriz2D;
+  function RMSD_distan (dist1, dist2: Matriz2D): real;
+
 implementation
 
 //GEOMETRÍA
@@ -547,51 +551,38 @@ begin
 end;
 
 // Calcular RMSD
-function matriz_distancias (puntos: TPuntos): Matriz2D;
-var 
-matriz : Matriz2D;
-i, j, n : integer;
+function distan_matriz ( puntos: TPuntos): Matriz2D;
+var
+   matriz:Matriz2D;
+   i, j, n : integer;
 begin
- n:= high(puntos)+1;
- SetLength(matriz, n, n);
-   for i:= 0 to n do  
-      for j:= 0 to n do  
-         matriz[i,j]:= distancia3D(puntos[i], puntos[j]); 
- result:= matriz;
+     n := Length(puntos);
+     setLength(matriz, n, n);
+     for i:=0 to n-1 do
+     begin
+       for j:=0 to n-1 do
+       begin
+         matriz[i,j]:= distancia3D(puntos[i], puntos[j]);
+         end;
+       end;
+     result:= matriz;
 end;
 
-function RMSD(distancias1, distancias2 : Matriz2D): real;
+function RMSD_distan (dist1, dist2: Matriz2D): real;
 var
-sumatorio : real;
-i, j, n : integer;
-begin
-if high(distancias1 = distancias2) then
+   sumatorio: real;
+   i, j, n : integer;
 begin
 sumatorio := 0;
-n:= high(residuo1)+1;
+n:= high(dist1);
    for i:= 0 to n do
-   begin  
+   begin
       for j:= 0 to n do
-      begin  
-         sumatorio:= sumatorio + sqr(distancias1[i, j] - distancias2[i, j]); 
-      end;   
+      begin
+         sumatorio:= sumatorio + sqr(dist1[i, j] - dist2[i, j]);
+      end;
    end;
-result := sqrt(sumatorio/n);  
-end;
-else result:= Inf;
-end;
-
-function RMSD(residuos : ArrayMatrices): Matriz2D; overload;
-var
-n : integerM
-matriz : Matriz2D;
-begin
- n := high(residuos)+1;
- SetLength(matriz, n, n);
- for i:= 0 to n do  
-      for j:= 0 to n do
-           matriz[i,j]:= RMSD(residuos[i], residuos[j]);
-result:= matriz;
+   result := sqrt(sumatorio/n+1);
 end;
 
 function leerSecuenciaProteina(archivo: Tstrings): AnsiString;

@@ -1,0 +1,84 @@
+object Form1: TForm1
+  Left = 701
+  Height = 704
+  Top = 27
+  Width = 665
+  Caption = 'Form1'
+  ClientHeight = 704
+  ClientWidth = 665
+  LCLVersion = '2.0.6.0'
+  object Memo1: TMemo
+    Left = 48
+    Height = 578
+    Top = 64
+    Width = 286
+    Lines.Strings = (
+      ''
+    )
+    ScrollBars = ssBoth
+    TabOrder = 0
+  end
+  object Edit1: TEdit
+    Left = 368
+    Height = 24
+    Top = 160
+    Width = 80
+    TabOrder = 1
+    Text = 'LYS'
+  end
+  object Button1: TButton
+    Left = 368
+    Height = 25
+    Top = 256
+    Width = 151
+    Caption = 'Calcular RMSD'
+    OnClick = Button1Click
+    TabOrder = 2
+  end
+  object SpinEdit1: TSpinEdit
+    Left = 368
+    Height = 24
+    Top = 208
+    Width = 80
+    MinValue = 2
+    TabOrder = 3
+    Value = 3
+  end
+  object Memo2: TMemo
+    Left = 368
+    Height = 339
+    Top = 303
+    Width = 263
+    ScrollBars = ssBoth
+    TabOrder = 4
+  end
+  object Button2: TButton
+    Left = 48
+    Height = 25
+    Top = 32
+    Width = 200
+    Caption = 'Cargar archivo'
+    OnClick = Button2Click
+    TabOrder = 5
+  end
+  object Label1: TLabel
+    Left = 369
+    Height = 15
+    Top = 136
+    Width = 158
+    Caption = 'Escoger tipo de residuo'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 368
+    Height = 15
+    Top = 192
+    Width = 204
+    Caption = 'N primeros residuos a escoger'
+    ParentColor = False
+  end
+  object OpenDialog1: TOpenDialog
+    left = 163
+    top = 143
+  end
+end
