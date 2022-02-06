@@ -104,8 +104,34 @@ object Form1: TForm1
     Caption = 'Subunidad'
     ParentColor = False
   end
+  object Button3: TButton
+    Left = 720
+    Height = 25
+    Top = 526
+    Width = 272
+    Caption = 'Guardar como...'
+    OnClick = Button3Click
+    TabOrder = 7
+  end
+  object Button4: TButton
+    Left = 400
+    Height = 25
+    Top = 526
+    Width = 275
+    Caption = 'Guardar como...'
+    OnClick = Button4Click
+    TabOrder = 8
+  end
   object OpenDialog1: TOpenDialog
     left = 320
     top = 72
+  end
+  object SavePictureDialog1: TSavePictureDialog
+    left = 745
+    top = 131
+  end
+  object SavePictureDialog2: TSavePictureDialog
+    left = 454
+    top = 154
   end
 end

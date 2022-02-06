@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  Spin, src_biotools;
+  Spin, ExtDlgs, src_biotools;
 
 type
 
@@ -15,6 +15,8 @@ type
   TForm1 = class(TForm)
     Button1: TButton;
     Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
     Edit1: TEdit;
     Image1: TImage;
     Image2: TImage;
@@ -23,11 +25,15 @@ type
     Label3: TLabel;
     Memo1: TMemo;
     OpenDialog1: TOpenDialog;
+    SavePictureDialog1: TSavePictureDialog;
+    SavePictureDialog2: TSavePictureDialog;
     SpinEdit1: TSpinEdit;
     SpinEdit2: TSpinEdit;
     SpinEdit3: TSpinEdit;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure SpinEdit3Click(Sender: TObject);
     procedure SpinEdit3EditingDone(Sender: TObject);
@@ -96,6 +102,18 @@ begin
    end;
    plotXY(datos, image2, 0, 1, TRUE, TRUE,
                  clyellow, clyellow, clblack, 3, 40, true)
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  if SavepictureDialog1.Execute then
+    image2.Picture.SaveToFile( SavepictureDialog1.Filename );
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+  if SavepictureDialog2.Execute then
+    image1.Picture.SaveToFile( SavepictureDialog1.Filename );
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
