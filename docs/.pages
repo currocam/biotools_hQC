@@ -8,5 +8,7 @@ nav:
     - ramachandran.md
     - estereodiagrama.md
     - alinearZ.md
+    - rmsd.md
+    - testing.md
     - simulacion_MD.md
     - bibliografia.md

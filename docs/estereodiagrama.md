@@ -196,4 +196,4 @@ Por último, se muestran en la siguiente imagen una representación de la cadena
 
 |![estereodiagrama_pymol.png](images/estereodiagrama_pymol.png)|
 |:-----------------------------------------------------------------------------:|
-| Figura 3. Estereodiagrama realizado usando el programa PyMol para comprobar la calidad de nuestro estereodiagrama..|
+| Figura 3. Estereodiagrama realizado usando el programa PyMol para comprobar la calidad de nuestro estereodiagrama.|
