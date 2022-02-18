@@ -126,113 +126,111 @@ Se definió una función llamada torsión, que calculaba el ángulo de torsión 
 	end;
 	```
 
-	## Cargar PDB
+## Cargar PDB
 
-	La función `CargarPDB` acepta como único argumento un TStrings (texto contenido en un memo) y, de forma sistemática, recorre las líneas del archivo PDB, accediendo a la información relativa a cada átomo, residuo y subunidad, y guardándola en un record dentro de un array. Para hacer esto se tuvo en cuenta que los archivos .pdb son archivos que siguen unas pautas de formato muy específicas. Una vez recorrido el archivo .pdb, se recorre cada una de las subunidades y residuos del TPDB para definir los ángulos diedros $\psi$ y $\phi$. A continuación, se muestra la función CargarPDB:
+La función `CargarPDB` acepta como único argumento un TStrings (texto contenido en un memo) y, de forma sistemática, recorre las líneas del archivo PDB, accediendo a la información relativa a cada átomo, residuo y subunidad, y guardándola en un record dentro de un array. Para hacer esto se tuvo en cuenta que los archivos .pdb son archivos que siguen unas pautas de formato muy específicas. Una vez recorrido el archivo .pdb, se recorre cada una de las subunidades y residuos del TPDB para definir los ángulos diedros $\psi$ y $\phi$. A continuación, se muestra la función CargarPDB:
 
 ??? example "Función CargarPDB"
 	```pascal linenums="1"
 	function CargarPDB(texto: TStrings): TPDB;    overload;
-  var
-    p: TPDB;
-    linea: string;
-    j, k, F, R, S: integer;
-    resno: integer;
+	var
+		p: TPDB;
+		linea: string;
+		j, k, F, R, S: integer;
+		resno: integer;
+	begin
+		if isPDB(texto) = False then ShowMessage('No es un archivo PDB');
+		p.secuencia:='';
+		F:=0; R:=0; S:=0;
+		setlength(p.atm, texto.count);
+		setlength(p.res, texto.count);
+		setlength(p.sub, texto.count);
 
-  begin
-    if isPDB(texto) = False then ShowMessage('No es un archivo PDB');
-    p.secuencia:='';
-    F:=0; R:=0; S:=0;
-    setlength(p.atm, texto.count);
-    setlength(p.res, texto.count);
-    setlength(p.sub, texto.count);
+		for j:=0 to texto.count-1 do
+		begin
+			linea:= texto[j];
+			if (copy(linea,1,6)='ATOM  ')then
+			begin
+				F:= F+1;
+				p.atm[F].NumAtom :=strtoint(trim(copy(linea,7,5)));
+				p.atm[F].ID:= trim(copy(linea, 13, 4));
+				p.atm[F].Residuo:= copy(linea, 18,3);
+				p.atm[F].Subunidad:=linea[22];
+				p.atm[F].NumRes:= strtoint(trim(copy(linea,23,4)));
+				p.atm[F].coor.X:= strtofloat(trim(copy(linea,31,8)));
+				p.atm[F].coor.Y:= strtofloat(trim(copy(linea,39,8)));
+				p.atm[F].coor.Z:= strtofloat(trim(copy(linea,47,8)));
+				p.atm[F].R:= strtofloat(trim(copy(linea, 61,6)));
 
+			//Residuo
+				if p.atm[F].ID = 'N' then
+				begin
+					R:= R+1;
+					p.res[R].Atm1:= F;
+					p.res[R].ID3:=p.atm[F].Residuo;
+					p.res[R].ID1:=AA3to1(p.res[R].ID3);
+					p.res[R].N:= F;
+					p.res[R].NumRes:= p.atm[F].NumRes;
+					p.res[R].Subunidad:= p.atm[F].Subunidad;
+					p.secuencia:= p.secuencia + p.res[R].ID1;
 
-
-    for j:=0 to texto.count-1 do
-    begin
-      linea:= texto[j];
-      if (copy(linea,1,6)='ATOM  ')then
-      begin
-        F:= F+1;
-        p.atm[F].NumAtom :=strtoint(trim(copy(linea,7,5)));
-        p.atm[F].ID:= trim(copy(linea, 13, 4));
-        p.atm[F].Residuo:= copy(linea, 18,3);
-        p.atm[F].Subunidad:=linea[22];
-        p.atm[F].NumRes:= strtoint(trim(copy(linea,23,4)));
-        p.atm[F].coor.X:= strtofloat(trim(copy(linea,31,8)));
-        p.atm[F].coor.Y:= strtofloat(trim(copy(linea,39,8)));
-        p.atm[F].coor.Z:= strtofloat(trim(copy(linea,47,8)));
-        p.atm[F].R:= strtofloat(trim(copy(linea, 61,6)));
-
-      //Residuo
-        if p.atm[F].ID = 'N' then
-        begin
-          R:= R+1;
-          p.res[R].Atm1:= F;
-          p.res[R].ID3:=p.atm[F].Residuo;
-          p.res[R].ID1:=AA3to1(p.res[R].ID3);
-          p.res[R].N:= F;
-          p.res[R].NumRes:= p.atm[F].NumRes;
-          p.res[R].Subunidad:= p.atm[F].Subunidad;
-          p.secuencia:= p.secuencia + p.res[R].ID1;
-
-        //Subunidad
-          if pos(p.atm[F].Subunidad, p.subs)=0 then
-          begin
-            S:= S+1;
-            p.subs:= p.subs + p.atm[F].Subunidad;
-            p.sub[S].ID:=p.atm[F].Subunidad;
-            p.sub[S].atm1:=F;
-            p.sub[S].res1:=R;
-          end;
-        end;
-        if p.atm[F].ID='CA' then p.res[R].CA:= F;
-        if p.atm[F].ID='C' then p.res[R].C:= F;
-        if p.atm[F].ID='O' then p.res[R].O:= F;
-        p.res[R].AtmN:= F;
-        p.sub[S].atmN:= F;
-        p.sub[S].resN:= R;
+				//Subunidad
+					if pos(p.atm[F].Subunidad, p.subs)=0 then
+					begin
+						S:= S+1;
+						p.subs:= p.subs + p.atm[F].Subunidad;
+						p.sub[S].ID:=p.atm[F].Subunidad;
+						p.sub[S].atm1:=F;
+						p.sub[S].res1:=R;
+					end;
+				end;
+				if p.atm[F].ID='CA' then p.res[R].CA:= F;
+				if p.atm[F].ID='C' then p.res[R].C:= F;
+				if p.atm[F].ID='O' then p.res[R].O:= F;
+				p.res[R].AtmN:= F;
+				p.sub[S].atmN:= F;
+				p.sub[S].resN:= R;
 
 
-      end;
-    end;
-    setlength(p.atm, F+1);
-    setlength(p.res, R+1);
-    setlength(p.sub, S+1);
-    p.NumFichas:= F;
-    p.NumResiduos:= R;
-    p.NumSubunidades:= S;
+			end;
+		end;
+		setlength(p.atm, F+1);
+		setlength(p.res, R+1);
+		setlength(p.sub, S+1);
+		p.NumFichas:= F;
+		p.NumResiduos:= R;
+		p.NumSubunidades:= S;
 
-    for j:=1 to p.NumSubunidades do with p.sub[j] do
-    begin
-      AtomCount:= atmN - atm1 + 1;
-      ResCount:= resN - res1 + 1;
-      for k:=p.sub[j].res1 + 1 to p.sub[j].resn - 1 do
-      begin
-        p.res[k].phi:=torsion(p.atm[p.res[k-1].C].coor,
-                              p.atm[p.res[k].N].coor,
-                              p.atm[p.res[k].CA].coor,
-                              p.atm[p.res[k].C].coor);
+		for j:=1 to p.NumSubunidades do with p.sub[j] do
+		begin
+			AtomCount:= atmN - atm1 + 1;
+			ResCount:= resN - res1 + 1;
+			for k:=p.sub[j].res1 + 1 to p.sub[j].resn - 1 do
+			begin
+				p.res[k].phi:=torsion(p.atm[p.res[k-1].C].coor,
+															p.atm[p.res[k].N].coor,
+															p.atm[p.res[k].CA].coor,
+															p.atm[p.res[k].C].coor);
 
-        p.res[k].psi:=torsion(p.atm[p.res[k].N].coor,
-                              p.atm[p.res[k].CA].coor,
-                              p.atm[p.res[k].C].coor,
-                              p.atm[p.res[k+1].N].coor);
+				p.res[k].psi:=torsion(p.atm[p.res[k].N].coor,
+															p.atm[p.res[k].CA].coor,
+															p.atm[p.res[k].C].coor,
+															p.atm[p.res[k+1].N].coor);
 
-      end;
+			end;
 
-      setlength(p.sub[j].resindex, p.NumResiduos + 1);
-      for k:=1 to p.sub[j].ResCount do
-      begin
-        resno:= p.sub[j].res1 + k - 1;
-        p.sub[j].resindex[p.res[resno].numres]:= resno;
-      end;
-    end;
+			setlength(p.sub[j].resindex, p.NumResiduos + 1);
+			for k:=1 to p.sub[j].ResCount do
+			begin
+				resno:= p.sub[j].res1 + k - 1;
+				p.sub[j].resindex[p.res[resno].numres]:= resno;
+			end;
+		end;
 
-    result:=p;
-  end;
+		result:=p;
+	end;
 	```
+
 
 ### Versión sobrecargada
 
@@ -241,10 +239,10 @@ Además, se realizó una función `CargarPDB` sobrecargada que facilitara el uso
 ??? example "Función CargarPDB overload"
 	```pascal linenums="1"
 	function cargarPDB (var p: TPDB): string;
- var
+ 	var
 		dialogo: TOpenDialog;
 		textoPDB: TStrings;
- begin
+ 	begin
 		dialogo:= TOpenDialog.create(application);
 		textoPDB:= TStringlist.create;
 
@@ -260,5 +258,5 @@ Además, se realizó una función `CargarPDB` sobrecargada que facilitara el uso
 
 		dialogo.free;
 		textoPDB.free;
- end;
+ 	end;
 	```

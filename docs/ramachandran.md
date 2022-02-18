@@ -132,8 +132,10 @@ A continuación, se muestra en una animación la implementación de estas funcio
 |:--------------------------------------------------------------------------:|
 | Figura 3. Animación del programa `Ramachandran` mostrando su uso.          |
 
-# Comparación de los ángulos de torsión de distintas estructuras de hQC
-## Ángulos de torsión de referencia
+## Comparación de los ángulos de torsión de distintas estructuras de hQC
+
+### Ángulos de torsión de referencia
+
 En primer lugar, vamos a comparar los ángulos de torsión calculados por nuestro programa con los valores de referencia que obtengamos por una aplicación profesional. Por un lado, vamos a calcular los ángulos de torsión para los residuos 34-40 de nuestra estructura 2AFM usando la aplicación desarrollada. Y, por otro lado, vamos a emplear como referencia los ángulos de torsión calculados por la aplicación [Torsion angles](https://swift.cmbi.umcn.nl/servers/html/chiang.html) para la misma proteína. Como puede observarse en la Tabla 1, los valores son enormemente parecidos, diferenciándose únicamente debido a distintos criterios de redondeo.
 
 | Número de residue 	| Residuo 	| $\phi_{\text{ref}}$ 	| $\phi_{\text{calculado}}$ 	| $\psi_{\text{ref}}$ 	| $\psi_{\text{calculado}}$ 	|
@@ -160,7 +162,7 @@ En la imagen anterior se puede observar cómo los puntos se desplazan ligerament
 
 En general, la agrupación de los residuos dentro del diagrama concuerda con lo revisado en literatura a cerca de la estructura secundaria. Si comparamos la Figura 4 con la Figura 2, rápidamente podemos ubicar los residuos que forman parte de hebras $\beta$ en la esquina superior izquierda, de hélices $\alpha$ en el grupo de puntos debajo de este y en el lado derecho una nube de puntos que podría corresponderse con hélices con giro a la izquierda. Además, la mayor parte de los puntos se encuentran en regiones no prohibidas estéricamente, lo cual nos da una idea de la calidad de ambas estructuras.
 
-# Conclusión
+##	 Conclusión
 
 En conclusión, el programa y las funciones desarrolladas son capaces de, en primer lugar, calcular los ángulos de torsión para una estructura de forma adecuada y muy precisa, al compararla con herramientas profesionales.  Y , en segundo lugar, la interfaz y el módulo gráfico nos permiten analizar dichos resultados para comparar estructuras y , por ejemplo, observar el efecto que tiene en la estructura la unión de una molécula de interés biológico (como un sustrato o un inhibidor, para estudiar la catálisis enzimática). Esta idea también sería aplicable para comparar las diferencias estructurales entre una proteína nativa y con alguna mutación.
 
@@ -168,7 +170,7 @@ En conclusión, el programa y las funciones desarrolladas son capaces de, en pri
 
 
 
-# Referencias
+## Referencias
 [^1]: «A Generative Angular Model of Protein Structure Evolution». Molecular Biology and Evolution 34, n.º 11 (1 de noviembre de 2017): 3040-3040. https://doi.org/10.1093/molbev/msx214.
 .
 [^2]: Imagen elaborada por Dcrjsr y obtenida a través de Wikipedia.

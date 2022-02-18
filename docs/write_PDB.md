@@ -1,8 +1,8 @@
 # WritePDB: Extraer átomos Carbono alfa
 
-En la realización de este cuaderno de actividades se pide el desarrollo de una función que permite escribir la información relativa a un átomo de un archivo PDB albergada en una estructura matricial en un fichero siguiendo el formato PDB de nuevo. El objetivo es emplear dicha función para extraer los carbonos alfa de un fichero PDB, escribirlos en un archivo pseudo-pdb y estudiar el desorden de la proteína en base a su factor $B$. El factor $B$ representa el desplazamiento de los átomos de su posición media en la estructura cristalina y se observa como una disminución en la intensidad de la difracción. Puede tener dos causas: ser el resultado de vibraciones atómicas dependientes de la temperatura o del desorden estático en la estructura cristalina. Podemos utilizarlo, por tanto, como indicador de los residuos más desordenados de la proteína (Trueblood et al., 1996) [^1].
+En la realización de este cuaderno de actividades se pide el desarrollo de una función que permite escribir la información relativa a un átomo de un archivo PDB albergada en una estructura matricial en un fichero siguiendo el formato PDB de nuevo. El objetivo es emplear dicha función para extraer los carbonos alfa de un fichero PDB, escribirlos en un archivo pseudo-pdb y estudiar el desorden de la proteína en base a su factor $\text{B}$. El factor $\text{B}$ representa el desplazamiento de los átomos de su posición media en la estructura cristalina y se observa como una disminución en la intensidad de la difracción. Puede tener dos causas: ser el resultado de vibraciones atómicas dependientes de la temperatura o del desorden estático en la estructura cristalina. Podemos utilizarlo, por tanto, como indicador de los residuos más desordenados de la proteína (Trueblood et al., 1996) [^1].
 
- El código correspondiente a esta funcionalidad se puede encontrar en la librería [biotools/src_biotools](https://github.com/currocam/biotools_hQC/blob/master/biotools/src_biotools.pas) y la implementación en un programa con interfaz gráfica en el repositorio bajo el nombre de [write_PDB](https://github.com/currocam/biotools_hQC/tree/master/write_PDB).
+ El código correspondiente a esta funcionalidad se puede encontrar en la librería [biotools/src_biotools](https://github.com/currocam/biotools_hQC/blob/master/biotools/src_biotools.pas) y la implementación en un programa con interfaz gráfica en el repositorio bajo el nombre de [write_PDB](https://github.com/currocam/biotools_hQC/tree/master/write_PDB). Este apartado se corresponde a la 5ª actividad de la relación de ejercicios.
 
 ## WriteAtomPDB
 
@@ -87,7 +87,7 @@ A continuación, se muestra una pequeña animación donde se muestra la implemen
 |:--:|
 |Figura 1. Animación con ejemplo de uso de la aplicación writePDB para extraer átomos de cierto ID. Aplicación con interfaz gráfica realizada con Lazarus.|
 
-# Extracción carbonos alfa y visualización en PyMol según el factor B
+## Extracción carbonos alfa y visualización en PyMol según el factor B
 
 Por último, se realizó la tarea propuesta en el ejercicio. Se obtuvo un [pseudo archivo PDB](https://github.com/currocam/biotools_hQC/tree/master/write_PDB/data) con los átomos correspondientes a los carbonos $\alpha$ de la proteína 2AFM y, usando el programa PyMol, se obtuvo una animación de la proteína en modo spacefill y coloreada según el factor B. En pos de la reproducibilidad, se muestra a continuación tanto la animación como el script utilizado para obtenerla. No se entrará en detalles al respecto de la obtención de la animación puesto que se ha seguido usando las mismas herramientas empleadas en el apartado de Visualización de este cuaderno de actividades.
 
@@ -115,18 +115,20 @@ Por último, se realizó la tarea propuesta en el ejercicio. Se obtuvo un [pseud
 
 |![writePDB](images/pseudoPDB_b_factor.gif)|
 |:--:|
-|Figura 2. Animación de los carbonos $\alpha$ de la proteína 2AFMen modo spacefill y coloreados según el factor B. Además, se han anotado los residuos que tuvieran un valor de B superior a 60|
+|Figura 2. Animación de los carbonos $\alpha$ de la proteína 2AFM en modo spacefill y coloreados según el factor B. Además, se han anotado los residuos que tuvieran un valor de B superior a 60|
 
 ## Interpretación de los resultados
 
 En la animación anterior podemos observar dos cadenas, A y B, que son distintas estructuralmente aunque la proteína que estamos estudiando, 2AFM, es un monómero. Esto es así el archivo descargado contiene la unidad asimétrica del del cristal. Se puede observar cómo una de las subunidades tiene mayor factor B que la otra, a pesar de ser ambas muy similares. Es por ello que nos inclinamos a pensar que la "versión más desordenada" debe de ser fruto de errores experimentales (y que ha sido incluido en el PDB para mayor rigurosidad).
 
-Si nos fijamos en la estructura más ordenada, nos llama la atención cómo existen una serie de regiones en la superficie (coloreadas en rojo) de mayor Factor $B$. Interpretamos estas zonas, algunas de ellas lazos, como regiones más flexibles de la proteína y que no poseen una estructura rígida. Esta idea es compatible con el hecho de que se encuentran situadas en la superficie de la proteína y podríamos hipotetizar que serían regiones de interacción.
+Si nos fijamos en la estructura más ordenada, nos llama la atención cómo existen una serie de regiones en la superficie (coloreadas en rojo) de mayor Factor $\text{B}$. Interpretamos estas zonas, algunas de ellas lazos, como regiones más flexibles de la proteína y que no poseen una estructura rígida. Esta idea es compatible con el hecho de que se encuentran situadas en la superficie de la proteína y podríamos hipotetizar que serían regiones de interacción.
 
-# Conclusión
+Destacamos, por último, que los residuos de la subunidad "ordenada" del archivo PDB que se sabía por bibliografía que eran importantes para la función catalítica de la enzima (y que se podría esperar, por ejemplo, una mayor flexibilidad) muestran valores de factor $\text{B}$ bajos, indicando así que forman parte de zonas rígidas de la estructura.
 
-En conclusión, el programa WritePDB es capaz de escribir pseudo archivos PDB con los que estudiar el desorden (fruto de errores experimentales pero también reflejo de la flexibilidad de la estructura) de una proteína. Esta información es de gran utilidad para valorar tanto las implicaciones biológicas que pueden tener regiones más rígidas o flexibles como evaluar la calidad de la estructura con que se está trabajando. 
+## Conclusión
+
+En conclusión, el programa WritePDB es capaz de escribir pseudo archivos PDB con los que estudiar el desorden (fruto de errores experimentales pero también reflejo de la flexibilidad de la estructura) de una proteína. Esta información es de gran utilidad para valorar tanto las implicaciones biológicas que pueden tener regiones más rígidas o flexibles como evaluar la calidad de la estructura con que se está trabajando.
 
 
-# Referencias
+## Referencias
 [^1]: Trueblood, K. N., H. B. Bürgi, H. Burzlaff, J. D. Dunitz, C. M. Gramaccioli, H. H. Schulz, U. Shmueli, y S. C. Abrahams. «Atomic Dispacement Parameter Nomenclature. Report of a Subcommittee on Atomic Displacement Parameter Nomenclature». Acta Crystallographica Section A Foundations of Crystallography 52, n.º 5 (1 de septiembre de 1996): 770-81. https://doi.org/10.1107/S0108767396005697.
