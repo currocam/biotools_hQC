@@ -1,16 +1,16 @@
 # Diagrama de Ramachandran
 
-En la realización de este cuaderno de actividades se pide el desarrollo de una función que permita obtener los ángulos diedros de una proteína y su representación en un diagrama de Ramachandran. Para la elaboración de esta actividad se ha hecho uso del material impartido en clase en forma de apuntes. El código correspondiente a esta funcionalidad se puede encontrar en la librería [biotools/src_biotools](https://github.com/currocam/biotools_hQC/blob/master/biotools/src_biotools.pas) y la implementación en un programa con interfaz gráfica en el repositorio bajo el nombre de [ramachandran](https://github.com/currocam/biotools_hQC/tree/master/ramachandran).
+En la realización de este cuaderno de actividades se pide el desarrollo de una función que permita obtener los ángulos diedros de una proteína y su representación en un diagrama de Ramachandran. Para la elaboración de esta actividad se ha hecho uso del material impartido en clase en forma de apuntes. El código correspondiente a esta funcionalidad se puede encontrar en la librería [biotools/src_biotools](https://github.com/currocam/biotools_hQC/blob/master/biotools/src_biotools.pas) y la implementación en un programa con interfaz gráfica en el repositorio bajo el nombre de [ramachandran](https://github.com/currocam/biotools_hQC/tree/master/ramachandran). Este apartado se corresponde a la 6ª actividad de la relación de ejercicios.
 
 ## Ángulos de torsión
 
-Los ángulos de torsión característicos de una proteína son los ángulos $\psi$ y $\phi$ y se pueden calcular para todos os residuos de una proteína excepto el primero y último. 
+Los ángulos de torsión característicos de una proteína son los ángulos $\psi$ y $\phi$ y se pueden calcular para todos os residuos de una proteína excepto el primero y último.
 
 | ![ángulos de torsión](https://www.researchgate.net/publication/312022960/figure/fig8/AS:668976552095754@1536507847848/Dihedral-angle-representation-A-very-small-section-of-the-protein-backbone-is-displayed.png) |
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| Figura 1. Representación de los ángulos de torsión.[^1]                                                                                                                                                            |
+| Figura 1. Representación de los ángulos de torsión («A Generative Angular Model of Protein Structure Evolution», 2017) [^1].|
 
-A continuación, se muestran las funciones desarrolladas `angulo()` y  `torsion()`  para calcular el ángulo diedro (según las convenciones IUPAC de signo) para 4 puntos en el espacio (definidos según el `record TPunto`. Estas funciones se basan en que podemos calcular el ángulo diedro formado por 4 puntos en el espacio, $A$, $B$, $C$ y $D$, como el ángulo que forman entre si los vectores $V_1$ y $V_2$, resultantes del producto vectorial de $\vec{BC}$ y $\vec{BA}$ respectivamente. Además, este ángulo diedro debe de corregirse después en signo para adecuarse a las convenciones IUPAC.
+A continuación, se muestran las funciones desarrolladas, `angulo()` y  `torsion()`  ,para calcular el ángulo diedro (según las convenciones IUPAC de signo) para 4 puntos en el espacio (definidos en el `record TPunto`. Estas funciones se basan en que podemos calcular el ángulo diedro formado por 4 puntos en el espacio, $A$, $B$, $C$ y $D$, como el ángulo que forman entre si los vectores $V_1$ y $V_2$, resultantes del producto vectorial de $\vec{BC}$ y $\vec{BA}$ respectivamente. Además, este ángulo diedro debe de corregirse después en signo para adecuarse a las convenciones IUPAC.
 
 === "angulo (A, B: Tpunto)"
 
@@ -64,20 +64,77 @@ A continuación, se muestran las funciones desarrolladas `angulo()` y  `torsion(
 	   result:=diedro_IUPAC;
 	end;
 	```
+
+
+
 ## Diagrama de Ramachandran
-Los diagramas de Ramachandran son representaciones de los ángulos de torsión de los residuos de una proteína y son de gran interés puesto que es posible predecir la estructura secundaria de una proteína en base a los pares de valores $\psi$ y $\phi$ que tengan. Además, nos da información sobre la calidad de una estructura tridimensional, puesto que valores que se alejen de aquellas zonas que se consideran "normales" son indicativo de un posible error en la estructura. 
+Los diagramas de Ramachandran son representaciones de los ángulos de torsión de los residuos de una proteína y son de gran interés puesto que es posible predecir la estructura secundaria de una proteína en base a los pares de valores $\psi$ y $\phi$ que tengan. Además, nos da información sobre la calidad de una estructura tridimensional, puesto que valores que se alejen de aquellas zonas que se consideran "normales" son indicativo de un posible error en la estructura.
 
 |![Ramachandran](https://upload.wikimedia.org/wikipedia/commons/9/90/Ramachandran_plot_general_100K.jpg)|
 |:--:|
-|Figura 2. Diagrama de Ramachandran.[^2]|
+|Figura 2. Diagrama de Ramachandran. Obtenido de Wikipedia [^2].|
 
-A continuación, se muestra la representación del Diagrama de Ramachandran calculado para la proteína 2AFW (experimental y dibujada en azul) con la proteína calculada por AlphaFold (en blanco).Como se puede observar, los resultados son altamente similares entre ambas.  
+### Aplicación Free Pascal/Lazarus
 
-| ![Ramachandran](images/2AFW_Vs_AlphaFold_Ramachandran.jpeg)                                                                                              |
-|:-------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| Figura 3. Representación esquemática del diagrama de Ramachandran para la proteína experimental 2AFM comparada con la proteína predecida por AlphaFold. |
+Para la realización de este programa fue necesario escribir la función `PlotXY` utilizando la clase `Canvas`. No entraremos en detalles en el funcionamiento de esta función puesto que fue desarrollada en clase. Además, para obtener un gráfico de mayor calidad y con ejes, utilizamos también la clase `TChart` que facilita la realización de gráficos. Hemos querido mantener el gráfico original para mostrar cómo nuestro 'módulo gráfico' funciona de manera muy parecida a una clase desarrollada de manera rigurosa. El procedimiento empleado en el programa para realizar ambos gráficos y escribir los resultados en formato de de tabla se puede ver a continuación:
 
-En la realización de este ejercicio, se pide que se compare los valores de ángulos de torsión calculados por nuestro programa frente a los valores de referencia que obtengamos por una aplicación profesional. En nuestro caso, vamos a emplear como referencia los ángulos de torsión calculados por la aplicación [Torsion angles](https://swift.cmbi.umcn.nl/servers/html/chiang.html) para la proteína 2AFM. Como puede observarse en la Tabla 1, los valores son enormemente parecidos, diferenciándose únicamente debido a distintos criterios de redondeo. 
+???+ example "Procedimiento Diagrama de Ramachandran"
+	```pascal linenums="1"
+	procedure TForm1.ButtonClick(Sender: TObject);
+	var
+	  j, k, counter_col: integer;
+	  datos : TTabladatos;
+	  borrar: boolean;
+	begin
+	    memo2.clear;
+	  for j:= 1 to p.NumSubunidades do
+	  begin
+	     counter_col:= -1;
+	     borrar:= CheckBox1.Checked;
+	     setLength(datos, 2,  p.sub[j].resCount -2);
+	     memo2.visible:=false;
+	     Image1.Visible:=false;
+	     if borrar then Chart1LineSeries1.Clear();
+	     for k:=p.sub[j].res1+1 to p.sub[j].resn-1 do
+	     begin
+	        counter_col:= counter_col +1;
+	        memo2.lines.add(padright(p.res[k].ID3 + inttostr(p.res[k].NumRes) + p.res[k].subunidad, 10)
+	                       + padleft(formatfloat('#.##',p.res[k].phi*180/pi),10)
+	                       + padleft(formatfloat('#.##',p.res[k].psi*180/pi),10));
+	        datos[0, counter_col]:= p.res[k].phi*180/pi;
+	        datos[1, counter_col]:= p.res[k].psi*180/pi;
+	        // Añadimos a gráfico con ejes
+	        Chart1LineSeries1.AddXY(datos[0, counter_col], datos[1, counter_col],'', colorBox2.Selected);
+	     end;
+	     plotXY(datos, Image1,
+	                   0,        //OX
+	                   1,        //OY
+	                   borrar,    //borrar
+	                   false,    //linea
+	                   colorBox1.Selected,   //clpluma
+	                   colorBox2.Selected,   //clrelleno
+	                   colorBox3.Selected);  //Tcolor
+	     memo2.visible:=true;
+	     Image1.Visible:=true;
+	     Chart1.BottomAxis.Visible:= TRUE;
+	     Chart1.BottomAxis.Visible:= TRUE;
+	     Chart1LineSeries1.ShowPoints:=TRUE;
+	     Chart1LineSeries1.LineType:=ltNone;
+	end;
+	end;
+	```
+
+### Demostración de uso
+
+A continuación, se muestra en una animación la implementación de estas funciones en una interfaz gráfica dentro del programa `Ramachandran`.
+
+| ![Interfaz gráfica para el programa Ramachandran](images/ramachandran.gif) |
+|:--------------------------------------------------------------------------:|
+| Figura 3. Animación del programa `Ramachandran` mostrando su uso.          |
+
+# Comparación de los ángulos de torsión de distintas estructuras de hQC
+## Ángulos de torsión de referencia
+En primer lugar, vamos a comparar los ángulos de torsión calculados por nuestro programa con los valores de referencia que obtengamos por una aplicación profesional. Por un lado, vamos a calcular los ángulos de torsión para los residuos 34-40 de nuestra estructura 2AFM usando la aplicación desarrollada. Y, por otro lado, vamos a emplear como referencia los ángulos de torsión calculados por la aplicación [Torsion angles](https://swift.cmbi.umcn.nl/servers/html/chiang.html) para la misma proteína. Como puede observarse en la Tabla 1, los valores son enormemente parecidos, diferenciándose únicamente debido a distintos criterios de redondeo.
 
 | Número de residue 	| Residuo 	| $\phi_{\text{ref}}$ 	| $\phi_{\text{calculado}}$ 	| $\psi_{\text{ref}}$ 	| $\psi_{\text{calculado}}$ 	|
 |:---:	|:---:	|:---:	|:---:	|:---:	|:---:	|
@@ -90,17 +147,28 @@ En la realización de este ejercicio, se pide que se compare los valores de áng
 | 40 	| LYS 	| -56.70 	| -56.73 	| -28.00 	| -28.00 	
 
 Tabla 1. Comparación de los ángulos de torsión calculados frente a un valor de referencia para la proteína 2AFM.
-## Ejemplo de uso 
 
-A continuación, se muestra en una animación la implementación de estas funciones en una interfaz gráfica dentro del programa `Ramachandran`. Para la realización de este programa fue necesario escribir la función `PlotXY` utilizando la clase `Canvas`. No entraremos en detalles en el funcionamiento de esta puesto que fue desarrollada en clase.No obstante, y para obtener un gráfico de mayor calidad con ejes, utilizamos también la clase `TChart` que facilita la realización de gráficos. No obstante, hemos querido mantener el gráfico original para mostrar cómo nuestro 'módulo gráfico' funciona de manera muy parecida a una clase desarrollada de manera profesional. 
+## Comparación diagrama de Ramachandran
 
-| ![Interfaz gráfica para el programa Ramachandran](images/ramachandran.gif) |
-|:--------------------------------------------------------------------------:|
-| Figura 4. Animación del programa `Ramachandran` mostrando su uso.          |
+En segundo lugar, vamos a comparar la estructura experimental 2AFW, que corresponde a la enzima hQC formando un complejo con N-acetilhistamina, uno de sus sustratos, con Q16769 de AlphaFold, que corresponde a la estructura nativa de la isoforma secretora. Para ello, hemos generado la siguiente representación donde se muestran los residuos de 2AFW dibujados en azul y los de AlphaFold dibujados en blanco. En un principio, esperaríamos que ambas estructuras fueran muy similares y se diferenciaran únicamente en unos pocos residuos que podrían corresponder a los residuos del péptido señal de Q16769 de AlphaFold y a aquellos residuos de 2AFW que se hubieran visto afectados por la interacción con su sustrato.
+
+| ![Ramachandran](images/2AFW_Vs_AlphaFold_Ramachandran.jpeg)                                                                                              |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Figura 4. Representación esquemática del diagrama de Ramachandran para la proteína experimental 2AFM comparada con la proteína predecida por AlphaFold. |
+
+En la imagen anterior se puede observar cómo los puntos se desplazan ligeramente en la estructura en presencia de un sustrato, respecto a la estructura en ausencia de este. Esto podría explicarse según varios modelos que explican la interacción de un sustrato con su enzima, como el del modelo del encaje inducido. Ese desplazamiento se debería entonces al desplazamiento ocurrido por la unión del sustrato.
+
+En general, la agrupación de los residuos dentro del diagrama concuerda con lo revisado en literatura a cerca de la estructura secundaria. Si comparamos la Figura 4 con la Figura 2, rápidamente podemos ubicar los residuos que forman parte de hebras $\beta$ en la esquina superior izquierda, de hélices $\alpha$ en el grupo de puntos debajo de este y en el lado derecho una nube de puntos que podría corresponderse con hélices con giro a la izquierda. Además, la mayor parte de los puntos se encuentran en regiones no prohibidas estéricamente, lo cual nos da una idea de la calidad de ambas estructuras.
+
+# Conclusión
+
+En conclusión, el programa y las funciones desarrolladas son capaces de, en primer lugar, calcular los ángulos de torsión para una estructura de forma adecuada y muy precisa, al compararla con herramientas profesionales.  Y , en segundo lugar, la interfaz y el módulo gráfico nos permiten analizar dichos resultados para comparar estructuras y , por ejemplo, observar el efecto que tiene en la estructura la unión de una molécula de interés biológico (como un sustrato o un inhibidor, para estudiar la catálisis enzimática). Esta idea también sería aplicable para comparar las diferencias estructurales entre una proteína nativa y con alguna mutación.
+
+
+
 
 
 # Referencias
 [^1]: «A Generative Angular Model of Protein Structure Evolution». Molecular Biology and Evolution 34, n.º 11 (1 de noviembre de 2017): 3040-3040. https://doi.org/10.1093/molbev/msx214.
 .
-[^2]: Imagen elaborada por Dcrjsr y obtenida a través de Wikipedia. 
-
+[^2]: Imagen elaborada por Dcrjsr y obtenida a través de Wikipedia.

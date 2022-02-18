@@ -1,13 +1,12 @@
-arrange:
-  - index.md
-  - revision_bibliografica.md
-  - formato_ficheros.md
-  - parser_PDB.md
-  - visualizacion.md
-  - write_PDB.md
-  - ramachandran.md
-  - estereodiagrama.md
-  - alinearZ.md
-  - simulacion_MD.md
-  - bibliografia.md
-  
+nav:
+    - index.md
+    - revision_bibliografica.md
+    - formato_ficheros.md
+    - parser_PDB.md
+    - visualizacion.md
+    - write_PDB.md
+    - ramachandran.md
+    - estereodiagrama.md
+    - alinearZ.md
+    - simulacion_MD.md
+    - bibliografia.md

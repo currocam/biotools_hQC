@@ -1,18 +1,18 @@
 # Parseador ficheros PDB
 
-En la realización de este cuaderno de actividades se pide el desarrollo de una función, CargarPDB, capaz de parsear la información estructural relevante de un archivo PDB y almacenarla en una estructura matricial. Esta función ha sido realizada durante el transcurso de la asignatura y es uno de los elementos claves del entorno de trabajo que hemos desarrollado durante el semestre. A continuación se procede a mostrar de forma detallada el funcioamiento de la misma. El código correspondiente a esta funcionalidad se puede encontrar en la librería [biotools/src_biotools](https://github.com/currocam/biotools_hQC/blob/master/biotools/src_biotools.pas). Además, aclarar que para la epxlicación no se seguirá el orden cronológico en que se programó (el cuál podría consultarse siguiendo los commits del repositorio) sino el orden lógico de este. 
+En la realización de este cuaderno de actividades se pide el desarrollo de una función, CargarPDB, capaz de parsear la información estructural relevante de un archivo PDB y almacenarla en una estructura matricial. Esta función ha sido realizada durante el transcurso de la asignatura y es uno de los elementos claves del entorno de trabajo que hemos desarrollado durante el semestre. A continuación se procede a mostrar de forma detallada el funcionamiento de la misma. El código correspondiente a esta funcionalidad se puede encontrar en la librería [biotools/src_biotools](https://github.com/currocam/biotools_hQC/blob/master/biotools/src_biotools.pas). Por último, aclarar que para la explicación no se seguirá el orden cronológico en que se programó (el cuál podría consultarse siguiendo los commits del repositorio) sino el orden lógico de este. Este apartado se corresponde a la 3ª actividad de la relación de ejercicios.
 
 ## Records y Arrays
 
-En primer lugar, se definieron una serie de records que nos permitieran almacenar la información de forma ordenada y de vectores dinámicos, dynamic arrays, para almacenar estos. Un record en pascal es un tipo de dato altamente estructurado y que consiste en la agrupación de elementos de distinto tipo. Un array es un tipo que agrupa variables del mismo tipo. Utilizamos vectores dinámicos cuando no es posible conocer el número exacto de elementos necesarios, por lo será necesario definir el tamaño de las mismas durante la ejecución del programa. 
+En primer lugar, se definieron una serie de records que nos permitieran almacenar la información de forma ordenada y de vectores dinámicos, dynamic arrays, para almacenar estos. Un record en pascal es un tipo de dato altamente estructurado y que consiste en la agrupación de elementos de distinto tipo. Un array es un tipo que agrupa variables del mismo tipo. Utilizamos vectores dinámicos cuando no es posible conocer el número exacto de elementos necesarios, por lo será necesario definir el tamaño de las mismas durante la ejecución del programa.
 
-1. Se definió un record que contuviera la información relativa a un punto en el espacio, TPunto, y un array de puntos. 
+1. Se definió un record que contuviera la información relativa a un punto en el espacio, TPunto, y un array de puntos.
 
-2. Se definió un record que contuviera la información relativa a un átomo de un archivo PDB en el espacio. La información que se consideró fue la siguiente como relevante fue la siguiente. Destacar que la información relativa a las coordenadas se almacena en un TPunto. 
+2. Se definió un record que contuviera la información relativa a un átomo de un archivo PDB en el espacio. La información que se consideró fue la siguiente como relevante fue la siguiente. Destacar que la información relativa a las coordenadas se almacena en un TPunto.
 
-3. Se definió un record que contuviera la información relativa a un residuo de un archivo PDB, es decir, a una serie grupo de átomos (de longitud variable) sobre los cuáles se pueden definir nuevas propiedades como ángulos diedros. 
+3. Se definió un record que contuviera la información relativa a un residuo de un archivo PDB, es decir, a una serie grupo de átomos (de longitud variable) sobre los cuáles se pueden definir nuevas propiedades como ángulos diedros.
 
-4. Por último, se definieron unos record con la información relativa a una subunidad de un archivo PDB y a un archivo PDB completo. Destacar que, en este caso, se optó por almacenar información redundante con el fin de simplificar el acceso a esta luego. Estos records constan de una serie de vectores dinámicos que contienen TAtomPDB, TResiduoPDB, TSubunidadPDB y también de índices. 
+4. Por último, se definieron unos record con la información relativa a una subunidad de un archivo PDB y a un archivo PDB completo. Destacar que, en este caso, se optó por almacenar información redundante con el fin de simplificar el acceso a esta luego. Estos records constan de una serie de vectores dinámicos que contienen TAtomPDB, TResiduoPDB, TSubunidadPDB y también de índices.
 
 === "TPunto"
 
@@ -50,13 +50,13 @@ En primer lugar, se definieron una serie de records que nos permitieran almacena
 === "TsubunidadPDB"
 	```pascal linenums="1"
 	TsubunidadPDB = record
-		ID: char; 
-	    	atm1, atmN, res1, resN: integer; 
+		ID: char;
+	    	atm1, atmN, res1, resN: integer;
 	    	atomCount, resCount: integer;
 	    	ResIndex: array of integer;
 	    	end;
 	```
-=== "TPDB"	
+=== "TPDB"
 	```pascal linenums="1"
 	 TPDB = record
 	       header: string;
@@ -69,11 +69,10 @@ En primer lugar, se definieron una serie de records que nos permitieran almacena
 	       end;
 	```
 
-## Cargar PDB
-La función cargar PDB básica que se definió en un principio, fue la siguiente. Esta función tenía como único argumento un TStrings (texto contenido en un memo) y, de forma sistemática, recorría las líneas del archivo PDB, accediendo a la información relativa a cada átomo, residuo y subunidad, guardándola en un record dentro de un array. Para hacer esto se tuvo en cuenta que los archivos .pdb son archivos que siguen unas pautas de formato muy específicas.
 
-### Cálculo ángulos de torsión
-Una vez recorrido el archivo .pdb, se recorrían cada una de las subunidades y residuos del TPDB para definir los ángulos diedros $\psi$ y $\phi$. Para ello, se definió una función llamada torsión, que calculaba el ángulo de torsión 4 puntos en el espacio. Destacar que, para facilitar el trabajo vectorial, se definieron nuevos operadores aritméticos y booleanos para el tipo TPunto. Por ejemplo, así definimos algunos de ellos: 
+## Cálculo ángulos de torsión
+
+El cálculo de ángulos de torsión presentaba una mayor dificultad. En primer lugar, para facilitar el trabajo vectorial, se definieron nuevos operadores aritméticos y booleanos para el tipo TPunto. Por ejemplo, así definimos algunos de ellos:
 
 ???+ example "Operadores geométricos src_biotools"
 	```pascal linenums="1"
@@ -97,7 +96,8 @@ Una vez recorrido el archivo .pdb, se recorrían cada una de las subunidades y r
 		else  result:=False;
 	end;
 	```
-A continuación, se muestra la función utilizada para calcular los ángulos de torsión, teniendo en cuenta las convenciones de la IUPAC. 
+
+Se definió una función llamada torsión, que calculaba el ángulo de torsión 4 puntos en el espacio, teniendo en cuenta las convenciones de la IUPAC.
 
 ??? example "Cálculo ángulos diedros"
 	```pascal linenums="1"
@@ -125,105 +125,140 @@ A continuación, se muestra la función utilizada para calcular los ángulos de 
 	   result:=diedro_IUPAC;
 	end;
 	```
-A continuación, se muestra la función CargarPDB: 
+
+	## Cargar PDB
+
+	La función `CargarPDB` acepta como único argumento un TStrings (texto contenido en un memo) y, de forma sistemática, recorre las líneas del archivo PDB, accediendo a la información relativa a cada átomo, residuo y subunidad, y guardándola en un record dentro de un array. Para hacer esto se tuvo en cuenta que los archivos .pdb son archivos que siguen unas pautas de formato muy específicas. Una vez recorrido el archivo .pdb, se recorre cada una de las subunidades y residuos del TPDB para definir los ángulos diedros $\psi$ y $\phi$. A continuación, se muestra la función CargarPDB:
 
 ??? example "Función CargarPDB"
 	```pascal linenums="1"
 	function CargarPDB(texto: TStrings): TPDB;    overload;
-	  var
-	    p: TPDB;
-	    linea: string;
-	    j, k, F, R, S: integer;
-	    resno: integer;
+  var
+    p: TPDB;
+    linea: string;
+    j, k, F, R, S: integer;
+    resno: integer;
 
-	  begin
+  begin
+    if isPDB(texto) = False then ShowMessage('No es un archivo PDB');
+    p.secuencia:='';
+    F:=0; R:=0; S:=0;
+    setlength(p.atm, texto.count);
+    setlength(p.res, texto.count);
+    setlength(p.sub, texto.count);
 
-	    p.secuencia:='';
-	    F:=0; R:=0; S:=0;
-	    setlength(p.atm, texto.count);
-	    setlength(p.res, texto.count);
-	    setlength(p.sub, texto.count);
 
-	    for j:=0 to texto.count-1 do
-	    begin
-	      linea:= texto[j];
-	      if (copy(linea,1,6)='ATOM  ')then
-	      begin
-		F:= F+1;
-		p.atm[F].NumAtom :=strtoint(trim(copy(linea,7,5)));
-		p.atm[F].ID:= trim(copy(linea, 13, 4));
-		p.atm[F].Residuo:= copy(linea, 18,3);
-		p.atm[F].Subunidad:=linea[22];
-		p.atm[F].NumRes:= strtoint(trim(copy(linea,23,4)));
-		p.atm[F].coor.X:= strtofloat(trim(copy(linea,31,8)));
-		p.atm[F].coor.Y:= strtofloat(trim(copy(linea,39,8)));
-		p.atm[F].coor.Z:= strtofloat(trim(copy(linea,47,8)));
-		p.atm[F].R:= strtofloat(trim(copy(linea, 61,6)));
 
-	      //Residuo
-		if p.atm[F].ID = 'N' then
+    for j:=0 to texto.count-1 do
+    begin
+      linea:= texto[j];
+      if (copy(linea,1,6)='ATOM  ')then
+      begin
+        F:= F+1;
+        p.atm[F].NumAtom :=strtoint(trim(copy(linea,7,5)));
+        p.atm[F].ID:= trim(copy(linea, 13, 4));
+        p.atm[F].Residuo:= copy(linea, 18,3);
+        p.atm[F].Subunidad:=linea[22];
+        p.atm[F].NumRes:= strtoint(trim(copy(linea,23,4)));
+        p.atm[F].coor.X:= strtofloat(trim(copy(linea,31,8)));
+        p.atm[F].coor.Y:= strtofloat(trim(copy(linea,39,8)));
+        p.atm[F].coor.Z:= strtofloat(trim(copy(linea,47,8)));
+        p.atm[F].R:= strtofloat(trim(copy(linea, 61,6)));
+
+      //Residuo
+        if p.atm[F].ID = 'N' then
+        begin
+          R:= R+1;
+          p.res[R].Atm1:= F;
+          p.res[R].ID3:=p.atm[F].Residuo;
+          p.res[R].ID1:=AA3to1(p.res[R].ID3);
+          p.res[R].N:= F;
+          p.res[R].NumRes:= p.atm[F].NumRes;
+          p.res[R].Subunidad:= p.atm[F].Subunidad;
+          p.secuencia:= p.secuencia + p.res[R].ID1;
+
+        //Subunidad
+          if pos(p.atm[F].Subunidad, p.subs)=0 then
+          begin
+            S:= S+1;
+            p.subs:= p.subs + p.atm[F].Subunidad;
+            p.sub[S].ID:=p.atm[F].Subunidad;
+            p.sub[S].atm1:=F;
+            p.sub[S].res1:=R;
+          end;
+        end;
+        if p.atm[F].ID='CA' then p.res[R].CA:= F;
+        if p.atm[F].ID='C' then p.res[R].C:= F;
+        if p.atm[F].ID='O' then p.res[R].O:= F;
+        p.res[R].AtmN:= F;
+        p.sub[S].atmN:= F;
+        p.sub[S].resN:= R;
+
+
+      end;
+    end;
+    setlength(p.atm, F+1);
+    setlength(p.res, R+1);
+    setlength(p.sub, S+1);
+    p.NumFichas:= F;
+    p.NumResiduos:= R;
+    p.NumSubunidades:= S;
+
+    for j:=1 to p.NumSubunidades do with p.sub[j] do
+    begin
+      AtomCount:= atmN - atm1 + 1;
+      ResCount:= resN - res1 + 1;
+      for k:=p.sub[j].res1 + 1 to p.sub[j].resn - 1 do
+      begin
+        p.res[k].phi:=torsion(p.atm[p.res[k-1].C].coor,
+                              p.atm[p.res[k].N].coor,
+                              p.atm[p.res[k].CA].coor,
+                              p.atm[p.res[k].C].coor);
+
+        p.res[k].psi:=torsion(p.atm[p.res[k].N].coor,
+                              p.atm[p.res[k].CA].coor,
+                              p.atm[p.res[k].C].coor,
+                              p.atm[p.res[k+1].N].coor);
+
+      end;
+
+      setlength(p.sub[j].resindex, p.NumResiduos + 1);
+      for k:=1 to p.sub[j].ResCount do
+      begin
+        resno:= p.sub[j].res1 + k - 1;
+        p.sub[j].resindex[p.res[resno].numres]:= resno;
+      end;
+    end;
+
+    result:=p;
+  end;
+	```
+
+### Versión sobrecargada
+
+Además, se realizó una función `CargarPDB` sobrecargada que facilitara el uso de esta función dentro del entorno Lazarus y simplificara el código. Se decidió hacer esto porque, siendo el aspecto central de la asignatura el estudio de archivos PDB, iba a ser muy utilizada. La versión sobrecargada es la siguiente.
+
+??? example "Función CargarPDB overload"
+	```pascal linenums="1"
+	function cargarPDB (var p: TPDB): string;
+ var
+		dialogo: TOpenDialog;
+		textoPDB: TStrings;
+ begin
+		dialogo:= TOpenDialog.create(application);
+		textoPDB:= TStringlist.create;
+
+		if dialogo.execute then
 		begin
-		  R:= R+1;
-		  p.res[R].Atm1:= F;
-		  p.res[R].ID3:=p.atm[F].Residuo;
-		  p.res[R].ID1:=AA3to1(p.res[R].ID3);
-		  p.res[R].N:= F;
-		  p.res[R].NumRes:= p.atm[F].NumRes;
-		  p.res[R].Subunidad:= p.atm[F].Subunidad;
-		  p.secuencia:= p.secuencia + p.res[R].ID1;
+		 textoPDB.loadfromfile(dialogo.filename);
+		 if isPDB(textoPDB) = False then ShowMessage('No es un archivo PDB');
+		 p:=cargarPDB(textoPDB);
+		 result:= dialogo.filename;
 
-		//Subunidad
-		  if pos(p.atm[F].Subunidad, p.subs)=0 then
-		  begin
-		    S:= S+1;
-		    p.subs:= p.subs + p.atm[F].Subunidad;
-		    p.sub[S].ID:=p.atm[F].Subunidad;
-		    p.sub[S].atm1:=F;
-		    p.sub[S].res1:=R;
-		  end;
-		end;
-		if p.atm[F].ID='CA' then p.res[R].CA:= F;
-		if p.atm[F].ID='C' then p.res[R].C:= F;
-		if p.atm[F].ID='O' then p.res[R].O:= F;
-		p.res[R].AtmN:= F;
-		p.sub[S].atmN:= F;
-		p.sub[S].resN:= R;
+		end
+		else result:= '';
 
-	      end;
-	    end;
-	    setlength(p.atm, F+1);
-	    setlength(p.res, R+1);
-	    setlength(p.sub, S+1);
-	    p.NumFichas:= F;
-	    p.NumResiduos:= R;
-	    p.NumSubunidades:= S;
-
-	    for j:=1 to p.NumSubunidades do with p.sub[j] do
-	    begin
-	      AtomCount:= atmN - atm1 + 1;
-	      ResCount:= resN - res1 + 1;
-	      for k:=p.sub[j].res1 + 1 to p.sub[j].resn - 1 do
-	      begin
-		p.res[k].phi:=torsion(p.atm[p.res[k-1].C].coor,
-		                      p.atm[p.res[k].N].coor,
-		                      p.atm[p.res[k].CA].coor,
-		                      p.atm[p.res[k].C].coor);
-
-		p.res[k].psi:=torsion(p.atm[p.res[k].N].coor,
-		                      p.atm[p.res[k].CA].coor,
-		                      p.atm[p.res[k].C].coor,
-		                      p.atm[p.res[k+1].N].coor);
-
-	      end;
-
-	      setlength(p.sub[j].resindex, p.NumResiduos + 1);
-	      for k:=1 to p.sub[j].ResCount do
-	      begin
-		resno:= p.sub[j].res1 + k - 1;
-		p.sub[j].resindex[p.res[resno].numres]:= resno;
-	      end;
-	    end;
-
-	    result:=p;
-	  end
+		dialogo.free;
+		textoPDB.free;
+ end;
 	```
