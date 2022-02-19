@@ -35,7 +35,7 @@ $$
 
 ### Criterio de signos
 
-El criterio de signos empleado es el siguiente. Dados unos valores del punto n-esimo, para alinear correctamente el primer punto con el n-ésimo se considera si  $z_n>0$. Si la coordenada $z$ del punto n-ésimo es mayor que 0, es decir, que está en uno de los 4 cuadrantes superiores, se deberá rotar sobre el eje $\text{OX}$ en sentido positivo o antihorario y sobre el eje $\text{OY}$ en sentido negativo u horario, mientras que si la coordenada $z$ del punto n-ésimo es mayor que 0, es decir, que está en uno de los 4 cuadrantes inferiores, se deberá rotar sobre el eje $\text{OX}$ en sentido negativo u horario y sobre el eje $\text{OY}$ en sentido positivo o antihorario
+El criterio de signos empleado es el siguiente. Dados unos valores del punto n-esimo, para alinear correctamente el primer punto con este, se considera si  $z_n>0$. Si la coordenada $z$ del punto n-ésimo es mayor que 0, es decir, que está en uno de los 4 cuadrantes superiores, se deberá rotar sobre el eje $\text{OX}$ en sentido positivo o antihorario y sobre el eje $\text{OY}$ en sentido negativo u horario, mientras que si la coordenada $z$ del punto n-ésimo es mayor que 0, es decir, que está en uno de los 4 cuadrantes inferiores, se deberá rotar sobre el eje $\text{OX}$ en sentido negativo u horario y sobre el eje $\text{OY}$ en sentido positivo o antihorario
 
 Finalmente, la implementación de las tres transformaciones anteriores en forma de función se muestra a continuación:
 

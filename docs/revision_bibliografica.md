@@ -1,39 +1,58 @@
-## Revisión bibliográfica
+# Revisión bibliográfica
 
 A continuación, desarrollamos una breve revisión bibliográfica sobre la proteína hQC, haciendo especial énfasis en los aspectos estructurales y funcionales de la misma. Este apartado se corresponde a la 1ª actividad de la relación de ejercicios.
 
-### Metodología
+## Metodología
 
 En la realización de esta revisión bibliográfica se hizo uso de la base de datos Scopus para la selección de un grupo reducido de revisiones y artículos de interés que trataran sobre esta proteína. También se recurrió la base de datos RCSB PDB para la búsqueda de estructuras experimentales disponibles para esta proteínas, cuyas características principales se encuentran resumidas más adelante.
 
-### Introducción
+## Introducción
 
-La enzima hQC (Human glutaminyl cyclase)  pertenece a una familia de aciltransferasas muy extendidas en animales y plantas. Su importancia reside en que también interviene en la formación de piroglutamato N-terminal (pGlu) a partir de su precursor glutaminilo, la cual se pensaba que sucedía de manera espontánea. Esta reacción es una modificación postraduccional de importancia en la maduración de  numerosos neuropéptidos bioactivos, hormonas y citoquinas, durante su maduración en la vía secretora y es objeto de estudio en relación a patologías como la osteoporosis y el Alzheimer (Gunn et al., 2021) [^1].
+La enzima hQC (Human glutaminyl cyclase), es una aminoaciltransferasa, EC 2.3.2, que se encuentra en plantas y animales. Esta enzima es objeto de estudio en relación a su implicación en patologías como la osteoporosis y el Alzheimer, en cuya relación nos centraremos en esta revisión (Gunn et al., 2021) [^1].
+
+El Alzheimer es una enfermedad neurodegenerativa  crónica y que afecta a población envejecida causando demencia. Se estima que un 13% de la población mayor a 65 años desarrolla Alzheimer y un 45% por enzima de los 85 años. Sin embargo, la tasa de fracaso de fármacos candidatos en ensayos clínicos es una de las mayores en cualquier área de enfermedades, siendo superior al 99%. El Alzheimer es una enfermedad multifactorial sobre la cual se han propuesto diversas hipótesis que explican los mecanismos por los que se origina (Vijayan & Zhang, 2019) [^3].
+
+Una de las hipótesis con más aceptación en la comunidad científica es la hipótesis de la cascada amiloide. Según esta hipótesis, es la deposición de la proteína β amiloide (AβP) el aguante causal de la enfermedad. Las placas que forman estos péptidos al depositarse están formadas por distintas especies de AβP. Una de ellas es el pGlu-Aβ y su formación está catalizada por la enzima QC, sobre la cual trata este trabajo y que está up-regulada durante el desarrollo de la enfermedad  (Vijayan & Zhang, 2019) [^3].
+
+[^3]: Vijayan, D. K., & Zhang, K. Y. J. (2019). Human glutaminyl cyclase: Structure, function, inhibitors and involvement in Alzheimer’s disease. Pharmacological Research, 147, 104342. https://doi.org/10.1016/j.phrs.2019.104342
+
+
+La enzima QC es capaz de catalizar la ciclación del glutamato N-terminal a parir de su precursor glutaminilo. Esta reacción es una modificación postraduccional de importancia en la maduración de  numerosos neuropéptidos bioactivos, hormonas y citoquinas, durante su maduración en la vía secretora (Gunn et al., 2021) [^1].
+
+Más concretamente, en el caso del Alzheimer, la enzima QC cataliza la ciclación del glutamano N-terminal en la posición 3 o 11 del AβP trucado. Esta modificación, respecto al AβP sin modificar, aumenta la hidrofobicidad, la estabilidad, la propensión a agregarse y la neurotoxicidad. Actualmente, existen numerosos estudios que exploran posibilidad de utilizar inhibidores de de QC para  recudir la producción pGlu-Aβ (Vijayan & Zhang, 2019) [^3].
+
+Además del Alzheimer, se conoce la implicación de esta enzima en las siguientes patologías. La información mostrada a continuación ha sido obtenida del trabajo de Coimbra & Salvador, 2021 [^4].
+
+[^4]: Coimbra, J. R. M., & Salvador, J. A. R. (2021). A patent review of glutaminyl cyclase inhibitors (2004–present). Expert Opinion on Therapeutic Patents, 31(9), 809-836. https://doi.org/10.1080/13543776.2021.1917549
+
+
+1. En procesos inflamatorios, debido a su intervención en la maduración de la citoquina CCL2.
+2. En cáncer, debido a la modificación del inmuno checkpoint CD47 y que es necesaria para una interacción efectiva de esta molécula con sus dianas.
+3. En periodontitis, enfermedad de las encías, debido a que las principales bacterias causantes de esta enfermedad  necesitan de la actividad de una QC bacteriana para el crecimiento y viabilidad celular. Además, se ha relacionado uno de estas bacterias, *P. gingivalis* con pacientes con artritis reumatoide. En este sentido, se conoce que la enzima QC se encuentra up-regulada en pacientes con esta patología.
 
 [^1]: Gunn, A. P., Wong, B. X., McLean, C., Fowler, C., Barnard, P. J., Duce, J. A., Roberts, B. R., & The AIBL Research Group. (2021). Increased glutaminyl cyclase activity in brains of Alzheimer’s disease individuals. Journal of Neurochemistry, 156(6), 979-987. https://doi.org/10.1111/jnc.15114.
 
+## Aspectos estructurales de importancia
 
 Se conocen dos isoformas de la enzima QC en *Homo sapiens*, la llamada QC secretora, sQC, codificada por el gen QPCT localizado en el cromosoma 2p22.2, y la llamada QC golgi residente, gQC, codificada por el gen QPCTL, en el cromosoma 19q13.32 (Huang et al., 2005) [^2].
 
 [^2]: Huang, K.-F., Y.-L. Liu, W.-J. Cheng, T.-P. Ko, y A. H.-J. Wang. «Crystal Structures of Human Glutaminyl Cyclase, an Enzyme Responsible for Protein N-Terminal Pyroglutamate Formation». Proceedings of the National Academy of Sciences 102, n.º 37 (13 de septiembre de 2005): 13117-22. https://doi.org/10.1073/pnas.0504184102.
 
-
-
-### Aspectos estructurales de importancia
-
-Ambas enzimas, sQC y gQC, tienen una estructura muy similar, por lo que las consideraciones generales que podamos hacer sobre su estructuras serán aplicables a ambas isoformas. Poseen una estructura globular con un pliegue mixto α/β. La actividad glutaminil y glutamil ciclasa reside en el dominio maduro (residuos 33-361) de la proteína [^1]
+La isoforma gQC se diferencia de la sQC en que tiene una secuencia N-terminal responsable de su anclaje en el aparato de Golgi (Vijayan & Zhang, 2019) [^3]. Por lo demás, ambas isoformas son muy similares ($C\alpha RMSD < 1 Å$), por lo que podremos realizar consideraciones generales sobre las dos simultáneamente (Vijayan & Zhang, 2019) [^3]. Poseen una estructura globular con un pliegue mixto α/β. La actividad glutaminil y glutamil ciclasa reside en el dominio maduro (residuos 33-361) de la proteína (Gunn et al., 2021) [^1]
 
 
 |![Dominio maduro](images/dominio_maduro.png)|
 |:--:|
-|Figura 1. Dominio maduro anotado con las estructuras secundarias según el orden del archivo 2AFM.pdb. Elaboración propia usando PyMOL. En el apartado de visualización se aborda en detalle la realización de estas imágenes.|
+|Figura 1. Dominio maduro anotado con las estructuras secundarias de 2AFM. Elaboración propia usando PyMOL. En el apartado de visualización se aborda en detalle la realización de estas imágenes.|
 
 La estructura posee una topología de sándwich abierto con una lámina β central de seis hebras rodeada por  α-hélices a ambos lados. Estas  α-hélices son α7 y α9 y α2, α3, α4, α5, α6, y α10, respectivamente. Esta lámina β central  esta formada por dos hebras antiparalelas (β1 y β2) y 4 paralelas (β3, β4, β5 y β6) y constituye el corazón hidrofóbico de la molécula (Huang et al., 2005) [^2].
 
 
-#### Estructura del sitio activo
+### Estructura del sitio activo
 
-El sitio activo está formado por 6 bucles entre α3 y α4, β3 y α5, β4 y α7, β5 y α8, α8 y α9, y β6 y α10. Consta de un ión de zinc situado en el bolsillo del sitio activo y que está coordinado tetraédricamente con D159 Oδ2, E202 Oε1, H330 Nε2 y una molécula de agua. También resultan de interés una serie de residuos altamente conservados en el entorno del zinc a los que se les atribuye en literatura cierto papel en la catálisis. Estos residuos son E201, W207, D248, D305, F325 y W329 y se ha comprobado que mutaciones en estos aminoácidos reducen significativamente la actividad enzimática (Gunn et al., 2021) [^1].
+El sitio activo está formado por 6 bucles entre α3 y α4, β3 y α5, β4 y α7, β5 y α8, α8 y α9, y β6 y α10. Consta de un ión de Zinc situado en el bolsillo del sitio activo y que está coordinado tetraédricamente con D159 Oδ2, E202 Oε1, H330 Nε2 y una molécula de agua. También resultan de interés una serie de residuos altamente conservados en el entorno del zinc a los que se les atribuye en literatura cierto papel en la catálisis. Estos residuos son E201, W207, D248, D305, F325 y W329 y se ha comprobado que mutaciones en estos aminoácidos reducen significativamente la actividad enzimática (Gunn et al., 2021) [^1].
+
+Ambas isoformas presentan variaciones en el tamaño del sitio activo debido a variaciones conformacionales en los lazos que forman parte del mismo. La isoforma gQC, Golgi residente, es ligeramente más ancha y más abierta que la sQC, secretora. (Vijayan & Zhang, 2019) [^3]
 
 #### Estructuras experimentales disponibles
 
@@ -108,5 +127,14 @@ filename = "sitio_union"+".png"
 cmd.png(filename)
 python end
 ```
+
+## Inhibidores de hQC
+
+Los inhibidores de sQC basan su acción principalmente en la coordinación entre un grupo de unión a metal con el ión $Zn^{2+}$ del sitio activo. Se distinguen los siguientes tipos de fármacos principalmente. La información mostrada a continuación ha sido obtenida del  Vijayan & Zhang, 2019 [^3].
+
+1. Inhibidores basados en imidazol.
+2. Inhibidores basados en benzimidazol.
+3. Inhibidores basados en metil triazol.
+4. Inhibidores basados en sulfolípidos extraídos de microalgas y y obtenidos mediante metabolómica reversa.
 
 ## Referencias
