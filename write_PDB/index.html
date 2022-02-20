@@ -1,0 +1,933 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cuaderno de actividades de Francisco Campuzano Jiménez de la asignatura de Ingeniería de Proteínas del curso 2021-2022 sobre la proteína Human glutaminyl cyclase (hQC)">
+      
+      
+      
+        <meta name="author" content="Francisco de Borja Campuzano Jiménez">
+      
+      
+        <link rel="canonical" href="https://currocam.github.io/biotools_hQC/write_PDB/">
+      
+      <link rel="icon" href="../images/logoasl.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>WritePDB: Extraer átomos Carbono alfa - Cuaderno Ingeniería de Proteínas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#writepdb-extraer-atomos-carbono-alfa" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Cuaderno Ingeniería de Proteínas" class="md-header__button md-logo" aria-label="Cuaderno Ingeniería de Proteínas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.6 10.59 8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2 2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cuaderno Ingeniería de Proteínas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              WritePDB: Extraer átomos Carbono alfa
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/currocam/biotools_hQC/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    biotools_hQC
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cuaderno Ingeniería de Proteínas" class="md-nav__button md-logo" aria-label="Cuaderno Ingeniería de Proteínas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.6 10.59 8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2 2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82z"/></svg>
+
+    </a>
+    Cuaderno Ingeniería de Proteínas
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/currocam/biotools_hQC/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    biotools_hQC
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Acerca de
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revision_bibliografica/" class="md-nav__link">
+        Revisión bibliográfica
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../formato_ficheros/" class="md-nav__link">
+        Extraer secuencia distintos formatos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parser_PDB/" class="md-nav__link">
+        Parseador ficheros PDB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visualizacion/" class="md-nav__link">
+        Visualización de las estructuras
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          WritePDB: Extraer átomos Carbono alfa
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        WritePDB: Extraer átomos Carbono alfa
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#writeatompdb" class="md-nav__link">
+    WriteAtomPDB
+  </a>
+  
+    <nav class="md-nav" aria-label="WriteAtomPDB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ttestcase" class="md-nav__link">
+    TTestCase
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demostracion-de-uso" class="md-nav__link">
+    Demostración de uso
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extraccion-carbonos-alfa-y-visualizacion-en-pymol-segun-el-factor-b" class="md-nav__link">
+    Extracción carbonos alfa y visualización en PyMol según el factor B
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretacion-de-los-resultados" class="md-nav__link">
+    Interpretación de los resultados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusión
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ramachandran/" class="md-nav__link">
+        Diagrama de Ramachandran
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estereodiagrama/" class="md-nav__link">
+        Estereodiagrama
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alinearZ/" class="md-nav__link">
+        Alinear Z
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rmsd/" class="md-nav__link">
+        RMSD
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        Test Unitarios
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simulacion_MD/" class="md-nav__link">
+        Simulación de dinámica molecular (extra)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliografia/" class="md-nav__link">
+        Bibliografia
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#writeatompdb" class="md-nav__link">
+    WriteAtomPDB
+  </a>
+  
+    <nav class="md-nav" aria-label="WriteAtomPDB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ttestcase" class="md-nav__link">
+    TTestCase
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demostracion-de-uso" class="md-nav__link">
+    Demostración de uso
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extraccion-carbonos-alfa-y-visualizacion-en-pymol-segun-el-factor-b" class="md-nav__link">
+    Extracción carbonos alfa y visualización en PyMol según el factor B
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretacion-de-los-resultados" class="md-nav__link">
+    Interpretación de los resultados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusión
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/currocam/biotools_hQC/edit/master/docs/write_PDB.md" title="Editar esta página" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="writepdb-extraer-atomos-carbono-alfa">WritePDB: Extraer átomos Carbono alfa<a class="headerlink" href="#writepdb-extraer-atomos-carbono-alfa" title="Permanent link">&para;</a></h1>
+<p>En la realización de este cuaderno de actividades se pide el desarrollo de una función que permite escribir la información relativa a un átomo de un archivo PDB albergada en una estructura matricial en un fichero siguiendo el formato PDB de nuevo. El objetivo es emplear dicha función para extraer los carbonos alfa de un fichero PDB, escribirlos en un archivo pseudo-pdb y estudiar el desorden de la proteína en base a su factor <span class="arithmatex">\(\text{B}\)</span>. El factor <span class="arithmatex">\(\text{B}\)</span> representa el desplazamiento de los átomos de su posición media en la estructura cristalina y se observa como una disminución en la intensidad de la difracción. Puede tener dos causas: ser el resultado de vibraciones atómicas dependientes de la temperatura o del desorden estático en la estructura cristalina. Podemos utilizarlo, por tanto, como indicador de los residuos más desordenados de la proteína (Trueblood et al., 1996) <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<p>El código correspondiente a esta funcionalidad se puede encontrar en la librería <a href="https://github.com/currocam/biotools_hQC/blob/master/biotools/src_biotools.pas">biotools/src_biotools</a> y la implementación en un programa con interfaz gráfica en el repositorio bajo el nombre de <a href="https://github.com/currocam/biotools_hQC/tree/master/write_PDB">write_PDB</a>. Este apartado se corresponde a la 5ª actividad de la relación de ejercicios.</p>
+<h2 id="writeatompdb">WriteAtomPDB<a class="headerlink" href="#writeatompdb" title="Permanent link">&para;</a></h2>
+<p>En primer lugar, se desarrolló una función que escribiera el contenido de un <code>record</code> tipo <code>TAtomPDB</code> en una línea tipo <code>AnsiString</code> correctamente formateada. Para hacerlo, se consultó la bibliografía proporcionada para familiarizarnos con el formato PDB. Para su desarrollo se definieron también una serie de test unitarios para asegurar la función se comportaba de acuerdo a lo deseado.</p>
+<p>A continuación, se muestra la función <code>WriteAtomPDB</code>. Para escribirla se utilizó la función <code>formatfloat</code> para convertir los valores numéricos en cadenas de texto con los números decimales adecuados y la función <code>format</code> para alinear dentro del número de espacios que ocupa cada tipo de variable en los archivos PDB a la izquierda o a la derecha, según fuera necesario. Para ello se utiliza la sintaxis <code>'%d'</code> y es, en realidad, el aspecto de mayor dificultad de esta función. Usando esta función, que acepta como argumento instancias de clase <code>AnsiString</code>, evitamos tener que definir nosotros una función que permita alinear los valores. Añadir que, puesto que no se consideraba el factor ocupancia en la estructura matricial <code>TAtomPDB</code>, no se ha incluido tampoco en este función (por lo que todos los átomos del pseudo-pdb tendrán una ocupancia idéntica e igual a 1.00).  </p>
+<details class="example">
+<summary>Función WriteAtomPDB</summary>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">function</span> <span class="nf">WriteAtomPDB</span><span class="p">(</span><span class="n">atom</span><span class="o">:</span> <span class="n">TAtomPDB</span><span class="p">)</span><span class="o">:</span> <span class="kt">AnsiString</span><span class="o">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">var</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>  <span class="n">numatm</span><span class="o">,</span> <span class="n">numres</span><span class="o">,</span> <span class="n">X</span><span class="o">,</span> <span class="n">Y</span><span class="o">,</span> <span class="n">Z</span><span class="o">,</span> <span class="n">R</span><span class="o">:</span> <span class="kt">AnsiString</span><span class="o">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>  <span class="n">linea</span><span class="o">:</span> <span class="kt">AnsiString</span><span class="o">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="k">begin</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="c1">// Obtenemos la información del objeto atom en el formato numérico que nos interesa</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">numatm</span><span class="o">:=</span> <span class="nb">inttostr</span><span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">NumAtom</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="n">numres</span> <span class="o">:=</span> <span class="nb">inttostr</span><span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">NumRes</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="n">X</span>  <span class="o">:=</span> <span class="nb">formatfloat</span><span class="p">(</span><span class="s">&#39;0.000&#39;</span><span class="o">,</span> <span class="n">atom</span><span class="o">.</span><span class="n">coor</span><span class="o">.</span><span class="n">X</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="n">Y</span>  <span class="o">:=</span> <span class="nb">formatfloat</span><span class="p">(</span><span class="s">&#39;0.000&#39;</span><span class="o">,</span> <span class="n">atom</span><span class="o">.</span><span class="n">coor</span><span class="o">.</span><span class="n">Y</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="n">Z</span>  <span class="o">:=</span> <span class="nb">formatfloat</span><span class="p">(</span><span class="s">&#39;0.000&#39;</span><span class="o">,</span> <span class="n">atom</span><span class="o">.</span><span class="n">coor</span><span class="o">.</span><span class="n">Z</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="n">R</span>  <span class="o">:=</span> <span class="nb">formatfloat</span><span class="p">(</span><span class="s">&#39;0.00&#39;</span><span class="o">,</span> <span class="n">atom</span><span class="o">.</span><span class="n">R</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="n">linea</span><span class="o">:=</span> <span class="nb">Concat</span><span class="p">(</span><span class="s">&#39;ATOM  &#39;</span> <span class="o">,</span> <span class="c1">// 6 char justificado a la izquierda</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        <span class="nb">format</span><span class="p">(</span><span class="s">&#39;%5s&#39;</span><span class="o">,</span> <span class="p">[</span><span class="n">numatm</span><span class="p">])</span> <span class="o">,</span>  <span class="c1">// 5 char justificado a la derecha</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="s">&#39;  &#39;</span> <span class="o">,</span> <span class="c1">//separador de espacios</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="nb">format</span><span class="p">(</span><span class="s">&#39;%-3s&#39;</span><span class="o">,</span> <span class="p">[</span><span class="n">atom</span><span class="o">.</span><span class="n">ID</span><span class="p">])</span> <span class="o">,</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="s">&#39; &#39;</span> <span class="o">+</span> <span class="c1">//No incluimos altLoc</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>        <span class="n">atom</span><span class="o">.</span><span class="n">residuo</span><span class="o">,</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>        <span class="s">&#39; &#39;</span><span class="o">,</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>        <span class="n">atom</span><span class="o">.</span><span class="n">subunidad</span><span class="o">,</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="s">&#39;  &#39;</span><span class="o">,</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="nb">format</span><span class="p">(</span><span class="s">&#39;%-4s&#39;</span><span class="o">,</span> <span class="p">[</span><span class="n">numres</span><span class="p">])</span><span class="o">,</span> <span class="c1">//4 char justificado a la derecha</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>        <span class="s">&#39;  &#39;</span><span class="o">,</span> <span class="c1">//No incluimos iCode</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="s">&#39; &#39;</span><span class="o">,</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>        <span class="nb">format</span><span class="p">(</span><span class="s">&#39;%7s&#39;</span><span class="o">,</span> <span class="p">[</span><span class="n">X</span><span class="p">])</span><span class="o">,</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>        <span class="s">&#39; &#39;</span><span class="o">,</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="nb">format</span><span class="p">(</span><span class="s">&#39;%7s&#39;</span><span class="o">,</span> <span class="p">[</span><span class="n">Y</span><span class="p">])</span><span class="o">,</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="s">&#39; &#39;</span><span class="o">,</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="nb">format</span><span class="p">(</span><span class="s">&#39;%7s&#39;</span><span class="o">,</span> <span class="p">[</span><span class="n">Z</span><span class="p">])</span><span class="o">,</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="s">&#39;  &#39;</span><span class="o">,</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="nb">format</span><span class="p">(</span><span class="s">&#39;%-5s&#39;</span><span class="o">,</span> <span class="p">[</span><span class="s">&#39;1.00&#39;</span><span class="p">])</span><span class="o">,</span> <span class="c1">//No incluimosla ocupancia</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="nb">format</span><span class="p">(</span><span class="s">&#39;%-6s&#39;</span><span class="o">,</span> <span class="p">[</span><span class="n">R</span><span class="p">]))</span><span class="o">;</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="c1">// No incluimos el resto de parámetros</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="bp">result</span><span class="o">:=</span> <span class="n">linea</span><span class="o">;</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="k">end</span><span class="o">;</span>          
+</code></pre></div>
+</td></tr></table>
+</details>
+<h3 id="ttestcase">TTestCase<a class="headerlink" href="#ttestcase" title="Permanent link">&para;</a></h3>
+<p>A continuación, se muestra a modo de ejemplo uno de los test unitarios que se escribió para comprobar el buen funcionamiento de la función <code>writeAtomPDB()</code>.</p>
+<details class="example">
+<summary>testing_biotools.writePDB</summary>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">procedure</span> <span class="nc">testing_biotools</span><span class="o">.</span><span class="nf">writePDB</span><span class="o">;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// &#39;ATOM      1  N   ALA A  33      -6.424 -34.116  36.857  1.00 43.50&#39;)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="k">var</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">atm</span><span class="o">:</span> <span class="n">TAtomPDB</span><span class="o">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">str1</span><span class="o">,</span> <span class="n">str2</span><span class="o">:</span> <span class="kt">AnsiSTring</span><span class="o">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="k">begin</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>  <span class="n">atm</span><span class="o">.</span><span class="n">NumAtom</span> <span class="o">:=</span> <span class="mi">141</span><span class="o">;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>  <span class="n">atm</span><span class="o">.</span><span class="n">ID</span> <span class="o">:=</span> <span class="s">&#39;CA&#39;</span><span class="o">;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>  <span class="n">atm</span><span class="o">.</span><span class="n">residuo</span><span class="o">:=</span> <span class="s">&#39;SER&#39;</span><span class="o">;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>  <span class="n">atm</span><span class="o">.</span><span class="n">subunidad</span> <span class="o">:=</span> <span class="s">&#39;A&#39;</span><span class="o">;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>  <span class="n">atm</span><span class="o">.</span><span class="n">NumRes</span><span class="o">:=</span> <span class="mi">50</span><span class="o">;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>  <span class="n">atm</span><span class="o">.</span><span class="n">coor</span><span class="o">.</span><span class="n">X</span> <span class="o">:=</span> <span class="o">-</span><span class="mi">2</span><span class="mf">4.739</span><span class="o">;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>  <span class="n">atm</span><span class="o">.</span><span class="n">coor</span><span class="o">.</span><span class="n">Y</span> <span class="o">:=</span> <span class="o">-</span><span class="mi">2</span><span class="mf">4.229</span><span class="o">;</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>  <span class="n">atm</span><span class="o">.</span><span class="n">coor</span><span class="o">.</span><span class="n">Z</span> <span class="o">:=</span> <span class="mf">0.489</span><span class="o">;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>  <span class="n">atm</span><span class="o">.</span><span class="n">R</span><span class="o">:=</span> <span class="mi">2</span><span class="mf">2.73</span> <span class="o">;</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>  <span class="n">str1</span> <span class="o">:=</span>  <span class="n">WriteAtomPDB</span><span class="p">(</span><span class="n">atm</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a>  <span class="n">str2</span> <span class="o">:=</span> <span class="s">&#39;ATOM    141  CA  SER A  50     -24.739 -24.229   0.489  1.00 22.73&#39;</span><span class="o">;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>  <span class="k">IF</span> <span class="k">NOT</span> <span class="nb">SameText</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span><span class="o">,</span><span class="n">str2</span><span class="p">)</span> <span class="k">THEN</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>     <span class="k">begin</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a>       <span class="n">Fail</span><span class="p">(</span><span class="s">&#39;El formato no es el adecuado. &#39;</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>     <span class="k">end</span><span class="o">;</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="k">end</span><span class="o">;</span>        
+</code></pre></div>
+</td></tr></table>
+</details>
+<h2 id="demostracion-de-uso">Demostración de uso<a class="headerlink" href="#demostracion-de-uso" title="Permanent link">&para;</a></h2>
+<p>A continuación, se muestra una pequeña animación donde se muestra la implementación en una interfaz gráfica del código anterior. Destacar que, aunque el ejercicio pedía, en un principio, un programa capaz de extraer los carbonos <span class="arithmatex">\(\alpha\)</span> de un archivo PDB, nos pareció más adecuado generalizarlo a un programa capaz de extraer cualquier tipo de átomo dado por el usuario.</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="writePDB" src="../images/write_PDB.gif" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Figura 1. Animación con ejemplo de uso de la aplicación writePDB para extraer átomos de cierto ID. Aplicación con interfaz gráfica realizada con Lazarus.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="extraccion-carbonos-alfa-y-visualizacion-en-pymol-segun-el-factor-b">Extracción carbonos alfa y visualización en PyMol según el factor B<a class="headerlink" href="#extraccion-carbonos-alfa-y-visualizacion-en-pymol-segun-el-factor-b" title="Permanent link">&para;</a></h2>
+<p>Por último, se realizó la tarea propuesta en el ejercicio. Se obtuvo un <a href="https://github.com/currocam/biotools_hQC/tree/master/write_PDB/data">pseudo archivo PDB</a> con los átomos correspondientes a los carbonos <span class="arithmatex">\(\alpha\)</span> de la proteína 2AFM y, usando el programa PyMol, se obtuvo una animación de la proteína en modo spacefill y coloreada según el factor B. En pos de la reproducibilidad, se muestra a continuación tanto la animación como el script utilizado para obtenerla. No se entrará en detalles al respecto de la obtención de la animación puesto que se ha seguido usando las mismas herramientas empleadas en el apartado de Visualización de este cuaderno de actividades.</p>
+<details class="example">
+<summary>Visualización carbonos alfa 2AFM</summary>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nb">set</span> <span class="n">ray_opaque_background</span><span class="p">,</span> <span class="n">off</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">load</span> <span class="n">write_PDB</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="mi">2</span><span class="n">AFM_CA_pseudo</span><span class="o">.</span><span class="n">pdb</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">spectrum</span> <span class="n">b</span><span class="p">,</span> <span class="n">blue_white_red</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">50</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="k">as</span> <span class="n">surface</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">label</span> <span class="n">b</span> <span class="o">&gt;</span><span class="mi">60</span><span class="p">,</span> <span class="s2">&quot;(</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">resn</span><span class="p">,</span> <span class="n">resi</span><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">python</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="kn">import</span> <span class="nn">imageio</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="n">step</span><span class="p">):</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>  <span class="n">cmd</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">step</span><span class="p">))</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>  <span class="n">cmd</span><span class="o">.</span><span class="n">ray</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>  <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;file&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.png&quot;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>  <span class="n">cmd</span><span class="o">.</span><span class="n">png</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a>  <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="n">imageio</span><span class="o">.</span><span class="n">mimsave</span><span class="p">(</span><span class="s1">&#39;pseudoPDB_b_factor.gif&#39;</span><span class="p">,</span> <span class="n">images</span><span class="p">)</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="n">python</span> <span class="n">end</span>
+</code></pre></div>
+</td></tr></table>
+</details>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="writePDB" src="../images/pseudoPDB_b_factor.gif" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Figura 2. Animación de los carbonos <span class="arithmatex">\(\alpha\)</span> de la proteína 2AFM en modo spacefill y coloreados según el factor B. Además, se han anotado los residuos que tuvieran un valor de B superior a 60</td>
+</tr>
+</tbody>
+</table>
+<h2 id="interpretacion-de-los-resultados">Interpretación de los resultados<a class="headerlink" href="#interpretacion-de-los-resultados" title="Permanent link">&para;</a></h2>
+<p>En la animación anterior podemos observar dos cadenas, A y B, que son distintas estructuralmente. Esto, aunque podría ser poco intuitivo puesto que la proteína que estamos estudiando, 2AFM, es un monómero, sucede porque lo que contiene el PDB en realidad es la unidad asimétrica del cristal. Se puede observar cómo una de las subunidades tiene mayor factor B que la otra. Es por ello que nos inclinamos a pensar que la "versión más desordenada" debe de ser fruto de errores experimentales (y que ha sido incluido en el PDB para mayor rigurosidad).</p>
+<p>Si nos fijamos en la estructura más ordenada, nos llama la atención cómo existen una serie de regiones en la superficie (coloreadas en rojo) de mayor Factor <span class="arithmatex">\(\text{B}\)</span>. Interpretamos estas zonas, algunas de ellas lazos, como regiones más flexibles de la proteína y que no poseen una estructura rígida. Esta idea es compatible con el hecho de que se encuentran situadas en la superficie de la proteína y podríamos hipotetizar que serían regiones de interacción.</p>
+<p>Destacamos, por último, que los residuos de la subunidad "ordenada" del archivo PDB que se sabía por bibliografía que eran importantes para la función catalítica de la enzima (y que se podría esperar, por ejemplo, una mayor flexibilidad) muestran valores de factor <span class="arithmatex">\(\text{B}\)</span> bajos, indicando así que forman parte de zonas rígidas de la estructura.</p>
+<h2 id="conclusion">Conclusión<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>En conclusión, el programa WritePDB es capaz de escribir pseudo archivos PDB con los que estudiar el desorden (fruto de errores experimentales pero también reflejo de la flexibilidad de la estructura) de una proteína. Esta información es de gran utilidad para valorar tanto las implicaciones biológicas que pueden tener regiones más rígidas o flexibles como evaluar la calidad de la estructura con que se está trabajando.</p>
+<h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Trueblood, K. N., H. B. Bürgi, H. Burzlaff, J. D. Dunitz, C. M. Gramaccioli, H. H. Schulz, U. Shmueli, y S. C. Abrahams. «Atomic Dispacement Parameter Nomenclature. Report of a Subcommittee on Atomic Displacement Parameter Nomenclature». Acta Crystallographica Section A Foundations of Crystallography 52, n.º 5 (1 de septiembre de 1996): 770-81. https://doi.org/10.1107/S0108767396005697.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      Última actualización: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 20, 2022</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="../visualizacion/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Visualización de las estructuras" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Visualización de las estructuras
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../ramachandran/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Diagrama de Ramachandran" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              Diagrama de Ramachandran
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyleft - CC BY-NC 4.0 - Francisco Campuzano Jiménez
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/currocam" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/currocam" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,969 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cuaderno de actividades de Francisco Campuzano Jiménez de la asignatura de Ingeniería de Proteínas del curso 2021-2022 sobre la proteína Human glutaminyl cyclase (hQC)">
+      
+      
+      
+        <meta name="author" content="Francisco de Borja Campuzano Jiménez">
+      
+      
+        <link rel="canonical" href="https://currocam.github.io/biotools_hQC/formato_ficheros/">
+      
+      <link rel="icon" href="../images/logoasl.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Extraer secuencia distintos formatos - Cuaderno Ingeniería de Proteínas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#extraer-secuencia-distintos-formatos" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Cuaderno Ingeniería de Proteínas" class="md-header__button md-logo" aria-label="Cuaderno Ingeniería de Proteínas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.6 10.59 8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2 2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cuaderno Ingeniería de Proteínas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Extraer secuencia distintos formatos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/currocam/biotools_hQC/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    biotools_hQC
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cuaderno Ingeniería de Proteínas" class="md-nav__button md-logo" aria-label="Cuaderno Ingeniería de Proteínas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.6 10.59 8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2 2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82z"/></svg>
+
+    </a>
+    Cuaderno Ingeniería de Proteínas
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/currocam/biotools_hQC/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    biotools_hQC
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Acerca de
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revision_bibliografica/" class="md-nav__link">
+        Revisión bibliográfica
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Extraer secuencia distintos formatos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Extraer secuencia distintos formatos
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-de-flujo" class="md-nav__link">
+    Diagrama de flujo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identificacion-del-formato" class="md-nav__link">
+    Identificación del formato
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leer-secuencia-de-proteina" class="md-nav__link">
+    Leer secuencia de proteína
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ttestcase" class="md-nav__link">
+    TTestCase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demostracion-de-uso" class="md-nav__link">
+    Demostración de uso
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parser_PDB/" class="md-nav__link">
+        Parseador ficheros PDB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visualizacion/" class="md-nav__link">
+        Visualización de las estructuras
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../write_PDB/" class="md-nav__link">
+        WritePDB: Extraer átomos Carbono alfa
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ramachandran/" class="md-nav__link">
+        Diagrama de Ramachandran
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estereodiagrama/" class="md-nav__link">
+        Estereodiagrama
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alinearZ/" class="md-nav__link">
+        Alinear Z
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rmsd/" class="md-nav__link">
+        RMSD
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        Test Unitarios
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simulacion_MD/" class="md-nav__link">
+        Simulación de dinámica molecular (extra)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bibliografia/" class="md-nav__link">
+        Bibliografia
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-de-flujo" class="md-nav__link">
+    Diagrama de flujo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identificacion-del-formato" class="md-nav__link">
+    Identificación del formato
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leer-secuencia-de-proteina" class="md-nav__link">
+    Leer secuencia de proteína
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ttestcase" class="md-nav__link">
+    TTestCase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demostracion-de-uso" class="md-nav__link">
+    Demostración de uso
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/currocam/biotools_hQC/edit/master/docs/formato_ficheros.md" title="Editar esta página" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="extraer-secuencia-distintos-formatos">Extraer secuencia distintos formatos<a class="headerlink" href="#extraer-secuencia-distintos-formatos" title="Permanent link">&para;</a></h1>
+<p>En la realización de este cuaderno de actividades se pide el desarrollo de un diagrama de flujo que permita identificar si un fichero tiene un formato EMBL, UniProt, GenBank, PDB o, si por el contrario, se encuentra en un formato no soportado. A partir de este diagrama y de las particularidades de cada formato se pide que se extraiga la secuencia de la proteína en cualquiera de estos 4 formatos de forma automática. A continuación se procede a mostrar de forma detallada el funcionamiento de la misma. El código correspondiente a esta funcionalidad se puede encontrar en la librería <a href="https://github.com/currocam/biotools_hQC/blob/master/biotools/src_biotools.pas">biotools/src_biotools</a> y la implementación en un programa con interfaz gráfica en el repositorio bajo el nombre de <a href="https://github.com/currocam/biotools_hQC/tree/master/extraer_secuencia">extraer_secuencia</a>. Este apartado se corresponde a la 2ª actividad de la relación de ejercicios.</p>
+<h2 id="diagrama-de-flujo">Diagrama de flujo<a class="headerlink" href="#diagrama-de-flujo" title="Permanent link">&para;</a></h2>
+<p>En primer lugar, se consultó la bibliografía aportada y se realizó el siguiente diagrama de flujo, el cual de forma muy simplificada, muestra permitiría distinguir entre estos 4 formatos. La principal mejora que podría hacerse a este programa sería, precisamente, realizar un diagrama de flujo más complejo que tuviera en cuenta otras características además de la primera línea del archivo. Así, podrían detectarse archivos mal formateados.</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="extraer" src="../images/diagrama_formatos.svg" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Figura 1. Diagrama de flujo para discriminar formato ficheros y extracción de secuencias. Elaboración propia.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identificacion-del-formato">Identificación del formato<a class="headerlink" href="#identificacion-del-formato" title="Permanent link">&para;</a></h2>
+<p>Para realizar este programa se han realizado una serie de funciones que identifican, en base al diagrama de flujo anterior, el formato del archivo. Además, se ha utilizado la clase de Pascal <code>class(TTestCase)</code> para automatizar la realización de los test de este programa. Este desarrollo "modular" en base a funciones y acompañado de test es muy conveniente porque en caso de querer ampliar este programa a otros formatos, o mejorar los preexistentes, se puede trabajar en pequeñas unidades de código que funcionan independientemente y que se testean automáticamente. Destacar que otra ventaja es la reutilización. La función <code>isPDB</code> , por ejemplo, fue añadida al inicio de las funciones que trabajaban con archivos de formato PDB. Las funciones escritas para identificar los formatos de los archivos son las siguientes:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">isEmbl()</label><label for="__tabbed_1_2">isUniProt()</label><label for="__tabbed_1_3">isGenBank()</label><label for="__tabbed_1_4">isPDB()</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">function</span> <span class="nf">isEmbl</span><span class="p">(</span><span class="n">archivo</span><span class="o">:</span> <span class="n">Tstrings</span><span class="p">)</span><span class="o">:</span> <span class="kt">boolean</span><span class="o">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">begin</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>   <span class="k">if</span> <span class="p">(</span><span class="nb">copy</span><span class="p">(</span><span class="n">archivo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">2</span><span class="p">)</span><span class="o">=</span><span class="s">&#39;ID&#39;</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="nb">copy</span><span class="p">(</span><span class="n">archivo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">2</span><span class="p">)</span><span class="o">=</span><span class="s">&#39;XX&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>   <span class="k">then</span> <span class="bp">result</span><span class="o">:=</span> <span class="k">TRUE</span> <span class="k">else</span> <span class="bp">result</span> <span class="o">:=</span> <span class="k">FALSE</span><span class="o">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="k">end</span><span class="o">;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<div class="tabbed-block">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">function</span> <span class="nf">isUniProt</span><span class="p">(</span><span class="n">archivo</span><span class="o">:</span> <span class="n">Tstrings</span><span class="p">)</span><span class="o">:</span> <span class="kt">boolean</span><span class="o">;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">begin</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>   <span class="k">if</span> <span class="p">(</span><span class="nb">copy</span><span class="p">(</span><span class="n">archivo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">2</span><span class="p">)</span><span class="o">=</span><span class="s">&#39;ID&#39;</span><span class="p">)</span> <span class="k">and</span> <span class="p">(</span><span class="nb">copy</span><span class="p">(</span><span class="n">archivo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">2</span><span class="p">)</span><span class="o">=</span><span class="s">&#39;AC&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>   <span class="k">then</span> <span class="bp">result</span><span class="o">:=</span> <span class="k">TRUE</span> <span class="k">else</span> <span class="bp">result</span> <span class="o">:=</span> <span class="k">FALSE</span><span class="o">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="k">end</span><span class="o">;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<div class="tabbed-block">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">function</span> <span class="nf">isGenBank</span><span class="p">(</span><span class="n">archivo</span><span class="o">:</span> <span class="n">Tstrings</span><span class="p">)</span><span class="o">:</span> <span class="kt">boolean</span><span class="o">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="k">begin</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>   <span class="k">if</span> <span class="p">(</span><span class="nb">copy</span><span class="p">(</span><span class="n">archivo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">5</span><span class="p">)</span><span class="o">=</span><span class="s">&#39;LOCUS&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>   <span class="k">then</span> <span class="bp">result</span><span class="o">:=</span> <span class="k">TRUE</span> <span class="k">else</span> <span class="bp">result</span> <span class="o">:=</span> <span class="k">FALSE</span><span class="o">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="k">end</span><span class="o">;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<div class="tabbed-block">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">function</span> <span class="nf">isPDB</span><span class="p">(</span><span class="n">archivo</span><span class="o">:</span> <span class="n">Tstrings</span><span class="p">)</span><span class="o">:</span> <span class="kt">boolean</span><span class="o">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">begin</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>   <span class="k">if</span> <span class="p">(</span><span class="nb">copy</span><span class="p">(</span><span class="n">archivo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">6</span><span class="p">)</span><span class="o">=</span> <span class="s">&#39;HEADER&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>   <span class="k">then</span> <span class="bp">result</span><span class="o">:=</span> <span class="k">TRUE</span> <span class="k">else</span> <span class="bp">result</span> <span class="o">:=</span> <span class="k">FALSE</span><span class="o">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="k">end</span><span class="o">;</span>  
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</div>
+<h2 id="leer-secuencia-de-proteina">Leer secuencia de proteína<a class="headerlink" href="#leer-secuencia-de-proteina" title="Permanent link">&para;</a></h2>
+<p>A continuación, se muestra la función que se escribió para extraer la secuencia de la proteína en cada uno de los formatos anteriores. Para escribirla se tuvo en cuenta las peculiaridades de cada formato en cuanto a dónde se encontraba la secuencia y, en el caso del archivo PDB, se utilizó la función <code>cargarPDB</code> que ya había sido desarrollada para el ejercicio siguiente.</p>
+<details class="example">
+<summary>Función leerSecuenciaProteina</summary>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span>
+<span class="normal"><a href="#__codelineno-4-20">20</a></span>
+<span class="normal"><a href="#__codelineno-4-21">21</a></span>
+<span class="normal"><a href="#__codelineno-4-22">22</a></span>
+<span class="normal"><a href="#__codelineno-4-23">23</a></span>
+<span class="normal"><a href="#__codelineno-4-24">24</a></span>
+<span class="normal"><a href="#__codelineno-4-25">25</a></span>
+<span class="normal"><a href="#__codelineno-4-26">26</a></span>
+<span class="normal"><a href="#__codelineno-4-27">27</a></span>
+<span class="normal"><a href="#__codelineno-4-28">28</a></span>
+<span class="normal"><a href="#__codelineno-4-29">29</a></span>
+<span class="normal"><a href="#__codelineno-4-30">30</a></span>
+<span class="normal"><a href="#__codelineno-4-31">31</a></span>
+<span class="normal"><a href="#__codelineno-4-32">32</a></span>
+<span class="normal"><a href="#__codelineno-4-33">33</a></span>
+<span class="normal"><a href="#__codelineno-4-34">34</a></span>
+<span class="normal"><a href="#__codelineno-4-35">35</a></span>
+<span class="normal"><a href="#__codelineno-4-36">36</a></span>
+<span class="normal"><a href="#__codelineno-4-37">37</a></span>
+<span class="normal"><a href="#__codelineno-4-38">38</a></span>
+<span class="normal"><a href="#__codelineno-4-39">39</a></span>
+<span class="normal"><a href="#__codelineno-4-40">40</a></span>
+<span class="normal"><a href="#__codelineno-4-41">41</a></span>
+<span class="normal"><a href="#__codelineno-4-42">42</a></span>
+<span class="normal"><a href="#__codelineno-4-43">43</a></span>
+<span class="normal"><a href="#__codelineno-4-44">44</a></span>
+<span class="normal"><a href="#__codelineno-4-45">45</a></span>
+<span class="normal"><a href="#__codelineno-4-46">46</a></span>
+<span class="normal"><a href="#__codelineno-4-47">47</a></span>
+<span class="normal"><a href="#__codelineno-4-48">48</a></span>
+<span class="normal"><a href="#__codelineno-4-49">49</a></span>
+<span class="normal"><a href="#__codelineno-4-50">50</a></span>
+<span class="normal"><a href="#__codelineno-4-51">51</a></span>
+<span class="normal"><a href="#__codelineno-4-52">52</a></span>
+<span class="normal"><a href="#__codelineno-4-53">53</a></span>
+<span class="normal"><a href="#__codelineno-4-54">54</a></span>
+<span class="normal"><a href="#__codelineno-4-55">55</a></span>
+<span class="normal"><a href="#__codelineno-4-56">56</a></span>
+<span class="normal"><a href="#__codelineno-4-57">57</a></span>
+<span class="normal"><a href="#__codelineno-4-58">58</a></span>
+<span class="normal"><a href="#__codelineno-4-59">59</a></span>
+<span class="normal"><a href="#__codelineno-4-60">60</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">function</span> <span class="nf">leerSecuenciaProteina</span><span class="p">(</span><span class="n">archivo</span><span class="o">:</span> <span class="n">Tstrings</span><span class="p">)</span><span class="o">:</span> <span class="kt">AnsiString</span><span class="o">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="k">var</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>   <span class="n">j</span><span class="o">,</span><span class="n">i</span><span class="o">:</span> <span class="kt">integer</span><span class="o">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>   <span class="nb">sec</span><span class="o">,</span> <span class="n">linea</span><span class="o">:</span> <span class="k">String</span><span class="o">;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>   <span class="n">p</span><span class="o">:</span> <span class="n">TPDB</span><span class="o">;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>   <span class="n">check</span><span class="o">:</span> <span class="kt">boolean</span><span class="o">;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="k">begin</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>   <span class="k">if</span><span class="p">(</span><span class="n">isPDB</span><span class="p">(</span><span class="n">archivo</span><span class="p">))</span><span class="k">then</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>     <span class="k">begin</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>     <span class="n">p</span><span class="o">:=</span> <span class="n">CargarPDB</span><span class="p">(</span><span class="n">archivo</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>     <span class="bp">result</span><span class="o">:=</span> <span class="n">p</span><span class="o">.</span><span class="n">secuencia</span><span class="o">;</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>     <span class="n">ShowMessage</span><span class="p">(</span><span class="s">&#39;Se ha detectado un archivo en formato PDB&#39;</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>   <span class="k">end</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">isGenBank</span><span class="p">(</span><span class="n">archivo</span><span class="p">))</span> <span class="k">then</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>   <span class="k">begin</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>     <span class="nb">sec</span><span class="o">:=</span><span class="s">&#39;&#39;</span><span class="o">;</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a>     <span class="k">for</span> <span class="n">j</span><span class="o">:=</span> <span class="mi">0</span> <span class="k">to</span> <span class="n">archivo</span><span class="o">.</span><span class="n">count</span><span class="o">-</span><span class="mi">1</span> <span class="k">do</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a>     <span class="k">begin</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a>       <span class="n">linea</span><span class="o">:=</span> <span class="n">archivo</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">;</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a>       <span class="k">if</span> <span class="nb">copy</span><span class="p">(</span><span class="n">linea</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">6</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;ORIGIN&#39;</span> <span class="k">then</span> <span class="k">Break</span><span class="o">;</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a>       <span class="nb">sec</span><span class="o">:=</span> <span class="nb">sec</span><span class="o">+</span> <span class="nb">trim</span><span class="p">(</span><span class="n">linea</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22"></a>       <span class="k">if</span> <span class="nb">copy</span><span class="p">(</span><span class="n">linea</span><span class="o">,</span><span class="mi">22</span><span class="o">,</span><span class="mi">13</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;/translation=&#39;</span> <span class="k">then</span> <span class="nb">sec</span><span class="o">:=</span> <span class="nb">copy</span><span class="p">(</span><span class="n">linea</span><span class="o">,</span> <span class="mi">35</span><span class="o">,</span> <span class="mi">70</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23"></a>     <span class="k">end</span><span class="o">;</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24"></a>     <span class="bp">result</span><span class="o">:=</span> <span class="nb">trim</span><span class="p">(</span><span class="nb">copy</span><span class="p">(</span><span class="nb">sec</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="nb">sec</span><span class="o">.</span><span class="n">Length</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span><span class="o">;</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25"></a>     <span class="n">ShowMessage</span><span class="p">(</span><span class="s">&#39;Se ha detectado un archivo en formato GenBank&#39;</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26"></a>   <span class="k">end</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27"></a>   <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">isUniProt</span><span class="p">(</span><span class="n">archivo</span><span class="p">))</span> <span class="k">then</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28"></a>     <span class="k">begin</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29"></a>    <span class="k">for</span> <span class="n">j</span><span class="o">:=</span> <span class="mi">0</span> <span class="k">to</span> <span class="n">archivo</span><span class="o">.</span><span class="n">count</span><span class="o">-</span><span class="mi">1</span> <span class="k">do</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30"></a>    <span class="k">begin</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31"></a>      <span class="n">linea</span><span class="o">:=</span> <span class="n">archivo</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">;</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32"></a>      <span class="k">if</span> <span class="nb">copy</span><span class="p">(</span><span class="n">linea</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;//&#39;</span> <span class="k">then</span> <span class="k">Break</span><span class="o">;</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33"></a>      <span class="nb">sec</span><span class="o">:=</span> <span class="nb">sec</span><span class="o">+</span> <span class="nb">trim</span><span class="p">(</span><span class="n">linea</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34"></a>      <span class="k">if</span> <span class="nb">copy</span><span class="p">(</span><span class="n">linea</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;SQ&#39;</span> <span class="k">then</span> <span class="nb">sec</span><span class="o">:=</span> <span class="s">&#39;&#39;</span><span class="o">;</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35"></a>    <span class="k">end</span><span class="o">;</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36"></a>    <span class="bp">result</span><span class="o">:=</span> <span class="nb">trim</span><span class="p">(</span><span class="nb">sec</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37"></a>    <span class="n">ShowMessage</span><span class="p">(</span><span class="s">&#39;Se ha detectado un archivo en formato UniProt&#39;</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-4-38" name="__codelineno-4-38"></a>      <span class="k">end</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39"></a>   <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">isEmbl</span><span class="p">(</span><span class="n">archivo</span><span class="p">))</span> <span class="k">then</span>
+<a id="__codelineno-4-40" name="__codelineno-4-40"></a>     <span class="k">begin</span>
+<a id="__codelineno-4-41" name="__codelineno-4-41"></a>       <span class="nb">sec</span><span class="o">:=</span><span class="s">&#39;&#39;</span><span class="o">;</span>
+<a id="__codelineno-4-42" name="__codelineno-4-42"></a>       <span class="n">check</span><span class="o">:=</span> <span class="k">FALSE</span><span class="o">;</span>
+<a id="__codelineno-4-43" name="__codelineno-4-43"></a>       <span class="k">for</span> <span class="n">j</span><span class="o">:=</span> <span class="mi">0</span> <span class="k">to</span> <span class="n">archivo</span><span class="o">.</span><span class="n">count</span><span class="o">-</span><span class="mi">1</span> <span class="k">do</span>
+<a id="__codelineno-4-44" name="__codelineno-4-44"></a>       <span class="k">begin</span>
+<a id="__codelineno-4-45" name="__codelineno-4-45"></a>     <span class="n">linea</span><span class="o">:=</span> <span class="n">archivo</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">;</span>
+<a id="__codelineno-4-46" name="__codelineno-4-46"></a>     <span class="k">if</span> <span class="p">(</span><span class="nb">copy</span><span class="p">(</span><span class="n">linea</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;XX&#39;</span><span class="p">)</span> <span class="k">AND</span> <span class="n">check</span> <span class="k">then</span> <span class="k">Break</span><span class="o">;</span>
+<a id="__codelineno-4-47" name="__codelineno-4-47"></a>     <span class="nb">sec</span><span class="o">:=</span> <span class="nb">sec</span><span class="o">+</span> <span class="nb">trim</span><span class="p">(</span><span class="nb">copy</span><span class="p">(</span><span class="n">linea</span><span class="o">,</span> <span class="mi">22</span><span class="o">,</span> <span class="mi">58</span><span class="p">))</span><span class="o">;</span>
+<a id="__codelineno-4-48" name="__codelineno-4-48"></a>     <span class="k">if</span> <span class="nb">copy</span><span class="p">(</span><span class="n">linea</span><span class="o">,</span><span class="mi">22</span><span class="o">,</span><span class="mi">13</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;/translation=&#39;</span> <span class="k">then</span>
+<a id="__codelineno-4-49" name="__codelineno-4-49"></a>     <span class="k">begin</span>
+<a id="__codelineno-4-50" name="__codelineno-4-50"></a>       <span class="n">check</span><span class="o">:=</span> <span class="k">TRUE</span><span class="o">;</span>
+<a id="__codelineno-4-51" name="__codelineno-4-51"></a>       <span class="nb">sec</span><span class="o">:=</span> <span class="nb">copy</span><span class="p">(</span><span class="n">linea</span><span class="o">,</span> <span class="mi">35</span><span class="o">,</span> <span class="mi">39</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-4-52" name="__codelineno-4-52"></a>       <span class="k">end</span><span class="o">;</span>
+<a id="__codelineno-4-53" name="__codelineno-4-53"></a>       <span class="k">end</span><span class="o">;</span>
+<a id="__codelineno-4-54" name="__codelineno-4-54"></a>       <span class="bp">result</span><span class="o">:=</span> <span class="nb">trim</span><span class="p">(</span><span class="nb">copy</span><span class="p">(</span><span class="nb">sec</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="nb">sec</span><span class="o">.</span><span class="n">Length</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span><span class="o">;</span>
+<a id="__codelineno-4-55" name="__codelineno-4-55"></a>       <span class="n">ShowMessage</span><span class="p">(</span><span class="s">&#39;Se ha detectado un archivo en formato EMBL&#39;</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-4-56" name="__codelineno-4-56"></a>     <span class="k">end</span>
+<a id="__codelineno-4-57" name="__codelineno-4-57"></a>
+<a id="__codelineno-4-58" name="__codelineno-4-58"></a>   <span class="k">else</span>
+<a id="__codelineno-4-59" name="__codelineno-4-59"></a>      <span class="n">ShowMessage</span><span class="p">(</span><span class="s">&#39;Es un formato no soportado&#39;</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-4-60" name="__codelineno-4-60"></a><span class="k">end</span><span class="o">;</span>          
+</code></pre></div>
+</td></tr></table>
+</details>
+<h2 id="ttestcase">TTestCase<a class="headerlink" href="#ttestcase" title="Permanent link">&para;</a></h2>
+<p>Para la realización de los test empleados para este programa, se hizo uso de la clase <code>TTestCase</code> y del framework para unit testing <code>fpcunit</code> soportado por Lazarus. A continuación, mostramos a modo de ejemplo el código correspondiente para el procedimiento <code>Embl</code>, que realiza los test para las funciones relativas a este formato. El esquema seguido en este procedimiento es idéntico al resto:</p>
+<ol>
+<li>Se cargan en variables tipo <code>TStringList</code> un archivo "modelo" para cada tipo de formato.</li>
+<li>Se comprueba si el comportamiento de la función <code>isFormato()</code> es el esperado, es decir, que devuelve un valor True cuando se le da como argumento el fichero de dicho formato y un valor False para el resto.</li>
+<li>Se comprueba que la secuencia que devuelve la función <code>leerSecuenciaProteina</code> es exactamente la esperada.</li>
+</ol>
+<details class="example">
+<summary>testing_biotools.Embl</summary>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span>
+<span class="normal"><a href="#__codelineno-5-19">19</a></span>
+<span class="normal"><a href="#__codelineno-5-20">20</a></span>
+<span class="normal"><a href="#__codelineno-5-21">21</a></span>
+<span class="normal"><a href="#__codelineno-5-22">22</a></span>
+<span class="normal"><a href="#__codelineno-5-23">23</a></span>
+<span class="normal"><a href="#__codelineno-5-24">24</a></span>
+<span class="normal"><a href="#__codelineno-5-25">25</a></span>
+<span class="normal"><a href="#__codelineno-5-26">26</a></span>
+<span class="normal"><a href="#__codelineno-5-27">27</a></span>
+<span class="normal"><a href="#__codelineno-5-28">28</a></span>
+<span class="normal"><a href="#__codelineno-5-29">29</a></span>
+<span class="normal"><a href="#__codelineno-5-30">30</a></span>
+<span class="normal"><a href="#__codelineno-5-31">31</a></span>
+<span class="normal"><a href="#__codelineno-5-32">32</a></span>
+<span class="normal"><a href="#__codelineno-5-33">33</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">procedure</span> <span class="nc">testing_biotools</span><span class="o">.</span><span class="nf">Embl</span><span class="o">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="k">var</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>  <span class="n">SL_embl</span><span class="o">:</span> <span class="n">TStringList</span><span class="o">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>  <span class="n">SL_pdb</span><span class="o">:</span> <span class="n">TStringList</span><span class="o">;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>  <span class="n">SL_UniProt</span><span class="o">:</span> <span class="n">TStringList</span><span class="o">;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>  <span class="n">SL_GenBank</span><span class="o">:</span> <span class="n">TStringList</span><span class="o">;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>  <span class="n">sec1</span><span class="o">,</span> <span class="n">sec2</span><span class="o">:</span> <span class="k">String</span><span class="o">;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="k">begin</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>  <span class="n">SL_embl</span> <span class="o">:=</span> <span class="n">TStringList</span><span class="o">.</span><span class="n">Create</span><span class="o">;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>  <span class="n">SL_pdb</span> <span class="o">:=</span> <span class="n">TStringList</span><span class="o">.</span><span class="n">Create</span><span class="o">;</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>  <span class="n">SL_UniProt</span><span class="o">:=</span> <span class="n">TStringList</span><span class="o">.</span><span class="n">Create</span><span class="o">;</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>  <span class="n">SL_GenBank</span> <span class="o">:=</span> <span class="n">TStringList</span><span class="o">.</span><span class="n">Create</span><span class="o">;</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>  <span class="n">SL_embl</span><span class="o">.</span><span class="n">LoadFromFile</span><span class="p">(</span><span class="s">&#39;text_embl.txt&#39;</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>  <span class="n">SL_pdb</span><span class="o">.</span><span class="n">LoadFromFile</span><span class="p">(</span><span class="s">&#39;text_PDB.txt&#39;</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>  <span class="n">SL_UniProt</span><span class="o">.</span><span class="n">LoadFromFile</span><span class="p">(</span><span class="s">&#39;text_UniProt.txt&#39;</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>  <span class="n">SL_GenBank</span><span class="o">.</span><span class="n">LoadFromFile</span><span class="p">(</span><span class="s">&#39;text_GenBank.txt&#39;</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a>  <span class="k">IF</span> <span class="k">not</span> <span class="n">isEmbl</span><span class="p">(</span><span class="n">SL_embl</span><span class="p">)</span> <span class="k">THEN</span> <span class="n">Fail</span><span class="p">(</span><span class="s">&#39;No se ha detectado correctamente el archivo formato EMBL&#39;</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a>  <span class="k">IF</span> <span class="n">isEmbl</span><span class="p">(</span><span class="n">SL_pdb</span><span class="p">)</span> <span class="k">THEN</span> <span class="n">Fail</span><span class="p">(</span><span class="s">&#39;Se ha detectado erróneamente el formato EMBL con un pdb&#39;</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a>  <span class="k">IF</span> <span class="n">isEmbl</span><span class="p">(</span><span class="n">SL_UniProt</span><span class="p">)</span> <span class="k">THEN</span> <span class="n">Fail</span><span class="p">(</span><span class="s">&#39;Se ha detectado erróneamente el formato EMBL con un UniProt&#39;</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20"></a>  <span class="k">IF</span> <span class="n">isEmbl</span><span class="p">(</span><span class="n">SL_GenBank</span><span class="p">)</span> <span class="k">THEN</span> <span class="n">Fail</span><span class="p">(</span><span class="s">&#39;Se ha detectado erróneamente el formato EMBL con un GenBank&#39;</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21"></a>  <span class="n">sec1</span> <span class="o">:=</span> <span class="s">&#39;MDFIVAIFALFVISSFTITSTNAVEASTLLDIGNLSRS&#39;</span> <span class="o">+</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22"></a>     <span class="s">&#39;SFPRGFIFGAGSSAYQFEGAVNEGGRGPSIWDTFTHKYPEKIRDGSNADITV&#39;</span> <span class="o">+</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23"></a>     <span class="s">&#39;DQYHRYKEDVGIMKDQNMDSYRFSISWPRILPKGKLSGGINHEGIKYYNNLI&#39;</span> <span class="o">+</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24"></a>     <span class="s">&#39;NELLANGIQPFVTLFHWDLPQVLEDEYGGFLNSGVINDFRDYTDLCFKEFGD&#39;</span> <span class="o">+</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25"></a>     <span class="s">&#39;RVRYWSTLNEPWVFSNSGYALGTNAPGRCSASNVAKPGDSGTGPYIVTHNQI&#39;</span> <span class="o">+</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26"></a>     <span class="s">&#39;LAHAEAVHVYKTKYQAYQKGKIGITLVSNWLMPLDDNSIPDIKAAERSLDFQ&#39;</span> <span class="o">+</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27"></a>     <span class="s">&#39;FGLFMEQLTTGDYSKSMRRIVKNRLPKFSKFESSLVNGSFDFIGINYYSSSY&#39;</span> <span class="o">+</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28"></a>     <span class="s">&#39;ISNAPSHGNAKPSYSTNPMTNISFEKHGIPLGPRAASIWIYVYPYMFIQEDF&#39;</span> <span class="o">+</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29"></a>     <span class="s">&#39;EIFCYILKINITILQFSITENGMNEFNDATLPVEEALLNTYRIDYYYRHLYY&#39;</span> <span class="o">+</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30"></a>     <span class="s">&#39;IRSAIRAGSNVKGFYAWSFLDCNEWFAGFTVRFGLNFVD&#39;</span><span class="o">;</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31"></a>  <span class="n">sec2</span> <span class="o">:=</span> <span class="n">leerSecuenciaProteina</span><span class="p">(</span><span class="n">SL_embl</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-5-32" name="__codelineno-5-32"></a>  <span class="k">IF</span> <span class="k">not</span> <span class="p">(</span><span class="n">sec2</span> <span class="o">=</span> <span class="n">sec1</span><span class="p">)</span> <span class="k">THEN</span> <span class="n">Fail</span><span class="p">(</span><span class="s">&#39;No se ha leído la secuencia correctamente&#39;</span><span class="p">)</span><span class="o">;</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33"></a><span class="k">end</span><span class="o">;</span>        
+</code></pre></div>
+</td></tr></table>
+</details>
+<h2 id="demostracion-de-uso">Demostración de uso<a class="headerlink" href="#demostracion-de-uso" title="Permanent link">&para;</a></h2>
+<p>Por último, se muestra una pequeña animación donde se muestra la implementación en una interfaz gráfica del código anterior.</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="extraer" src="../images/extraer_secuencia.gif" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Figura 2. Animación con ejemplo de uso de la aplicación extraer secuencias.</td>
+</tr>
+</tbody>
+</table>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      Última actualización: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 20, 2022</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href="../revision_bibliografica/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Revisión bibliográfica" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Revisión bibliográfica
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../parser_PDB/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Parseador ficheros PDB" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              Parseador ficheros PDB
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyleft - CC BY-NC 4.0 - Francisco Campuzano Jiménez
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/currocam" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/currocam" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
