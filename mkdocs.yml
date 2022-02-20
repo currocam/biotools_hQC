@@ -22,8 +22,6 @@ plugins:
   - git-revision-date-localized:
       type: date
   - search
-  - bibtex:
-      bib_file: "refs.bib"
 
 extra_css:
   - stylesheets/extra.css

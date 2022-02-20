@@ -192,7 +192,7 @@ Por último, y para comprobar que nuestra representación es correcta, vamos a c
 |:-----------------------------------------------------------------------------:|
 | Figura 2. Estereodiagrama de los residuos 35 a 43 de la proteína 2AFM, mostrando las coordenadas $y$ frente a $x$. La imagen de la derecha ha sido rotada 5º en el eje de la $y$ respecto a la imagen de la izquierda.|
 
-Por último, se muestran en la siguiente imagen una representación de la cadena principal (es decir, solo de los $\text{C}_\alpha$) de los mismos residuos, 35 a 43, de la proteína 2AFM después de aplicar la opción `stereo crosseye` del programa PyMol. Como se puede observar, aunque la orientación no es exactamente la misma, se puede apreciar cómo nuestro estereodiagrama se encuentra bien construido.
+Por último, se muestran en la siguiente imagen una representación de la cadena principal de los mismos residuos, 35 a 43, de la proteína 2AFM después de aplicar la opción `stereo crosseye` del programa PyMol. Como se puede observar, aunque la orientación no es exactamente la misma, se puede apreciar cómo nuestro estereodiagrama se encuentra bien construido.
 
 |![estereodiagrama_pymol.png](images/estereodiagrama_pymol.png)|
 |:-----------------------------------------------------------------------------:|

@@ -97,7 +97,7 @@ El cálculo de ángulos de torsión presentaba una mayor dificultad. En primer l
 	end;
 	```
 
-Se definió una función llamada torsión, que calculaba el ángulo de torsión 4 puntos en el espacio, teniendo en cuenta las convenciones de la IUPAC.
+Se definió una función llamada torsión, que calculaba el ángulo de torsión de 4 puntos en el espacio, teniendo en cuenta las convenciones de la IUPAC.
 
 ??? example "Cálculo ángulos diedros"
 	```pascal linenums="1"

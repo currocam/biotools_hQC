@@ -31,7 +31,9 @@ Antes de desarrollar una función capaz de calcular el RMSD para una serie de pu
 	end;
 	```
 
-El siguiente paso consiste en crear una función capaz de generar una matriz con las distancias internas entre todos los átomos de un residuo. Una de las mejoras que se han implementado es que, aunque el ejercicio pedía inicialmente una función capaz de calcular el RMSD entre distintas serinas, hemos querido generalizar un poco más, obteniendo una función que calcula la matriz de distancias entre un conjunto de átomos cual sea, independientemente del número de puntos. De esta forma, dado un conjunto de $n$ puntos en el espacio, esta función devuelve una matriz de dimensiones $n\times n$. Esta matriz contiene en la posición $M_{i, j}$ la distancia entre los puntos $p_i$ y $p_j$. Destacar que, al ser una matriz de distancias, la diagonal de la matriz debe estar compuesta únicamente por ceros.
+El siguiente paso consiste en crear una función capaz de generar una matriz con las distancias internas entre todos los átomos de un residuo. Una de las mejoras que se han implementado es que, aunque el ejercicio pedía inicialmente una función capaz de calcular el RMSD entre distintas serinas, hemos querido generalizar un poco más, obteniendo una función que calcula la matriz de distancias entre un conjunto de átomos cual sea, independientemente del número de puntos.
+
+De esta forma, dado un conjunto de $n$ puntos en el espacio, esta función devuelve una matriz de dimensiones $n\times n$. Esta matriz contiene en la posición $M_{i, j}$ la distancia entre los puntos $p_i$ y $p_j$. Destacar que, al ser una matriz de distancias, la diagonal de la matriz debe estar compuesta únicamente por ceros.
 
 ??? example "matriz_distancias()"
 	```pascal linenums="1"
@@ -69,7 +71,9 @@ A continuación, se desarrolló una función que recibiera como argumento dos ma
 	```
 
 ## Aplicación Free Pascal/Lazarus
-Por último, se muestra la implementación de las funciones anteriores en una aplicación Free Pascal/Lazarus. Esta aplicación tiene una interfaz gráfica que permite al usuario elegir el tipo y número de residuos a estudiar. Una posible mejora de este programa sería una lograr una interfaz más sofisticada para que el usuario elija los residuos en que está interesado. El procedimiento principal de dicha aplicación es complejo y se muestra a continuación porque nos resulta interesante como, a partir de las funciones anteriores, se construye una matriz bidimensional con los resultados y se imprimen por pantalla en un formato adecuado. Dicha matriz es una matriz $r \times r$, donde $r$ es el número de residuos a comparar y donde $M_{i,j, \text{result}} = RMSD(r_i, r_j)$.
+Por último, se muestra la implementación de las funciones anteriores en una aplicación Free Pascal/Lazarus. Esta aplicación tiene una interfaz gráfica que permite al usuario elegir el tipo y número de residuos a estudiar. Una posible mejora de este programa sería una lograr una interfaz más sofisticada para que el usuario elija los residuos en que está interesado.
+
+El procedimiento principal de dicha aplicación es complejo y se muestra a continuación porque nos resulta interesante como, a partir de las funciones anteriores, se construye una matriz bidimensional con los resultados y se imprimen por pantalla en un formato adecuado. Dicha matriz es una matriz $r \times r$, donde $r$ es el número de residuos a comparar y donde $M_{i,j, \text{result}} = RMSD(r_i, r_j)$.
 
 ### Demostración de uso
 
@@ -96,4 +100,4 @@ Como se puede observar, el segundo residuo de serina, S50, es el más distinto a
 |:-----------------------------------------------------------------------------:|
 | Figura 2. Representación *cartoon* de la estructura de 2AFM obtenida con PyMol. Los residuos han sido anotados con su código de tres letras, su número de residuo y con el factor B. |
 
-Por último, comentar que la información aportada por el RMSD es de gran interés puesto que nos permite determinar qué residuos podrían estar en entornos químicos más parecidos de forma numérica.
+Como conclusión, comentar que la información aportada por el RMSD es de gran interés puesto que nos permite determinar qué residuos podrían estar en entornos químicos más parecidos de forma numérica.

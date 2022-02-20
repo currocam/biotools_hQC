@@ -1,12 +1,12 @@
 # Test Unitarios
 
-A lo largo de esta asignatura, se han desarrollada un gran número de funciones, muchas de las cuales han sido editadas y mejoradas en varias ocasiones. Por esta razón, y en los casos que nos parecían oportunos, decidimos hacer uso de `fpcunit`, un framework de test unitarios propio del entorno Lazarus para automatizar la realización de estos. Destacar que, en varias ocasiones, hemos comenzado el desarrollo de las funciones que se nos pedía escribiendo en primer lugar.
+A lo largo de esta asignatura, se han desarrollada un gran número de funciones, muchas de las cuales han sido editadas y mejoradas en varias ocasiones. Por esta razón, y en los casos que nos parecían oportunos, decidimos hacer uso de `fpcunit`, un framework de test unitarios propio del entorno Lazarus para automatizar la realización de estos.
 
-Esta idea, empleada en metodologías de desarrollo como Test Driven Design, nos ha resultado de gran ayuda para enfrentarnos a problemas complejos. Al usarlos, hemos cambiando el flujo de trabajo al que estábamos acostumbrados, estableciendo primero las expectativas y especificaciones del código en forma de test unitario, luego escribiendo el código principal y mejorándolo hasta que superaba con éxito todos los test.
+Destacar que, para el desarrollo de aquellas funciones donde se nos pedía leer o escribir información en un formato concreto, hemos comenzado escribiendo primero el test antes que la propia función. Esta idea, empleada en metodologías de desarrollo como Test Driven Design, nos ha resultado de gran ayuda. Al hacerlo hemos cambiando el flujo de trabajo al que estábamos acostumbrados, estableciendo primero las expectativas y especificaciones del código en forma de test unitario, luego escribiendo el código principal y mejorándolo hasta que superaba con éxito todos los test.
 
 ## Demostración de uso
 
-A continuación, mostramos algunos de los procedimientos que corresponden a test unitarios así como una animación donde se muestra el funcionamiento de la interfaz gráfica del mismo.
+A continuación, mostramos algunos de los procedimientos que corresponden a test unitarios, así como una animación donde se muestra el funcionamiento de la interfaz gráfica del mismo.
 
 
 === "Codigos AA"

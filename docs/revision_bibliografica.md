@@ -29,7 +29,7 @@ Además del Alzheimer, se conoce la implicación de esta enzima en las siguiente
 
 ### Inhibidores de hQC
 
-Los inhibidores de sQC basan su acción principalmente en la coordinación entre un grupo de unión a metal con el ión $Zn^{2+}$ del sitio activo. Se distinguen los siguientes tipos de fármacos principalmente. La información mostrada a continuación ha sido obtenida del  Vijayan & Zhang, 2019 [^4].
+Los inhibidores de sQC basan su acción principalmente en la coordinación entre un grupo de unión a metal con el ión $Zn^{2+}$ del sitio activo. Se distinguen los siguientes tipos de fármacos principalmente. La información mostrada a continuación ha sido obtenida del trabajo de Vijayan & Zhang, 2019 [^4].
 
 1. Inhibidores basados en imidazol.
 2. Inhibidores basados en benzimidazol.

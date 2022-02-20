@@ -16,10 +16,10 @@ $$
 \vec{p_1}= \begin{pmatrix}x_i & y_i & z_i\end{pmatrix}
 $$
 
-Las transformaciones que realizaremos son las siguientes:
+Destacar que, en el desarrollo teórico matricial estudiado en clase, deberíamos considerar en las matrices una "columna extra" de 1. Las transformaciones que realizaremos son las siguientes:
 
 
-1.Traslación del conjunto de puntos en el espacio de modo que se cumpla que $T(\vec{p_1})= \begin{pmatrix}0 & 0 & 1\end{pmatrix}$.
+1.Traslación del conjunto de puntos en el espacio de modo que se cumpla que $T(\vec{p_1})= \begin{pmatrix}0 & 0 & 0\end{pmatrix}$.
 
 2.Rotación del conjunto de puntos respecto al eje $x$ de modo que el punto n-ésimo que ha sido previamente transladado, $\vec{p_n}'$, cumpla que
 
@@ -35,7 +35,7 @@ $$
 
 ### Criterio de signos
 
-El criterio de signos empleado es el siguiente. Dados unos valores del punto n-esimo, para alinear correctamente el primer punto con este, se considera si  $z_n>0$. Si la coordenada $z$ del punto n-ésimo es mayor que 0, es decir, que está en uno de los 4 cuadrantes superiores, se deberá rotar sobre el eje $\text{OX}$ en sentido positivo o antihorario y sobre el eje $\text{OY}$ en sentido negativo u horario, mientras que si la coordenada $z$ del punto n-ésimo es mayor que 0, es decir, que está en uno de los 4 cuadrantes inferiores, se deberá rotar sobre el eje $\text{OX}$ en sentido negativo u horario y sobre el eje $\text{OY}$ en sentido positivo o antihorario
+El criterio de signos empleado es el siguiente. Dados unos valores del punto n-esimo, para alinear correctamente el primer punto con este, se considera si  $z_n>0$. Si la coordenada $z$ del punto n-ésimo es mayor que 0, es decir, que está en uno de los 4 cuadrantes superiores (considerando que el eje $z$ se encuentra en vertical en nuestro sistema de referencia), se deberá rotar sobre el eje $\text{OX}$ en sentido positivo o antihorario y sobre el eje $\text{OY}$ en sentido negativo u horario, mientras que si la coordenada $z$ del punto n-ésimo es mayor que 0, es decir, que está en uno de los 4 cuadrantes inferiores, se deberá rotar sobre el eje $\text{OX}$ en sentido negativo u horario y sobre el eje $\text{OY}$ en sentido positivo o antihorario.
 
 Finalmente, la implementación de las tres transformaciones anteriores en forma de función se muestra a continuación:
 
@@ -72,7 +72,9 @@ Finalmente, la implementación de las tres transformaciones anteriores en forma 
 
 ## Aplicación Free Pascal/Lazarus
 
-Nuestra aplicación deberá tener, entonces, una interfaz que permita al usuario seleccionar un fragmento de la proteína, deberá ser capaz de extraer solo los $\text{C}_{\alpha}$ de la instancia de `TPDB` y dos paneles donde se muestre gráficamente el resultado de la transformación. Además, el último residuo del fragmento es coloreado de un color distinto, para poder comprobar con facilidad que el programa está funcionando adecuadamente,  y se implementó tanto un mensaje de advertencia cuando el usuario introducía un valor de $\text{C}_{\alpha, \text{inicial}}$ inferior a $\text{C}_{\alpha, \text{final}}$ como un botón debajo de cada imagen para poder guardarla directamente usando un `TSavePictureDialog`. Por último, al igual que en el programa `estereodiagrama`, se tiene en cuenta la subunidad marcada por el usuario para restringir los residuos que el usuario puede elegir.      
+Nuestra aplicación deberá tener, entonces, una interfaz que permita al usuario seleccionar un fragmento de la proteína, deberá ser capaz de extraer solo los $\text{C}_{\alpha}$ de la instancia de `TPDB` y dos paneles donde se muestre gráficamente el resultado de la transformación.
+
+Además, el último residuo del fragmento es coloreado de un color distinto, para poder comprobar con facilidad que el programa está funcionando adecuadamente,  y se implementó tanto un mensaje de advertencia cuando el usuario introducía un valor de $\text{C}_{\alpha, \text{inicial}}$ inferior a $\text{C}_{\alpha, \text{final}}$ como un botón debajo de cada imagen para poder guardarla directamente usando un `TSavePictureDialog`. Por último, al igual que en el programa `estereodiagrama`, se tiene en cuenta la subunidad marcada por el usuario para restringir los residuos que el usuario puede elegir.      
 
 ### Demostración de uso
 

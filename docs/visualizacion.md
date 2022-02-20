@@ -1,6 +1,6 @@
 # Visualización de las estructuras
 
-Este apartado se complementa con las imágenes realizadas para acompañar a la revisión bibliográfica y que también forman parte de esta actividad. En esas imágenes se buscaba utilizar las herramientas de un programa específico para visualizar la estructura de una proteína de forma general y en detalle (para visualizar el sitio activo).
+Este apartado se complementa con las imágenes y animaciones realizadas para ilustrar la revisión bibliográfica y el resto de actividades, cuando corresponde. En esas imágenes se buscaba utilizar las herramientas de un programa específico para visualizar la estructura de una proteína de forma general y en detalle (para visualizar el sitio activo, por ejemplo).
 
 En este apartado se realizan una serie de animaciones donde se busca comparar la estructura elegida, 2AFM, con una segunda estructura. Destacar que el archivo 2AFM.pdb utilizado es un archivo que ha sido "limpiado" manualmente para tener una única copia de la proteína. Los archivos de estructura *raw* y procesados se pueden encontrar en en el directorio [visualización/data](https://github.com/currocam/biotools_hQC/tree/master/visualizacion/data). Además, se muestran, a modo de ejemplo, algunos de los scripts utilizados, pero para asegurar la reproducibilidad el resto de scripts forma parte del código del repositorio y pueden encontrarse en el [directorio 'visualización'](https://github.com/currocam/biotools_hQC/tree/master/visualizacion).  Este apartado se corresponde a la 4ª actividad de la relación de ejercicios.
 
