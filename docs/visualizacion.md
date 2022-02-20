@@ -1,14 +1,18 @@
 # Visualización de las estructuras
 
-En este apartado, se complementa las imágenes realizadas para acompañar a la revisión bibliográfica y que también forman parte de esta acividad. En concreto, se realizan una serie de animaciones donde se busca poder hacer uso de un software específico para comparar la estructura elegida, 2AFM, con una segunda estructura. Destacar que el archivo 2AFM.pdb utilizado es un archivo que ha sido procesado para tener una única copia de la proteína. Los archivos de estructura *raw* y procesados pueden encontrar en en el directorio [visualización/data](https://github.com/currocam/biotools_hQC/tree/master/visualizacion/data). Además, se muestran, a modo de ejemplo, algunos de los scripts utilizados, pero para asegurar la reproducibilidad el resto de scripts forma parte del código del repositorio y pueden encontrar en el [directorio visualización del repositorio](https://github.com/currocam/biotools_hQC/tree/master/visualizacion).  Este apartado se corresponde a la 4ª actividad de la relación de ejercicios.
+Este apartado se complementa con las imágenes realizadas para acompañar a la revisión bibliográfica y que también forman parte de esta actividad. En esas imágenes se buscaba utilizar las herramientas de un programa específico para visualizar la estructura de una proteína de forma general y en detalle (para visualizar el sitio activo).
 
-## AlphaFill
+En este apartado se realizan una serie de animaciones donde se busca comparar la estructura elegida, 2AFM, con una segunda estructura. Destacar que el archivo 2AFM.pdb utilizado es un archivo que ha sido "limpiado" manualmente para tener una única copia de la proteína. Los archivos de estructura *raw* y procesados se pueden encontrar en en el directorio [visualización/data](https://github.com/currocam/biotools_hQC/tree/master/visualizacion/data). Además, se muestran, a modo de ejemplo, algunos de los scripts utilizados, pero para asegurar la reproducibilidad el resto de scripts forma parte del código del repositorio y pueden encontrarse en el [directorio 'visualización'](https://github.com/currocam/biotools_hQC/tree/master/visualizacion).  Este apartado se corresponde a la 4ª actividad de la relación de ejercicios.
+
+## Obtención 2ª estructura
 
 Además de la estructura 2AFM se ha elegido una segunda estructura con el objetivo de poder compararlas en el software de visualización elegido. Esa segunda estructura corresponde a la estructura predicha por AlphaFold de Q16769, la cual corresponde a QPCT, es decir, a la isoforma secretora de hQC. Se ha escogido por dos razones, en primer lugar para comparar la estructura elegida, isoforma retenida, con la secretora y, en segunda lugar, para comparar una estructura cuyo origen es experimental con una obtenida mediante el uso de IA.
 
-Sin embargo, no podemos hacer uso de ella directamente debido a que los modelos estructurales de la base de datos AlphaFold no tienen en cuenta  entidades químicas distintas de los residuos de aminoácidos naturales y no poseen, por tanto, cofactores. Esto supone un inconveniente en nuestro caso porque, como vimos en el apartado de revisión bibliográfica, la proteína hQC posee un cofactor de $\text{Zn}^{2+}$ que es imprescindible para que tenga lugar la catálisis y es, por tanto, de gran interés. Esta limitación sucede debido a que estos algoritmos de predicción (RoseTTAFold o ALphaFold, por ejemplo) no son capaces de resolver el problema del plegamiento de las proteínas mediante la  comprensión de los principios físicos subyacentes, sino que han descubierto intrincados patrones en base a las estructuras tridimensionales determinadas estructuralmente.
+### AlphaFill
 
-Este inconveniente podemos resolverlo haciendo uso del algoritmo AlphaFill, el cual ha sido recientemente publicado en forma de preprint. Este algoritmo enriquece los modelos de la base de datos AlphaFold "transplantando" moléculas pequeñas e iones comunes que se hayan observado en complejos con proteínas homólogas muy similares en modelos determinados experimentalmente del banco de datos PDB-REDO7 (Hekkelman et al., 2021) [^1]. El funcionamiento del algoritmo es, a grandes rasgos, como se muestra a continuación:
+Los modelos estructurales de la base de datos AlphaFold no tienen en cuenta  entidades químicas distintas de los residuos de aminoácidos naturales y no poseen, por tanto, cofactores. Esto supone un inconveniente en nuestro caso porque, como vimos en el apartado de revisión bibliográfica, la proteína hQC posee un cofactor de $\text{Zn}^{2+}$ que es imprescindible para que tenga lugar la catálisis y es, por tanto, de gran interés. Esta limitación sucede debido a que estos algoritmos de predicción (RoseTTAFold o AlphaFold, por ejemplo) no son capaces de resolver el problema del plegamiento de las proteínas mediante la  comprensión de los principios físicos subyacentes, sino que han descubierto intrincados patrones en base a las estructuras tridimensionales determinadas estructuralmente.
+
+Este inconveniente podemos intentar resolverlo haciendo uso del algoritmo AlphaFill, el cual ha sido recientemente publicado en forma de preprint. Este algoritmo enriquece los modelos de la base de datos AlphaFold "transplantando" moléculas pequeñas e iones comunes que se hayan observado en complejos con proteínas homólogas muy similares en modelos determinados experimentalmente del banco de datos PDB-REDO7 (Hekkelman et al., 2021) [^1]. El funcionamiento del algoritmo es, a grandes rasgos, como se muestra a continuación:
 
 1. BLAST con la secuencia de AlphaFold con las secuencias alojadas en LAHMA webserver.
 2. Selección homólogos muy cercanos.
@@ -18,11 +22,11 @@ Este inconveniente podemos resolverlo haciendo uso del algoritmo AlphaFill, el c
 
 ## Comparación de 2AFM con Q16769 de AlphaFold
 
-A continuación, se muestra una animación en la que se pueden observar las estructuras 2AFM y Q16769 de AlphaFold tras ser alineadas. Se puede observar que, exceptuando el péptido en el extremo  N-terminal de la proteína y la ausencia de cofactores, ambas son extremadamente similares.  
+A continuación, se muestra una animación en la que se pueden observar las estructuras 2AFM y Q16769 de AlphaFold tras ser alineadas. Se puede observar que, exceptuando la  secuencia N-terminal responsable de su anclaje en el aparato de Golgi (diferencia biológica, puesto que son isoformas diferentes) y la ausencia de cofactores (limitación causada por el mecanismo de obtención de la estructura), ambas son extremadamente similares.  
 
 |![](images/movie1.gif)|
 |:--:|
-|Animación de las estructuras 2AFM y Q16769. Elaboración propia usando PyMol.|
+|Figura 1. Animación de las estructuras 2AFM y Q16769. Elaboración propia usando PyMol.|
 
 Para realizar esta animación se ha hecho uso de un pequeño script que combina comandos en PyMol con Python.
 
@@ -98,11 +102,13 @@ python end
 
 |![](images/movie2.gif)|
 |:--:|
-|Animación de las estructuras 2AFM y Q16769 mostrando cofactores. Elaboración propia.|
+|Figura 2. Animación de las estructuras 2AFM y Q16769 mostrando cofactores y residuos colindantes. Elaboración propia.|
 
 ## Conclusión
 
-Por un lado, hemos podido determinar que las estructuras de la  QC secretora y QC golgi residente se diferencian únicamente en un péptido en el extremo, que pensamos que debe de tratarse del péptido señal. Por otro lado, hemos podido comprobar que AlphaFold2 es capaz de predecir estructuras de una altísima calidad y que se superponen a la perfección con estructuras experimentales. Así mismo, hemos podido observar una de las limitaciones de este algoritmo, ausencia de otras entidades químicas, y uno de los primerísimos intentos para superarla, AlphaFill. En este algoritmo, aunque no funciona de forma precisa, podemos ver la potencialidad de la premisa en que, aunque se equivoca en algunos aspectos, es capaz de acertar parcialmente en otros.
+Por un lado, hemos podido observar cómo la principal diferencia entre ambas isoformas es la secuencia N-terminal responsable de su anclaje en el aparato de Golgi (Figura 1) y  como la isoforma gQC, a la que corresponde la estructura Q16769, está ligeramente más abierta en su sitio activo (Figura 2). Ambas ideas corroboran lo expuesto en el apartado de revisión bibliográfica.
+
+Por otro lado, hemos podido comprobar que AlphaFold2 es capaz de predecir estructuras de una altísima calidad y que se superponen a la perfección con estructuras experimentales. Así mismo, hemos podido observar una de las limitaciones de este algoritmo, ausencia de otras entidades químicas, y uno de los primeros intentos para superarla, AlphaFill. En este algoritmo, aunque no funciona de forma precisa, podemos ver la potencialidad de la premisa en que, aunque se equivoca en algunos aspectos, es capaz de acertar parcialmente en otros.
 
 ## Referencias
 [^1]: Hekkelman, Maarten L., Ida de Vries, Robbie P. Joosten, y Anastassis Perrakis. «AlphaFill: Enriching the AlphaFold Models with Ligands and Co-Factors». Preprint. Bioinformatics, 27 de noviembre de 2021. https://doi.org/10.1101/2021.11.26.470110.

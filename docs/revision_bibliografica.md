@@ -8,55 +8,57 @@ En la realización de esta revisión bibliográfica se hizo uso de la base de da
 
 ## Introducción
 
-La enzima hQC (Human glutaminyl cyclase), es una aminoaciltransferasa, EC 2.3.2, que se encuentra en plantas y animales. Esta enzima es objeto de estudio en relación a su implicación en patologías como la osteoporosis y el Alzheimer, en cuya relación nos centraremos en esta revisión (Gunn et al., 2021) [^1].
+La enzima hQC (Human glutaminyl cyclase), es una aminoaciltransferasa, EC 2.3.2, que se encuentra en plantas y animales. Esta enzima es objeto de numerosos estudios por su implicación en patologías como el Alzheimer, en cuya relación nos centraremos en esta revisión (Gunn et al., 2021) [^2].
 
-El Alzheimer es una enfermedad neurodegenerativa  crónica y que afecta a población envejecida causando demencia. Se estima que un 13% de la población mayor a 65 años desarrolla Alzheimer y un 45% por enzima de los 85 años. Sin embargo, la tasa de fracaso de fármacos candidatos en ensayos clínicos es una de las mayores en cualquier área de enfermedades, siendo superior al 99%. El Alzheimer es una enfermedad multifactorial sobre la cual se han propuesto diversas hipótesis que explican los mecanismos por los que se origina (Vijayan & Zhang, 2019) [^3].
+## Interés clínico
 
-Una de las hipótesis con más aceptación en la comunidad científica es la hipótesis de la cascada amiloide. Según esta hipótesis, es la deposición de la proteína β amiloide (AβP) el aguante causal de la enfermedad. Las placas que forman estos péptidos al depositarse están formadas por distintas especies de AβP. Una de ellas es el pGlu-Aβ y su formación está catalizada por la enzima QC, sobre la cual trata este trabajo y que está up-regulada durante el desarrollo de la enfermedad  (Vijayan & Zhang, 2019) [^3].
+El Alzheimer es una enfermedad neurodegenerativa  crónica y que afecta a población envejecida causando demencia. Se estima que un 13% de la población mayor a 65 años desarrolla Alzheimer y un 45% por enzima de los 85 años. Sin embargo, la tasa de fracaso de fármacos candidatos en ensayos clínicos es una de las mayores en cualquier área de enfermedades, siendo superior al 99%. El Alzheimer es una enfermedad multifactorial sobre la cual se han propuesto diversas hipótesis que explican los mecanismos por los que se origina (Vijayan & Zhang, 2019) [^4].
 
-[^3]: Vijayan, D. K., & Zhang, K. Y. J. (2019). Human glutaminyl cyclase: Structure, function, inhibitors and involvement in Alzheimer’s disease. Pharmacological Research, 147, 104342. https://doi.org/10.1016/j.phrs.2019.104342
+Una de las hipótesis con más aceptación en la comunidad científica es la hipótesis de la cascada amiloide. Según esta hipótesis, es la deposición de la proteína β amiloide, AβP, el agente causal de la enfermedad. Las placas que forman estos péptidos al depositarse están formadas por distintas especies de AβP. Una de ellas es el pGlu-Aβ y su formación está catalizada por la enzima QC, sobre la cual trata este trabajo y que está up-regulada durante el desarrollo de la enfermedad  (Vijayan & Zhang, 2019) [^4].
 
+La enzima QC es capaz de catalizar la ciclación del glutamato N-terminal a partir de su precursor glutaminilo. Esta reacción es una modificación postraduccional de importancia en la maduración de  numerosos neuropéptidos bioactivos, hormonas y citoquinas, durante su maduración en la vía secretora (Gunn et al., 2021) [^2].
 
-La enzima QC es capaz de catalizar la ciclación del glutamato N-terminal a parir de su precursor glutaminilo. Esta reacción es una modificación postraduccional de importancia en la maduración de  numerosos neuropéptidos bioactivos, hormonas y citoquinas, durante su maduración en la vía secretora (Gunn et al., 2021) [^1].
+Más concretamente, en el caso del Alzheimer, la enzima QC cataliza la ciclación del glutamano N-terminal en la posición 3 o 11 del AβP truncado. Esta modificación, respecto al AβP sin modificar, aumenta la hidrofobicidad, la estabilidad, la propensión a agregarse y la neurotoxicidad. Actualmente, existen numerosos estudios que exploran posibilidad de utilizar inhibidores de de QC para  reducir la producción de pGlu-Aβ (Vijayan & Zhang, 2019) [^4].
 
-Más concretamente, en el caso del Alzheimer, la enzima QC cataliza la ciclación del glutamano N-terminal en la posición 3 o 11 del AβP trucado. Esta modificación, respecto al AβP sin modificar, aumenta la hidrofobicidad, la estabilidad, la propensión a agregarse y la neurotoxicidad. Actualmente, existen numerosos estudios que exploran posibilidad de utilizar inhibidores de de QC para  recudir la producción pGlu-Aβ (Vijayan & Zhang, 2019) [^3].
-
-Además del Alzheimer, se conoce la implicación de esta enzima en las siguientes patologías. La información mostrada a continuación ha sido obtenida del trabajo de Coimbra & Salvador, 2021 [^4].
-
-[^4]: Coimbra, J. R. M., & Salvador, J. A. R. (2021). A patent review of glutaminyl cyclase inhibitors (2004–present). Expert Opinion on Therapeutic Patents, 31(9), 809-836. https://doi.org/10.1080/13543776.2021.1917549
+Además del Alzheimer, se conoce la implicación de esta enzima en las siguientes patologías. La información mostrada a continuación ha sido obtenida del trabajo de Coimbra & Salvador, 2021 [^1].
 
 
 1. En procesos inflamatorios, debido a su intervención en la maduración de la citoquina CCL2.
 2. En cáncer, debido a la modificación del inmuno checkpoint CD47 y que es necesaria para una interacción efectiva de esta molécula con sus dianas.
-3. En periodontitis, enfermedad de las encías, debido a que las principales bacterias causantes de esta enfermedad  necesitan de la actividad de una QC bacteriana para el crecimiento y viabilidad celular. Además, se ha relacionado uno de estas bacterias, *P. gingivalis* con pacientes con artritis reumatoide. En este sentido, se conoce que la enzima QC se encuentra up-regulada en pacientes con esta patología.
+3. En periodontitis, enfermedad de las encías, debido a que las principales bacterias causantes de esta enfermedad  necesitan de la actividad de una QC bacteriana para el crecimiento y viabilidad celular. Además, se ha relacionado una de estas bacterias, *P. gingivalis* el desarrollo de artritis reumatoide en pacientes. En este sentido, se conoce que la enzima QC se encuentra up-regulada en pacientes con esta patología.
 
-[^1]: Gunn, A. P., Wong, B. X., McLean, C., Fowler, C., Barnard, P. J., Duce, J. A., Roberts, B. R., & The AIBL Research Group. (2021). Increased glutaminyl cyclase activity in brains of Alzheimer’s disease individuals. Journal of Neurochemistry, 156(6), 979-987. https://doi.org/10.1111/jnc.15114.
+### Inhibidores de hQC
+
+Los inhibidores de sQC basan su acción principalmente en la coordinación entre un grupo de unión a metal con el ión $Zn^{2+}$ del sitio activo. Se distinguen los siguientes tipos de fármacos principalmente. La información mostrada a continuación ha sido obtenida del  Vijayan & Zhang, 2019 [^4].
+
+1. Inhibidores basados en imidazol.
+2. Inhibidores basados en benzimidazol.
+3. Inhibidores basados en metil triazol.
+4. Inhibidores basados en sulfolípidos extraídos de microalgas y y obtenidos mediante metabolómica reversa.
 
 ## Aspectos estructurales de importancia
 
-Se conocen dos isoformas de la enzima QC en *Homo sapiens*, la llamada QC secretora, sQC, codificada por el gen QPCT localizado en el cromosoma 2p22.2, y la llamada QC golgi residente, gQC, codificada por el gen QPCTL, en el cromosoma 19q13.32 (Huang et al., 2005) [^2].
+Se conocen dos isoformas de la enzima QC en *Homo sapiens*, la llamada QC secretora, sQC, codificada por el gen QPCT localizado en el cromosoma 2p22.2, y la llamada QC golgi residente, gQC, codificada por el gen QPCTL, en el cromosoma 19q13.32 (Huang et al., 2005) [^3].
 
-[^2]: Huang, K.-F., Y.-L. Liu, W.-J. Cheng, T.-P. Ko, y A. H.-J. Wang. «Crystal Structures of Human Glutaminyl Cyclase, an Enzyme Responsible for Protein N-Terminal Pyroglutamate Formation». Proceedings of the National Academy of Sciences 102, n.º 37 (13 de septiembre de 2005): 13117-22. https://doi.org/10.1073/pnas.0504184102.
-
-La isoforma gQC se diferencia de la sQC en que tiene una secuencia N-terminal responsable de su anclaje en el aparato de Golgi (Vijayan & Zhang, 2019) [^3]. Por lo demás, ambas isoformas son muy similares ($C\alpha RMSD < 1 Å$), por lo que podremos realizar consideraciones generales sobre las dos simultáneamente (Vijayan & Zhang, 2019) [^3]. Poseen una estructura globular con un pliegue mixto α/β. La actividad glutaminil y glutamil ciclasa reside en el dominio maduro (residuos 33-361) de la proteína (Gunn et al., 2021) [^1]
+La isoforma gQC se diferencia de la sQC en que tiene una secuencia N-terminal responsable de su anclaje en el aparato de Golgi (Vijayan & Zhang, 2019) [^4]. Por lo demás, ambas isoformas son muy similares ($C\alpha RMSD < 1 Å$), por lo que podremos realizar consideraciones generales sobre las dos simultáneamente (Vijayan & Zhang, 2019) [^4]. Poseen una estructura globular con un pliegue mixto α/β. La actividad glutaminil y glutamil ciclasa reside en el dominio maduro (residuos 33-361) de la proteína (Gunn et al., 2021) [^2]
 
 
 |![Dominio maduro](images/dominio_maduro.png)|
 |:--:|
 |Figura 1. Dominio maduro anotado con las estructuras secundarias de 2AFM. Elaboración propia usando PyMOL. En el apartado de visualización se aborda en detalle la realización de estas imágenes.|
 
-La estructura posee una topología de sándwich abierto con una lámina β central de seis hebras rodeada por  α-hélices a ambos lados. Estas  α-hélices son α7 y α9 y α2, α3, α4, α5, α6, y α10, respectivamente. Esta lámina β central  esta formada por dos hebras antiparalelas (β1 y β2) y 4 paralelas (β3, β4, β5 y β6) y constituye el corazón hidrofóbico de la molécula (Huang et al., 2005) [^2].
+La estructura posee una topología de sándwich abierto con una lámina β central de seis hebras rodeada por  α-hélices a ambos lados. En un lado tenemos 2 α-hélices, α7 y α9, y en el otro 6 que son α2, α3, α4, α5, α6, y α10. Esta lámina β central  esta formada por dos hebras antiparalelas (β1 y β2) y 4 paralelas (β3, β4, β5 y β6) y constituye el corazón hidrofóbico de la molécula (Huang et al., 2005) [^3].
 
 
 ### Estructura del sitio activo
 
-El sitio activo está formado por 6 bucles entre α3 y α4, β3 y α5, β4 y α7, β5 y α8, α8 y α9, y β6 y α10. Consta de un ión de Zinc situado en el bolsillo del sitio activo y que está coordinado tetraédricamente con D159 Oδ2, E202 Oε1, H330 Nε2 y una molécula de agua. También resultan de interés una serie de residuos altamente conservados en el entorno del zinc a los que se les atribuye en literatura cierto papel en la catálisis. Estos residuos son E201, W207, D248, D305, F325 y W329 y se ha comprobado que mutaciones en estos aminoácidos reducen significativamente la actividad enzimática (Gunn et al., 2021) [^1].
+El sitio activo está formado por 6 bucles entre α3 y α4, β3 y α5, β4 y α7, β5 y α8, α8 y α9, y β6 y α10. Consta de un ión de Zinc situado en el bolsillo del sitio activo y que está coordinado tetraédricamente con D159 Oδ2, E202 Oε1, H330 Nε2 y una molécula de agua. También resultan de interés una serie de residuos altamente conservados en el entorno del zinc a los que se les atribuye en literatura cierto papel en la catálisis. Estos residuos son E201, W207, D248, D305, F325 y W329 y se ha comprobado que mutaciones en estos aminoácidos reducen significativamente la actividad enzimática (Gunn et al., 2021) [^2].
 
-Ambas isoformas presentan variaciones en el tamaño del sitio activo debido a variaciones conformacionales en los lazos que forman parte del mismo. La isoforma gQC, Golgi residente, es ligeramente más ancha y más abierta que la sQC, secretora. (Vijayan & Zhang, 2019) [^3]
+Ambas isoformas se diferencian en el tamaño del sitio activo debido a variaciones conformacionales en los lazos que forman parte del mismo. La isoforma gQC, Golgi residente, es ligeramente más ancha y más abierta que la sQC, secretora. (Vijayan & Zhang, 2019) [^4]
 
 #### Estructuras experimentales disponibles
 
-En el momento en que se realiza esta revisión hay un total de 31 estructuras experimenales depositadas en el RCSB PDB. Muchas de ellas corresponden a proteínas mutantes o cristalizadas en presencia de su inhibidor, debido al interés clínico de esta molécula. Para realizar este trabajo hemos escogido la proteína 2AFM, la cual posee una buena resolución y corresponde a la proteína *wild type*. No obstante, en algunas actividades se ha decidido otras estructuras de esta proteína con el objetivo de realizar una comparación o de comprobar si los programas utilizados funcionaban con otras estructuras de la misma proteína.
+En el momento en que se realiza esta revisión hay un total de 31 estructuras experimentales depositadas en el RCSB PDB. Muchas de ellas corresponden a proteínas mutantes o cristalizadas en presencia de su inhibidor, debido al interés clínico de esta molécula. Para realizar este trabajo hemos escogido la proteína 2AFM, la cual posee una buena resolución y corresponde a la proteína *wild type*. No obstante, en algunas actividades se ha decidido otras estructuras de esta proteína con el objetivo de realizar una comparación o de comprobar si los programas utilizados funcionaban con otras estructuras de la misma proteína.
 
 ??? example "Tabla 1. Resultados búsqueda en RCSB PDB. Elaboración propia."
 	|PDB ID|Resolution (Å)|R Free |R Work |Space Group|Length a (Å)|Length b (Å)|Length c (Å)|Structure Title                                                                                          |
@@ -94,11 +96,11 @@ En el momento en que se realiza esta revisión hay un total de 31 estructuras ex
 
 ### Mecanismo de acción de hQC
 
-Las QCs median la ciclación de la glutamina o glutamato expuestos en el N-terminal con liberación de agua o amoniaco. Para iniciar dicha ciclación, el ion $Zn^{2+}$ localizado en el sitio activo polariza el grupo γ-amino del residuo y estabiliza el anión resultante del ataque nucleofílico sobre el carbono γ-carbonílico. En este mecanismo intervienen también E201 y D248 apoyando la transferencia de protones y aportando estabilidad (Gunn et al., 2021) [^1].
+Las QCs median la ciclación de la glutamina o glutamato expuestos en el N-terminal con liberación de agua o amoniaco. Para iniciar dicha ciclación, el ion $Zn^{2+}$ localizado en el sitio activo polariza el grupo γ-amino del residuo y estabiliza el anión resultante del ataque nucleofílico sobre el carbono γ-carbonílico. En este mecanismo intervienen también E201 y D248 apoyando la transferencia de protones y aportando estabilidad (Gunn et al., 2021) [^2].
 
 |![Mecanismo de acción hGC](https://ars.els-cdn.com/content/image/1-s2.0-S104366181930413X-gr3_lrg.jpg)|
 |:--:|
-|Figura 2. Mecanismo de acción de la enzima hQC. Obtenido de Huang et al., 2005 [^2].|
+|Figura 2. Mecanismo de acción de la enzima hQC. Obtenido de Huang et al., 2005 [^3].|
 
 A continuación, se muestra un detalle del sitio de unión de la proteína. Se pueden observar los residuos que se destacan anteriormente. Para realizar esta imagen se han seleccionado los átomos de hasta una distancia de 5 A del cofactor del sitio catalítico y se han realizado anotaciones sobre los carbonos alfa.
 
@@ -128,13 +130,12 @@ cmd.png(filename)
 python end
 ```
 
-## Inhibidores de hQC
-
-Los inhibidores de sQC basan su acción principalmente en la coordinación entre un grupo de unión a metal con el ión $Zn^{2+}$ del sitio activo. Se distinguen los siguientes tipos de fármacos principalmente. La información mostrada a continuación ha sido obtenida del  Vijayan & Zhang, 2019 [^3].
-
-1. Inhibidores basados en imidazol.
-2. Inhibidores basados en benzimidazol.
-3. Inhibidores basados en metil triazol.
-4. Inhibidores basados en sulfolípidos extraídos de microalgas y y obtenidos mediante metabolómica reversa.
-
 ## Referencias
+
+[^1]: Coimbra, J. R. M., & Salvador, J. A. R. (2021). A patent review of glutaminyl cyclase inhibitors (2004–present). Expert Opinion on Therapeutic Patents, 31(9), 809-836. https://doi.org/10.1080/13543776.2021.1917549
+
+[^2]: Gunn, A. P., Wong, B. X., McLean, C., Fowler, C., Barnard, P. J., Duce, J. A., Roberts, B. R., & The AIBL Research Group. (2021). Increased glutaminyl cyclase activity in brains of Alzheimer’s disease individuals. Journal of Neurochemistry, 156(6), 979-987. https://doi.org/10.1111/jnc.15114
+
+[^3]: Huang, K.-F., Liu, Y.-L., Cheng, W.-J., Ko, T.-P., & Wang, A. H.-J. (2005). Crystal structures of human glutaminyl cyclase, an enzyme responsible for protein N-terminal pyroglutamate formation. Proceedings of the National Academy of Sciences, 102(37), 13117-13122. https://doi.org/10.1073/pnas.0504184102
+
+[^4]: Vijayan, D. K., & Zhang, K. Y. J. (2019). Human glutaminyl cyclase: Structure, function, inhibitors and involvement in Alzheimer’s disease. Pharmacological Research, 147, 104342. https://doi.org/10.1016/j.phrs.2019.104342
